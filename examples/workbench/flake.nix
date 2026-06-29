@@ -4,7 +4,7 @@
     flake-parts.url = "github:hercules-ci/flake-parts";
     nixnet.url = "github:birneee/nixnet";
     test-certs.url = "github:Nadel1/test-certs";
-    quiche.url = "git+https://github.com/Nadel1/quiche?ref=further-research-plateau";#has to look like this as quiche uses submodules
+    quiche.url = "git+https://github.com/Nadel1/quiche?ref=further-research-plateau&rev=b470860c1354fbfa1115e1b2fbf4ce20e36914a4";#has to look like this as quiche uses submodules
   };
 
   outputs =
