@@ -219,7 +219,6 @@
       },
       "original": {
         "ref": "further-research-plateau",
-        "rev": "b470860c1354fbfa1115e1b2fbf4ce20e36914a4",
         "type": "git",
         "url": "https://github.com/Nadel1/quiche"
       }
