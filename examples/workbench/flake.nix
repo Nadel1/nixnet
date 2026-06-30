@@ -64,7 +64,7 @@
                   };
                 };
                 scripts.main = {
-                  exec = "tokio-client --no-verify http://10.0.3.2:4433/README.md --cc-algorithm bbr2";# --logging-file /home/natia/uni/space_quic/workbench/runs/2026-06-24T15:52:53.419682-Bob-CR/quiche:1-2-1-rtt=1s-rate=3125000Bps-loss=0%-asymFactor=1-outageduration-0.json:client0:bbr2:run=0:baseline.csv --requests 1";
+                  exec = "tokio-client --no-verify http://10.0.3.2:4433/10MB --cc-algorithm bbr2";# --logging-file /home/natia/uni/space_quic/workbench/runs/2026-06-24T15:52:53.419682-Bob-CR/quiche:1-2-1-rtt=1s-rate=3125000Bps-loss=0%-asymFactor=1-outageduration-0.json:client0:bbr2:run=0:baseline.csv --requests 1";
                   await= true;
                 };
                 workDir="./client";
@@ -103,10 +103,26 @@
           
 
            veths.eth1 = {
+            arpPrefill = true;
+              arp = false;
+              mtu = 1500;
+              netem = {
+                rateMbit = 1000;
+                delayMs = 50;
+                autoLimit = true;
+              };
               a.node = "client";
               b.node = "server";
             };
             veths.eth2 = {
+              arpPrefill = true;
+              arp = false;
+              mtu = 1500;
+              netem = {
+                rateMbit = 1000;
+                delayMs = 50;
+                autoLimit = true;
+              };
               a.node = "client";
               b.node = "server";
             };
