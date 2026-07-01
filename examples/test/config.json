@@ -1,14 +1,56 @@
 {
   "experiments": [
     {
-      "name": "100mbit",
-      "rateMbit": 100,
-      "delayMs": 50
+        "name": "quiche-rtt=1s-rate=25Mbps-loss=0%-outageDuration=0-outageAmount=0-outageType=None-bbr2",
+        "implementation":"quiche",
+        "congestion":"bbr2",
+        "rateMbit": 25,
+        "delayMs": 500,
+        "lossPercent":0
     },
     {
-      "name": "500mbit",
-      "rateMbit": 500,
-      "delayMs": 100
+        "name": "quiche-rtt=3s-rate=25Mbps-loss=0%-outageDuration=0-outageAmount=0-outageType=None-bbr2",
+        "implementation":"quiche",
+        "congestion":"bbr2",
+        "rateMbit": 25,
+        "delayMs": 1500,
+        "lossPercent":0
+      
+    },
+    {
+        "name": "quiche-rtt=6s-rate=25Mbps-loss=0%-outageDuration=0-outageAmount=0-outageType=None-bbr2",
+        "implementation":"quiche",
+        "congestion":"bbr2",
+        "rateMbit": 25,
+        "delayMs": 3000,
+        "lossPercent":0
+      
+    },
+    {
+        "name": "quiche-rtt=1s-rate=25Mbps-loss=0%-outageDuration=0-outageAmount=0-outageType=None-cubic",
+        "implementation":"quiche",
+        "congestion":"cubic",
+        "rateMbit": 25,
+        "delayMs": 500,
+        "lossPercent":0
+    },
+    {
+        "name": "quiche-rtt=3s-rate=25Mbps-loss=0%-outageDuration=0-outageAmount=0-outageType=None-cubic",
+        "implementation":"quiche",
+        "congestion":"cubic",
+        "rateMbit": 25,
+        "delayMs": 1500,
+        "lossPercent":0
+      
+    },
+    {
+        "name": "quiche-rtt=6s-rate=25Mbps-loss=0%-outageDuration=0-outageAmount=0-outageType=None-cubic",
+        "implementation":"quiche",
+        "congestion":"cubic",
+        "rateMbit": 25,
+        "delayMs": 3000,
+        "lossPercent":0
+      
     }
   ]
 }

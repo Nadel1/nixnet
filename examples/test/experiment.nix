@@ -6,6 +6,9 @@ let
   # --- parameters from JSON ---
   rateMbit = experiment.rateMbit;
   delayMs  = experiment.delayMs;
+  lossPercent = experiment.lossPercent;
+  congestion = experiment.congestion;
+  implementation = experiment.implementation;
 
   config = {
 
@@ -54,8 +57,7 @@ let
         };
 
         scripts.main = {
-          exec =
-            "tokio-client --no-verify http://10.0.3.2:4433/10MB --cc-algorithm bbr2";
+          exec = if implementation=="quiche" then "tokio-client --no-verify http://10.0.3.2:4433/10MB --cc-algorithm ${congestion}" else "tokio-client --no-verify http://10.0.3.2:4433/10MB --cc-algorithm ${congestion}";
           await = true;
         };
 
@@ -88,11 +90,15 @@ let
         };
 
         scripts.main.exec =
-          "tokio-server --listen 10.0.3.2:4433 "
+        if implementation=="quiche" then "tokio-server --listen 10.0.3.2:4433 "
           + "--root ./ "
           + "--cert ${inputs'.test-certs.packages.default}/cert.crt "
           + "--key ${inputs'.test-certs.packages.default}/cert.key "
-          + "--cc-algorithm bbr2";
+          + "--cc-algorithm ${congestion}" else "tokio-server --listen 10.0.3.2:4433 "
+          + "--root ./ "
+          + "--cert ${inputs'.test-certs.packages.default}/cert.crt "
+          + "--key ${inputs'.test-certs.packages.default}/cert.key "
+          + "--cc-algorithm ${congestion}";
 
         workDir = "./server";
       };
@@ -107,6 +113,7 @@ let
         rateMbit = rateMbit;
         delayMs = delayMs;
         autoLimit = true;
+        lossPercent = lossPercent;
       };
 
       a.node = "client";
@@ -122,6 +129,7 @@ let
         rateMbit = rateMbit;
         delayMs = delayMs;
         autoLimit = true;
+        lossPercent = lossPercent;
       };
 
       a.node = "client";
