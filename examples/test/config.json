@@ -1,7 +1,7 @@
 {
   "experiments": [
     {
-        "name": "quiche-rtt=1s-rate=25Mbps-loss=0%-outageDuration=0-outageAmount=0-outageType=None-bbr2",
+        "name": "quiche-rtt_1s-rate_25Mbps-loss_0-outageDuration_0-outageAmount_0-outageType_None-bbr2",
         "implementation":"quiche",
         "congestion":"bbr2",
         "rateMbit": 25,
@@ -9,7 +9,7 @@
         "lossPercent":0
     },
     {
-        "name": "quiche-rtt=3s-rate=25Mbps-loss=0%-outageDuration=0-outageAmount=0-outageType=None-bbr2",
+        "name": "quiche-rtt_3s-rate_25Mbps-loss_0-outageDuration_0-outageAmount_0-outageType_None-bbr2",
         "implementation":"quiche",
         "congestion":"bbr2",
         "rateMbit": 25,
@@ -18,7 +18,7 @@
       
     },
     {
-        "name": "quiche-rtt=6s-rate=25Mbps-loss=0%-outageDuration=0-outageAmount=0-outageType=None-bbr2",
+        "name": "quiche-rtt_6s-rate_25Mbps-loss_0-outageDuration_0-outageAmount_0-outageType_None-bbr2",
         "implementation":"quiche",
         "congestion":"bbr2",
         "rateMbit": 25,
@@ -27,7 +27,7 @@
       
     },
     {
-        "name": "quiche-rtt=1s-rate=25Mbps-loss=0%-outageDuration=0-outageAmount=0-outageType=None-cubic",
+        "name": "quiche-rtt_1s-rate_25Mbps-loss_0-outageDuration_0-outageAmount_0-outageType_None-cubic",
         "implementation":"quiche",
         "congestion":"cubic",
         "rateMbit": 25,
@@ -35,7 +35,7 @@
         "lossPercent":0
     },
     {
-        "name": "quiche-rtt=3s-rate=25Mbps-loss=0%-outageDuration=0-outageAmount=0-outageType=None-cubic",
+        "name": "quiche-rtt_3s-rate_25Mbps-loss_0-outageDuration_0-outageAmount_0-outageType_None-cubic",
         "implementation":"quiche",
         "congestion":"cubic",
         "rateMbit": 25,
@@ -44,7 +44,7 @@
       
     },
     {
-        "name": "quiche-rtt=6s-rate=25Mbps-loss=0%-outageDuration=0-outageAmount=0-outageType=None-cubic",
+        "name": "quiche-rtt_6s-rate_25Mbps-loss_0-outageDuration_0-outageAmount_0-outageType_None-cubic",
         "implementation":"quiche",
         "congestion":"cubic",
         "rateMbit": 25,
