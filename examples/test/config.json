@@ -1,0 +1,7 @@
+{
+    "experiments":[
+        {"name":"hello", "arg":"world"},
+        {"name":"folks","arg":"folks"}
+    ]
+}
+
