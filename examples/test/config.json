@@ -1,7 +1,14 @@
 {
-    "experiments":[
-        {"name":"hello", "arg":"world"},
-        {"name":"folks","arg":"folks"}
-    ]
+  "experiments": [
+    {
+      "name": "100mbit",
+      "rateMbit": 100,
+      "delayMs": 50
+    },
+    {
+      "name": "500mbit",
+      "rateMbit": 500,
+      "delayMs": 100
+    }
+  ]
 }
-

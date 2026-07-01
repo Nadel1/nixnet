@@ -3,6 +3,6 @@
   name ? "hello",
   audience ? "world",
 }:
-writeShellScriptBin "hello" ''
+writeShellScriptBin "${name}" ''
   echo "Hello, ${audience}!"
 ''
