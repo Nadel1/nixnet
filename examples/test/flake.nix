@@ -18,17 +18,33 @@
 
       perSystem = { inputs', pkgs, ... }: {
 
-        packages =
-          builtins.listToAttrs (map (exp: {
-            name = exp.name;
-
-            value =
-              (import ./experiment.nix {
-                inherit inputs' pkgs;
-                experiment = exp;
-              }).default;
-          }) experiments);
-
-      };
+        packages.default =
+            let
+              experiments =
+                (builtins.fromJSON (builtins.readFile ./config.json)).experiments;
+            
+              perExperiment = map (exp:
+                let
+                  built = (import ./experiment.nix {
+                    inherit inputs' pkgs;
+                    experiment = exp;
+                  }).default;
+                in
+                {
+                  name = exp.name;
+                  path = built;
+                }
+              ) experiments;
+            
+            in
+            pkgs.runCommand "all-experiments" {} ''
+              mkdir -p $out
+            
+              ${builtins.concatStringsSep "\n" (map (e: ''
+                mkdir -p $out/${e.name}
+                cp -r ${e.path}/* $out/${e.name}/
+              '') perExperiment)}
+            '';
+                };
     };
 }

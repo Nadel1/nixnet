@@ -3,6 +3,7 @@
 let
   nixnet = inputs'.nixnet.legacyPackages;
 
+  # --- parameters from JSON ---
   rateMbit = experiment.rateMbit;
   delayMs  = experiment.delayMs;
 
@@ -18,49 +19,43 @@ let
     ];
 
     nodes = {
+
       client = {
         packages = with pkgs; [ iputils ];
 
         networking.interfaces = {
           eth1.ipv4 = {
-            addresses = [
-              {
-                address = "10.0.1.1";
-                prefixLength = 24;
-              }
-            ];
+            addresses = [{
+              address = "10.0.1.1";
+              prefixLength = 24;
+            }];
 
-            routes = [
-              {
-                address = "10.0.3.0";
-                prefixLength = 24;
-                via = "10.0.1.2";
-                options.metric = "100";
-              }
-            ];
+            routes = [{
+              address = "10.0.3.0";
+              prefixLength = 24;
+              via = "10.0.1.2";
+              options.metric = "100";
+            }];
           };
 
           eth2.ipv4 = {
-            addresses = [
-              {
-                address = "10.0.2.1";
-                prefixLength = 24;
-              }
-            ];
+            addresses = [{
+              address = "10.0.2.1";
+              prefixLength = 24;
+            }];
 
-            routes = [
-              {
-                address = "10.0.3.0";
-                prefixLength = 24;
-                via = "10.0.2.2";
-                options.metric = "200";
-              }
-            ];
+            routes = [{
+              address = "10.0.3.0";
+              prefixLength = 24;
+              via = "10.0.2.2";
+              options.metric = "200";
+            }];
           };
         };
 
         scripts.main = {
-          exec = "tokio-client --no-verify http://10.0.3.2:4433/10MB --cc-algorithm bbr2";
+          exec =
+            "tokio-client --no-verify http://10.0.3.2:4433/10MB --cc-algorithm bbr2";
           await = true;
         };
 
@@ -136,7 +131,10 @@ let
 
 in
 {
+  # main experiment output
   default = nixnet.mkExperiment config;
+
+  # optional visualizations
   mermaid = nixnet.mkMermaid config;
   mermaid-svg = nixnet.mkMermaidSvg config;
 }
