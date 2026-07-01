@@ -9,7 +9,9 @@ let
   lossPercent = experiment.lossPercent;
   congestion = experiment.congestion;
   implementation = experiment.implementation;
-
+  outageDuration = if experiment?"outageDuration" then experiment.outageDuration else 0;
+  outageAmount = if experiment?"outageAmount" then experiment.outageAmount else 0;
+  outageType = if experiment?"outageType" then experiment.outageType else "None";
   config = {
 
     arp = false;
@@ -99,6 +101,13 @@ let
           + "--cert ${inputs'.test-certs.packages.default}/cert.crt "
           + "--key ${inputs'.test-certs.packages.default}/cert.key "
           + "--cc-algorithm ${congestion}";
+        scripts.outage.exec =
+        ''
+          sleep 5
+          echo "Outage!"
+          sleep 1
+          echo "Back up"
+        '';
 
         workDir = "./server";
       };
