@@ -9,8 +9,9 @@ let
   lossPercent = experiment.lossPercent;
   congestion = experiment.congestion;
   implementation = experiment.implementation;
-  outageDuration = if experiment?"outageDuration" then experiment.outageDuration else 0;
-  outageAmount = if experiment?"outageAmount" then experiment.outageAmount else 0;
+  download = experiment.download;
+  outageDuration = if experiment?"outageDuration" then experiment.outageDuration else "0";
+  outageAmount = if experiment?"outageAmount" then experiment.outageAmount else "0";
   outageType = if experiment?"outageType" then experiment.outageType else "None";
   config = {
 
@@ -59,8 +60,34 @@ let
         };
 
         scripts.main = {
-          exec = if implementation=="quiche" then "tokio-client --no-verify http://10.0.3.2:4433/10MB --cc-algorithm ${congestion}" else "tokio-client --no-verify http://10.0.3.2:4433/10MB --cc-algorithm ${congestion}";
+          exec = if implementation=="quiche" then "tokio-client --no-verify http://10.0.3.2:4433/${download} --cc-algorithm ${congestion} --logging-file client.csv" else "tokio-client --no-verify http://10.0.3.2:4433/10MB --cc-algorithm ${congestion} --logging-file client.csv";
           await = true;
+        };
+        scripts.outage={
+          exec =
+          if outageType=="None" then '' ''
+          else 
+          ''
+            _PATH="" # clear path
+            _PATH="/nix/store/ld6xfarvm9rbaikaaqys1bm1x01hy5h7-busybox-mini/bin:$_PATH"
+            _PATH="/nix/store/gik3rh1vz2jlgnifb9dh6vc6sxwwz9jj-bash-5.3p9/bin:$_PATH"
+            _PATH="/nix/store/9ypz3flqsrl5xl495mm8h645gadjsxi1-coreutils-9.11/bin:$_PATH"
+            _PATH="/nix/store/f8y3cn08mlw2cwjq05anf6sgkfyb0k8a-iproute2-7.0.0/bin:$_PATH"
+            _PATH="/nix/store/fhscg4f05syxdy0ki4byxislvq66y73q-util-linux-minimal-2.42-bin/bin:$_PATH"
+            _PATH="/nix/store/manhdgqn5ibvk81024rdigmm679xxw5l-jail/bin:$_PATH"
+            export PATH="$_PATH"
+            sleep 5
+            echo "Outage!"
+            ip link set eth1 down
+            ip link set eth2 down
+            sleep ${outageDuration}
+            echo "Back up"
+            ip link set eth1 up
+            ip link set eth2 up
+
+            '';
+          await = true;
+
         };
 
         workDir = "./client";
@@ -96,18 +123,38 @@ let
           + "--root ./ "
           + "--cert ${inputs'.test-certs.packages.default}/cert.crt "
           + "--key ${inputs'.test-certs.packages.default}/cert.key "
-          + "--cc-algorithm ${congestion}" else "tokio-server --listen 10.0.3.2:4433 "
+          + "--cc-algorithm ${congestion} " 
+          + "--logging-file server.csv" else "tokio-server --listen 10.0.3.2:4433 "
           + "--root ./ "
           + "--cert ${inputs'.test-certs.packages.default}/cert.crt "
           + "--key ${inputs'.test-certs.packages.default}/cert.key "
-          + "--cc-algorithm ${congestion}";
-        scripts.outage.exec =
-        ''
-          sleep 5
-          echo "Outage!"
-          sleep 1
-          echo "Back up"
-        '';
+          + "--cc-algorithm ${congestion} "
+          + "--logging-file server.csv";
+        scripts.outage= {
+          exec =
+          if outageType=="None" then '' ''
+          else 
+          ''
+            _PATH="" # clear path
+            _PATH="/nix/store/ld6xfarvm9rbaikaaqys1bm1x01hy5h7-busybox-mini/bin:$_PATH"
+            _PATH="/nix/store/gik3rh1vz2jlgnifb9dh6vc6sxwwz9jj-bash-5.3p9/bin:$_PATH"
+            _PATH="/nix/store/9ypz3flqsrl5xl495mm8h645gadjsxi1-coreutils-9.11/bin:$_PATH"
+            _PATH="/nix/store/f8y3cn08mlw2cwjq05anf6sgkfyb0k8a-iproute2-7.0.0/bin:$_PATH"
+            _PATH="/nix/store/fhscg4f05syxdy0ki4byxislvq66y73q-util-linux-minimal-2.42-bin/bin:$_PATH"
+            _PATH="/nix/store/manhdgqn5ibvk81024rdigmm679xxw5l-jail/bin:$_PATH"
+            export PATH="$_PATH"
+            sleep 5
+            echo "Outage!"
+            ip link set eth1 down
+            ip link set eth2 down
+            sleep ${outageDuration}
+            echo "Back up"
+            ip link set eth1 up
+            ip link set eth2 up
+
+            '';
+          await = true;
+        };
 
         workDir = "./server";
       };
