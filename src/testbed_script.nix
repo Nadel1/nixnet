@@ -163,6 +163,8 @@ let
 
   # Bring loopback interfaces up
   nodeLoUpCommands = lib.mapAttrsToList (name: _: { ns = name; bare = "link set lo up"; }) nodes;
+  # Bring loopback interfaces down
+  nodeLoDownCommands = lib.mapAttrsToList (name: _: { ns = name; bare = "link set lo down"; }) nodes;
 
   nodePreSetupCommands = lib.mapAttrsToList (
     nodeName: nodeCfg:
@@ -303,10 +305,17 @@ let
 
   # Bring veth interfaces up
   linkIfUpCommands = mkVethEndpointCmds (e: [{ ns = e.node; bare = "link set ${e.iface} up"; }]);
+  # Bring veth interfaces down
+  linkIfDownCommands = mkVethEndpointCmds (e: [{ ns = e.node; bare = "link set ${e.iface} down"; }]);
 
   # Bring dummy interfaces up
   dummyIfUpCommands = map (
     { nodeName, ifaceName }: { ns = nodeName; bare = "link set ${ifaceName} up"; }
+  ) dummyIfaces;
+
+  # Bring dummy interfaces down
+  dummyIfDownCommands = map (
+    { nodeName, ifaceName }: { ns = nodeName; bare = "link set ${ifaceName} down"; }
   ) dummyIfaces;
 
   # Attach veth interfaces to bridge
@@ -393,6 +402,22 @@ let
     ]
   ) veths;
 
+
+  sleepCommandOutageStart = lib.mapAttrsToList (
+    nodeName: nodeCfg:
+    lib.optionalString (nodeCfg.postSetup != "") ''
+      sleep 5
+    ''
+  ) nodes;
+
+
+sleepCommandOutageEnd = lib.mapAttrsToList (
+    nodeName: nodeCfg:
+    lib.optionalString (nodeCfg.postSetup != "") ''
+      sleep 5
+    ''
+  ) nodes;
+
   # Build per-node route commands for one IP version.
   # ipCmd: "ip" or "ip -6"; getGw: nodeCfg -> gw|null; getRoutes: ifaceCfg -> list
   mkRouteCommands =
@@ -463,6 +488,19 @@ let
       (mkBashSection "configure ipv6 routing" ipv6RouteCommands)
       (mkBashSection "node post-setup hooks" nodePostSetupCommands)
       (mkBashSection "post-setup hook" [ config.postSetup ])
+    ]
+  );
+
+  outage = lib.concatStringsSep "\n\n" (
+    lib.filter (s: s != "") [
+      (mkBashSection "wait for outage start" sleepCommandOutageStart)
+      (mkBashSection "set interfaces down" (mkGroupedIpBatch (nodeLoDownCommands ++ linkIfDownCommands ++ dummyIfDownCommands)))
+      (mkBashSection "wait for outage end" sleepCommandOutageEnd)
+      (mkBashSection "set interfaces up" (mkGroupedIpBatch (nodeLoUpCommands ++ linkIfUpCommands ++ dummyIfUpCommands)))
+      (mkBashSection "configure mtu" (mkGroupedIpBatch linkMtuCommands))
+      (mkBashSection "configure arp" (mkGroupedIpBatch linkArpCommands))
+      (mkBashSection "set interfaces up" (mkGroupedIpBatch (nodeLoUpCommands ++ linkIfUpCommands ++ dummyIfUpCommands)))
+      (mkBashSection "prefill arp" linkArpPrefillCommands)
     ]
   );
 
@@ -554,6 +592,9 @@ let
     echo "testbed| network topology set up"
 
     ${runPhaseSections}'';
+
+    ${outage};
+
 in
 {
   inherit scriptText tbAutoHostBinds;

@@ -15,14 +15,15 @@ let
   outageType = if experiment?"outageType" then experiment.outageType else "None";
   config = {
 
-    arp = false;
-    arpPrefill = true;
-
-    nodePackages = with pkgs; [
-      inputs'.quiche.packages.default
-      coreutils
-      iputils
-    ];
+  arp = false;
+  arpPrefill = true;
+  #testbedPackages = with pkgs; [ iputils bash coreutils iproute2 util-linuxMinimal busybox-mini];
+  #testbedPackages = pkgs.lib.mkOptionDefault [ iputils bash coreutils iproute2 ];
+  nodePackages = with pkgs; [
+    inputs'.quiche.packages.default
+    coreutils
+    iputils
+  ];
 
     nodes = {
 
@@ -62,32 +63,6 @@ let
         scripts.main = {
           exec = if implementation=="quiche" then "tokio-client --no-verify http://10.0.3.2:4433/${download} --cc-algorithm ${congestion} --logging-file client.csv" else "tokio-client --no-verify http://10.0.3.2:4433/10MB --cc-algorithm ${congestion} --logging-file client.csv";
           await = true;
-        };
-        scripts.outage={
-          exec =
-          if outageType=="None" then '' ''
-          else 
-          ''
-            _PATH="" # clear path
-            _PATH="/nix/store/ld6xfarvm9rbaikaaqys1bm1x01hy5h7-busybox-mini/bin:$_PATH"
-            _PATH="/nix/store/gik3rh1vz2jlgnifb9dh6vc6sxwwz9jj-bash-5.3p9/bin:$_PATH"
-            _PATH="/nix/store/9ypz3flqsrl5xl495mm8h645gadjsxi1-coreutils-9.11/bin:$_PATH"
-            _PATH="/nix/store/f8y3cn08mlw2cwjq05anf6sgkfyb0k8a-iproute2-7.0.0/bin:$_PATH"
-            _PATH="/nix/store/fhscg4f05syxdy0ki4byxislvq66y73q-util-linux-minimal-2.42-bin/bin:$_PATH"
-            _PATH="/nix/store/manhdgqn5ibvk81024rdigmm679xxw5l-jail/bin:$_PATH"
-            export PATH="$_PATH"
-            sleep 5
-            echo "Outage!"
-            ip link set eth1 down
-            ip link set eth2 down
-            sleep ${outageDuration}
-            echo "Back up"
-            ip link set eth1 up
-            ip link set eth2 up
-
-            '';
-          await = true;
-
         };
 
         workDir = "./client";
@@ -130,34 +105,27 @@ let
           + "--key ${inputs'.test-certs.packages.default}/cert.key "
           + "--cc-algorithm ${congestion} "
           + "--logging-file server.csv";
-        scripts.outage= {
-          exec =
-          if outageType=="None" then '' ''
-          else 
-          ''
-            _PATH="" # clear path
-            _PATH="/nix/store/ld6xfarvm9rbaikaaqys1bm1x01hy5h7-busybox-mini/bin:$_PATH"
-            _PATH="/nix/store/gik3rh1vz2jlgnifb9dh6vc6sxwwz9jj-bash-5.3p9/bin:$_PATH"
-            _PATH="/nix/store/9ypz3flqsrl5xl495mm8h645gadjsxi1-coreutils-9.11/bin:$_PATH"
-            _PATH="/nix/store/f8y3cn08mlw2cwjq05anf6sgkfyb0k8a-iproute2-7.0.0/bin:$_PATH"
-            _PATH="/nix/store/fhscg4f05syxdy0ki4byxislvq66y73q-util-linux-minimal-2.42-bin/bin:$_PATH"
-            _PATH="/nix/store/manhdgqn5ibvk81024rdigmm679xxw5l-jail/bin:$_PATH"
-            export PATH="$_PATH"
-            sleep 5
-            echo "Outage!"
-            ip link set eth1 down
-            ip link set eth2 down
-            sleep ${outageDuration}
-            echo "Back up"
-            ip link set eth1 up
-            ip link set eth2 up
-
-            '';
-          await = true;
-        };
 
         workDir = "./server";
       };
+    };
+
+    scripts.main = {
+      exec = ''
+        sleep 5
+        echo "Outage start"
+        ip netns exec client ip link set eth1 down
+        ip netns exec client ip link set eth2 down
+        ip netns exec server ip link set eth1 down
+        ip netns exec server ip link set eth2 down
+        sleep 5
+        echo "Outage end"
+        ip netns exec client ip link set eth1 up
+        ip netns exec client ip link set eth2 up
+        ip netns exec server ip link set eth1 up
+        ip netns exec server ip link set eth2 up
+
+      '';
     };
 
     veths.eth1 = {
