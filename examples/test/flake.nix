@@ -22,7 +22,7 @@
             let
               experiments =
                 (builtins.fromJSON (builtins.readFile ./config.json)).experiments;
-            
+         
               perExperiment = map (exp:
                 let
                   built = (import ./experiment.nix {

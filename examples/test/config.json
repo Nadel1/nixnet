@@ -68,7 +68,7 @@
         "rateMbit": 25,
         "delayMs": 500,
         "lossPercent": 0,
-        "outageDuration": "10",
+        "outageDuration": "2",
         "outageAmount": "1",
         "outageType": "steady",
         "useWireshark": "true",

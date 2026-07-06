@@ -14,6 +14,10 @@ let
   outageDuration = if experiment?"outageDuration" then experiment.outageDuration else "0";
   outageAmount = if experiment?"outageAmount" then experiment.outageAmount else "0";
   outageType = if experiment?"outageType" then experiment.outageType else "None";
+  outagesSteadyConfig =
+    (builtins.fromJSON (builtins.readFile ./outagesConfig.json)).steady;
+
+  outageStart=outagesSteadyConfig.quiche.bbr2."delay-500";
   config = {
 
   arp = false;
@@ -121,14 +125,19 @@ let
     };
 
     scripts.main = {
-      exec = ''
-        sleep 5
+      exec = 
+        if outageType=="steady" then
+        ''
+        outageStart=(${builtins.concatStringsSep " " (map toString outageStart)})
+
+        for ((i=0; i<${toString outageAmount}; i++)); do
+        sleep ''${outageStart[$i]}
         echo "Outage start"
         ip netns exec client ip link set eth1 down
         ip netns exec client ip link set eth2 down
         ip netns exec server ip link set eth1 down
         ip netns exec server ip link set eth2 down
-        sleep 1
+        sleep ${outageDuration}
         echo "Outage end"
         ip netns exec client ip link set eth1 up
         ip netns exec client ip link set eth2 up
@@ -145,10 +154,11 @@ let
         _MAC=$(ip netns exec client cat /sys/class/net/eth2/address)
         ip -n server neigh add 10.0.2.1 lladdr "$_MAC" dev eth2
 
-        ip -n client -b - <<-'EOF'
-	      route add 10.0.3.0/24 via 10.0.1.2 dev eth1 metric 100
-	      route add 10.0.3.0/24 via 10.0.2.2 dev eth2 metric 200
-      '';
+	      ip -n client route add 10.0.3.0/24 via 10.0.1.2 dev eth1 metric 100
+	      ip -n client route add 10.0.3.0/24 via 10.0.2.2 dev eth2 metric 200
+        done
+      ''
+        else '''';
       
     };
 
