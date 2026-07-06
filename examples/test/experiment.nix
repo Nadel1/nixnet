@@ -124,8 +124,22 @@ let
         ip netns exec client ip link set eth2 up
         ip netns exec server ip link set eth1 up
         ip netns exec server ip link set eth2 up
+        _MAC=$(ip netns exec server cat /sys/class/net/eth1/address)
+        ip -n client neigh add 10.0.1.2 lladdr "$_MAC" dev eth1
+        ip -n client neigh add 10.0.3.2 lladdr "$_MAC" dev eth1
+        _MAC=$(ip netns exec client cat /sys/class/net/eth1/address)
+        ip -n server neigh add 10.0.1.1 lladdr "$_MAC" dev eth1
+        _MAC=$(ip netns exec server cat /sys/class/net/eth2/address)
+        ip -n client neigh add 10.0.2.2 lladdr "$_MAC" dev eth2
+        ip -n client neigh add 10.0.3.2 lladdr "$_MAC" dev eth2
+        _MAC=$(ip netns exec client cat /sys/class/net/eth2/address)
+        ip -n server neigh add 10.0.2.1 lladdr "$_MAC" dev eth2
 
+        ip -n client -b - <<-'EOF'
+	      route add 10.0.3.0/24 via 10.0.1.2 dev eth1 metric 100
+	      route add 10.0.3.0/24 via 10.0.2.2 dev eth2 metric 200
       '';
+      
     };
 
     veths.eth1 = {
