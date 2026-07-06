@@ -208,11 +208,11 @@
         "rust-overlay": "rust-overlay"
       },
       "locked": {
-        "lastModified": 1782812876,
-        "narHash": "sha256-JHxAzQIb5ZfZ3r8NR9Xtrk5I+DWrOQxx1atUbuEi4Fw=",
+        "lastModified": 1783327849,
+        "narHash": "sha256-vsNsM4W6dst9JFHRaOHrU/toN6gHXAgl6km21Frn6zI=",
         "ref": "further-research-plateau",
-        "rev": "d64662649aff5c282e85a19845c0639a45aefd3e",
-        "revCount": 2407,
+        "rev": "77d00ec434393af5709f9ae621e0cf9d5efb1ecb",
+        "revCount": 2408,
         "submodules": true,
         "type": "git",
         "url": "https://github.com/Nadel1/quiche"

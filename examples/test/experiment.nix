@@ -10,6 +10,7 @@ let
   congestion = experiment.congestion;
   implementation = experiment.implementation;
   download = experiment.download;
+  maxIdleTimeout=experiment.maxIdleTimeout;
   outageDuration = if experiment?"outageDuration" then experiment.outageDuration else "0";
   outageAmount = if experiment?"outageAmount" then experiment.outageAmount else "0";
   outageType = if experiment?"outageType" then experiment.outageType else "None";
@@ -61,7 +62,14 @@ let
         };
 
         scripts.main = {
-          exec = if implementation=="quiche" then "tokio-client --no-verify http://10.0.3.2:4433/${download} --cc-algorithm ${congestion} --logging-file client.csv" else "tokio-client --no-verify http://10.0.3.2:4433/10MB --cc-algorithm ${congestion} --logging-file client.csv";
+          exec = if implementation=="quiche" then "tokio-client --no-verify http://10.0.3.2:4433/${download} "
+          + "--cc-algorithm ${congestion} "
+          + "--idle-timeout ${maxIdleTimeout} "
+          + "--logging-file client.csv" 
+          else "tokio-client --no-verify http://10.0.3.2:4433/10MB " 
+          + "--cc-algorithm ${congestion} "
+          + "--idle-timeout ${maxIdleTimeout} "
+          + "--logging-file client.csv";
           await = true;
         };
 
@@ -99,8 +107,10 @@ let
           + "--cert ${inputs'.test-certs.packages.default}/cert.crt "
           + "--key ${inputs'.test-certs.packages.default}/cert.key "
           + "--cc-algorithm ${congestion} " 
+          + "--idle-timeout ${maxIdleTimeout} "
           + "--logging-file server.csv" else "tokio-server --listen 10.0.3.2:4433 "
           + "--root ./ "
+          + "--idle-timeout ${maxIdleTimeout} "
           + "--cert ${inputs'.test-certs.packages.default}/cert.crt "
           + "--key ${inputs'.test-certs.packages.default}/cert.key "
           + "--cc-algorithm ${congestion} "
@@ -118,7 +128,7 @@ let
         ip netns exec client ip link set eth2 down
         ip netns exec server ip link set eth1 down
         ip netns exec server ip link set eth2 down
-        sleep 5
+        sleep 1
         echo "Outage end"
         ip netns exec client ip link set eth1 up
         ip netns exec client ip link set eth2 up
