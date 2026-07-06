@@ -14,10 +14,11 @@ let
   outageDuration = if experiment?"outageDuration" then experiment.outageDuration else "0";
   outageAmount = if experiment?"outageAmount" then experiment.outageAmount else "0";
   outageType = if experiment?"outageType" then experiment.outageType else "None";
-  outagesSteadyConfig =
-    (builtins.fromJSON (builtins.readFile ./outagesConfig.json)).steady;
+  outagesConfig =
+    (builtins.fromJSON (builtins.readFile ./outagesConfig.json));
 
-  outageStart=outagesSteadyConfig.quiche.bbr2."delay-500";
+  outageStart= if outageType=="steady" then outagesConfig.steady.${implementation}.${congestion}."delay-${toString delayMs}" else  outagesConfig.steady.${implementation}.${congestion}."delay-${toString delayMs}";
+
   config = {
 
   arp = false;
@@ -128,21 +129,23 @@ let
       exec = 
         if outageType=="steady" then
         ''
+        down() { ip netns exec "$1" ip link set "$2" down; }
+        up()   { ip netns exec "$1" ip link set "$2" up; }
         outageStart=(${builtins.concatStringsSep " " (map toString outageStart)})
 
         for ((i=0; i<${toString outageAmount}; i++)); do
         sleep ''${outageStart[$i]}
         echo "Outage start"
-        ip netns exec client ip link set eth1 down
-        ip netns exec client ip link set eth2 down
-        ip netns exec server ip link set eth1 down
-        ip netns exec server ip link set eth2 down
+        down client eth1
+        down client eth2
+        down server eth1
+        down server eth2
         sleep ${outageDuration}
         echo "Outage end"
-        ip netns exec client ip link set eth1 up
-        ip netns exec client ip link set eth2 up
-        ip netns exec server ip link set eth1 up
-        ip netns exec server ip link set eth2 up
+        up client eth1
+        up client eth2
+        up server eth1
+        up server eth2
         _MAC=$(ip netns exec server cat /sys/class/net/eth1/address)
         ip -n client neigh add 10.0.1.2 lladdr "$_MAC" dev eth1
         ip -n client neigh add 10.0.3.2 lladdr "$_MAC" dev eth1
