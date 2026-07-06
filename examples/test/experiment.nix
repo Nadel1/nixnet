@@ -141,7 +141,7 @@ let
         down client eth2
         down server eth1
         down server eth2
-        sleep ${outageDuration}
+        sleep ${toString outageDuration}
         echo "Outage end"
         up client eth1
         up client eth2
