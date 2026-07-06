@@ -4,6 +4,7 @@ let
   nixnet = inputs'.nixnet.legacyPackages;
 
   # --- parameters from JSON ---
+  name=experiment.name;
   rateMbit = experiment.rateMbit;
   delayMs  = experiment.delayMs;
   lossPercent = experiment.lossPercent;
@@ -70,11 +71,11 @@ let
           exec = if implementation=="quiche" then "tokio-client --no-verify http://10.0.3.2:4433/${download} "
           + "--cc-algorithm ${congestion} "
           + "--idle-timeout ${maxIdleTimeout} "
-          + "--logging-file client.csv" 
+          + "--logging-file ${name}-client.csv" 
           else "tokio-client --no-verify http://10.0.3.2:4433/10MB " 
           + "--cc-algorithm ${congestion} "
           + "--idle-timeout ${maxIdleTimeout} "
-          + "--logging-file client.csv";
+          + "--logging-file ${name}-client.csv";
           await = true;
         };
 
@@ -113,13 +114,13 @@ let
           + "--key ${inputs'.test-certs.packages.default}/cert.key "
           + "--cc-algorithm ${congestion} " 
           + "--idle-timeout ${maxIdleTimeout} "
-          + "--logging-file server.csv" else "tokio-server --listen 10.0.3.2:4433 "
+          + "--logging-file ${name}-server.csv" else "tokio-server --listen 10.0.3.2:4433 "
           + "--root ./ "
           + "--idle-timeout ${maxIdleTimeout} "
           + "--cert ${inputs'.test-certs.packages.default}/cert.crt "
           + "--key ${inputs'.test-certs.packages.default}/cert.key "
           + "--cc-algorithm ${congestion} "
-          + "--logging-file server.csv";
+          + "--logging-file ${name}-server.csv";
 
         workDir = "./server";
       };
