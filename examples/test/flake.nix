@@ -9,8 +9,28 @@
 
   outputs = inputs@{ flake-parts, ... }:
     let
-      experiments =
-        (builtins.fromJSON (builtins.readFile ./config.json)).experiments;
+      #experiments =
+      #  (builtins.fromJSON (builtins.readFile ./config.json)).experiments;
+      #outagesSteadyConfig =
+      #  (builtins.fromJSON (builtins.readFile ./outagesConfig.json)).steady;
+      experimentDir = ./experiments;
+
+  files = builtins.readDir experimentDir;
+
+  configFiles =
+    map (name: experimentDir + "/${name}")
+      (builtins.filter
+        (name:
+          files.${name} == "regular"
+          && builtins.match ".*\\.json" name != null)
+        (builtins.attrNames files));
+
+  experiments =
+    builtins.concatLists (
+      map
+        (file: (builtins.fromJSON (builtins.readFile file)).experiments)
+        configFiles
+    );
     in
     flake-parts.lib.mkFlake { inherit inputs; } {
 
@@ -20,9 +40,8 @@
 
         packages.default =
             let
-              experiments =
-                (builtins.fromJSON (builtins.readFile ./config.json)).experiments;
-         
+           
+           
               perExperiment = map (exp:
                 let
                   built = (import ./experiment.nix {
