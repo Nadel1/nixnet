@@ -28,13 +28,17 @@
               (builtins.fromJSON (builtins.readFile file)).experiments)
             configFiles
         );
-
+      
+      singleOutageSteadyConfig=./experiments/single-outage-steady.json;
+      singleOutageSlowstartConfig=./experiments/single-outage-slow-start.json;
       singleOutageSteadyExperiments =
         (builtins.fromJSON
-          (builtins.readFile ./experiments/single-outage-steady.json)).experiments;
+          (builtins.readFile singleOutageSteadyConfig)).experiments;
       singleOutageSteadyExperimentsEvaluation =
         (builtins.fromJSON
-          (builtins.readFile ./experiments/single-outage-steady.json)).evaluations;
+          (builtins.readFile singleOutageSteadyConfig)).evaluations;
+
+
       evaluationDetailFields = [
         "displayFunction"
         "evaluationFunction"
@@ -54,9 +58,6 @@
           cd "out/${dirName}$i"
         ''
       ;
-
-
-    
 
 
       generateEvaluationCsv = evaluations:
@@ -104,32 +105,28 @@
           ) exps;
         
         singleOutagesSteadyResults="singleOutageSteady";
-
+        singleOutagesSlowstartResults="singleOutageSlowstart";
         builtAllExperiments =
           buildExperiments "allExperiments" experiments;
 
 
-        builtSingleOutageSteady =
-          buildExperiments singleOutagesSteadyResults singleOutageSteadyExperiments;
 
-        mkExperimentRunner = {
-            name,
-            resultPrefix,
-            evaluations,
-            experiments
-          }:
-          pkgs.writeShellScriptBin name ''
-            set -euo pipefail
-      
-            ${prepareDirectory resultPrefix}
-            ${generateEvaluationCsv evaluations}
-      
-            ${builtins.concatStringsSep "\n" (map (e: ''
-              echo "Running ${e.name}"
-              "${e.path}/bin/testbed"
-            '') experiments)}
-          '';
+        mkExperimentRunner =
+  { name, resultPrefix, config }:
+  let
+    experiments = buildExperiments resultPrefix config.experiments;
+  in
+  pkgs.writeShellScriptBin name ''
+    set -euo pipefail
 
+    ${prepareDirectory resultPrefix}
+    ${generateEvaluationCsv config.evaluations}
+
+    ${builtins.concatStringsSep "\n" (map (e: ''
+      echo "Running ${e.name}"
+      "${e.path}/bin/testbed"
+    '') experiments)}
+  '';
         in {
 
           packages.default =
@@ -146,8 +143,15 @@
             mkExperimentRunner {
               name = "singleOutageSteadyExperiments";
               resultPrefix = singleOutagesSteadyResults;
-              evaluations = singleOutageSteadyExperimentsEvaluation;
-              experiments = builtSingleOutageSteady;
+              config=(builtins.fromJSON(builtins.readFile singleOutageSteadyConfig));
+            };
+          
+
+          packages.singleOutageSlowstartExperiments =
+            mkExperimentRunner {
+              name = "singleOutageSlowstartExperiments";
+              resultPrefix = singleOutagesSteadyResults;
+              config=(builtins.fromJSON(builtins.readFile singleOutageSlowstartConfig));
             };
           };
     };
