@@ -43,6 +43,22 @@
         "relevantEndpoint"
         "relevantFileEnding"
       ];
+      prepareDirectory=dirName:
+        ''
+          i=0
+          while [ -e "out/${dirName}$i" ]; do
+            i=$((i+1))
+          done
+          mkdir -p "out/${dirName}$i"
+          echo "Results will be stored in out/${dirName}$i"
+          cd "out/${dirName}$i"
+        ''
+      ;
+
+
+    
+
+
       generateEvaluationCsv = evaluations:
         builtins.concatStringsSep "\n"
           (map (evaluation: ''
@@ -96,6 +112,24 @@
         builtSingleOutageSteady =
           buildExperiments singleOutagesSteadyResults singleOutageSteadyExperiments;
 
+        mkExperimentRunner = {
+            name,
+            resultPrefix,
+            evaluations,
+            experiments
+          }:
+          pkgs.writeShellScriptBin name ''
+            set -euo pipefail
+      
+            ${prepareDirectory resultPrefix}
+            ${generateEvaluationCsv evaluations}
+      
+            ${builtins.concatStringsSep "\n" (map (e: ''
+              echo "Running ${e.name}"
+              "${e.path}/bin/testbed"
+            '') experiments)}
+          '';
+
         in {
 
           packages.default =
@@ -109,26 +143,12 @@
             '';
           # gather the outage experiments into one numbered subfolder
           packages.singleOutageSteadyExperiments =
-            pkgs.writeShellScriptBin "singleOutageSteadyExperiments" ''
-              set -euo pipefail
-
-              i=0
-              while [ -e "out/${singleOutagesSteadyResults}$i" ]; do
-                i=$((i+1))
-              done
-
-              mkdir -p "out/${singleOutagesSteadyResults}$i"
-              echo "Results will be stored in out/${singleOutagesSteadyResults}$i"
-
-              cd "out/${singleOutagesSteadyResults}$i"
-
-              ${generateEvaluationCsv singleOutageSteadyExperimentsEvaluation}
-
-              ${builtins.concatStringsSep "\n" (map (e: ''
-                echo "Running ${e.name}"
-                "${e.path}/bin/testbed"
-              '') builtSingleOutageSteady)}
-              '';
+            mkExperimentRunner {
+              name = "singleOutageSteadyExperiments";
+              resultPrefix = singleOutagesSteadyResults;
+              evaluations = singleOutageSteadyExperimentsEvaluation;
+              experiments = builtSingleOutageSteady;
             };
+          };
     };
 }
