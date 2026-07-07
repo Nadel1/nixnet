@@ -112,21 +112,21 @@
 
 
         mkExperimentRunner =
-  { name, resultPrefix, config }:
-  let
-    experiments = buildExperiments resultPrefix config.experiments;
-  in
-  pkgs.writeShellScriptBin name ''
-    set -euo pipefail
-
-    ${prepareDirectory resultPrefix}
-    ${generateEvaluationCsv config.evaluations}
-
-    ${builtins.concatStringsSep "\n" (map (e: ''
-      echo "Running ${e.name}"
-      "${e.path}/bin/testbed"
-    '') experiments)}
-  '';
+          { name, resultPrefix, config }:
+          let
+            experiments = buildExperiments resultPrefix config.experiments;
+          in
+          pkgs.writeShellScriptBin name ''
+            set -euo pipefail
+        
+            ${prepareDirectory resultPrefix}
+            ${generateEvaluationCsv config.evaluations}
+        
+            ${builtins.concatStringsSep "\n" (map (e: ''
+              echo "Running ${e.name}"
+              "${e.path}/bin/testbed"
+            '') experiments)}
+          '';
         in {
 
           packages.default =
