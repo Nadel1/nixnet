@@ -32,6 +32,9 @@
       singleOutageSteadyExperiments =
         (builtins.fromJSON
           (builtins.readFile ./experiments/single-outage-steady.json)).experiments;
+      singleOutageSteadyExperimentsEvaluation =
+        (builtins.fromJSON
+          (builtins.readFile ./experiments/single-outage-steady.json)).evaluations;
 
     in
     flake-parts.lib.mkFlake { inherit inputs; } {
@@ -86,16 +89,34 @@
               done
 
               mkdir -p "out/${singleOutagesSteadyResults}$i"
-
               echo "Results will be stored in out/${singleOutagesSteadyResults}$i"
 
               cd "out/${singleOutagesSteadyResults}$i"
 
-              ${builtins.concatStringsSep "\n" (map (e: ''
-                echo "Running ${e.name}"
-                "${e.path}/bin/testbed"
-              '') builtSingleOutageSteady)}
-            '';
-        };
+              ${builtins.concatStringsSep "\n" (map (evaluation: ''
+              echo "Creating evaluation CSV: ${evaluation.name}.csv"
+
+              echo "${builtins.concatStringsSep "," (builtins.concatLists (builtins.genList
+                (i: [
+                  "bucket${toString i}"
+                  "index${toString i}"
+                ])
+                (builtins.length evaluation.sortingBucketsAndIndices)))}" > ${evaluation.name}.csv
+
+              echo "${builtins.concatStringsSep "," (builtins.concatLists (map (bucket:
+                [
+                  (toString bucket.bucket)
+                  "\\\"${builtins.concatStringsSep "," (map toString bucket.indices)}\\\""
+                ]
+              ) evaluation.sortingBucketsAndIndices))}" >> ${evaluation.name}.csv
+              
+              '') singleOutageSteadyExperimentsEvaluation)}
+              
+                            ${builtins.concatStringsSep "\n" (map (e: ''
+                              echo "Running ${e.name}"
+                              "${e.path}/bin/testbed"
+                            '') builtSingleOutageSteady)}
+                          '';
+            };
     };
 }
