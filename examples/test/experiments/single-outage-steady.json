@@ -241,23 +241,68 @@
             "sortingBucketsAndIndices": [
                 {
                     "bucket": 2,
-                    "indices": [0]
+                    "indices": [
+                        0
+                    ]
                 },
                 {
                     "bucket": 2,
-                    "indices": [18]
+                    "indices": [
+                        18
+                    ]
                 },
                 {
                     "bucket": 1,
-                    "indices": [4,17]
+                    "indices": [
+                        4,
+                        17
+                    ]
                 }
             ],
-            "evaluationDetails":{
-                "displayFunction":"displayGraphs",
-                "evaluationFunction":"evaluateRecovery",
-                "dataIndex":"/",
-                "colorBarName":"Recovery[s]",
-                "relevantEndpoint":"server",
+            "evaluationDetails": {
+                "displayFunction": "displayGraphs",
+                "evaluationFunction": "evaluateRecovery",
+                "dataIndex": "/",
+                "colorBarName": "Recovery[s]",
+                "relevantEndpoint": "server",
+                "relevantFileEnding": "csv"
+            }
+        },
+        {
+            "name": "evaluationParamsHeatmapNewRecovery",
+            "sortingBucketsAndIndices": [
+                {
+                    "bucket": 1,
+                    "indices": [
+                        6
+                    ]
+                },
+                {
+                    "bucket": 2,
+                    "indices": [
+                        0
+                    ]
+                },
+                {
+                    "bucket": 2,
+                    "indices": [
+                        18
+                    ]
+                },
+                {
+                    "bucket": 1,
+                    "indices": [
+                        4,
+                        17
+                    ]
+                }
+            ],
+            "evaluationDetails": {
+                "displayFunction": "displayRecoveryHeatmap",
+                "evaluationFunction": "evaluateNewRecovery",
+                "dataIndex": "/",
+                "colorBarName": "Recovery percentage[%]",
+                "relevantEndpoint": "server",
                 "relevantFileEnding": "csv"
             }
         }

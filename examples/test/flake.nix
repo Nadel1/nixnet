@@ -35,6 +35,35 @@
       singleOutageSteadyExperimentsEvaluation =
         (builtins.fromJSON
           (builtins.readFile ./experiments/single-outage-steady.json)).evaluations;
+      evaluationDetailFields = [
+        "displayFunction"
+        "evaluationFunction"
+        "dataIndex"
+        "colorBarName"
+        "relevantEndpoint"
+        "relevantFileEnding"
+      ];
+      generateEvaluationCsv = evaluations:
+        builtins.concatStringsSep "\n"
+          (map (evaluation: ''
+            echo "Creating evaluation CSV: ${evaluation.name}.csv"
+            echo "${builtins.concatStringsSep "," (builtins.concatLists (builtins.genList
+              (i: [
+                "bucket${toString i}"
+                "index${toString i}"
+              ])
+              (builtins.length evaluation.sortingBucketsAndIndices)))}" > ${evaluation.name}.csv
+            echo "${builtins.concatStringsSep "," (builtins.concatLists (map (bucket:
+              [
+                (toString bucket.bucket)
+                "\\\"${builtins.concatStringsSep "," (map toString bucket.indices)}\\\""
+              ]
+            ) evaluation.sortingBucketsAndIndices))}" >> ${evaluation.name}.csv
+            echo "${builtins.concatStringsSep "," evaluationDetailFields}" >> ${evaluation.name}.csv
+            echo "${builtins.concatStringsSep "," (map (field:
+              toString evaluation.evaluationDetails.${field}
+            ) evaluationDetailFields)}" >> ${evaluation.name}.csv
+          '') evaluations);
 
     in
     flake-parts.lib.mkFlake { inherit inputs; } {
@@ -93,30 +122,13 @@
 
               cd "out/${singleOutagesSteadyResults}$i"
 
-              ${builtins.concatStringsSep "\n" (map (evaluation: ''
-              echo "Creating evaluation CSV: ${evaluation.name}.csv"
+              ${generateEvaluationCsv singleOutageSteadyExperimentsEvaluation}
 
-              echo "${builtins.concatStringsSep "," (builtins.concatLists (builtins.genList
-                (i: [
-                  "bucket${toString i}"
-                  "index${toString i}"
-                ])
-                (builtins.length evaluation.sortingBucketsAndIndices)))}" > ${evaluation.name}.csv
-
-              echo "${builtins.concatStringsSep "," (builtins.concatLists (map (bucket:
-                [
-                  (toString bucket.bucket)
-                  "\\\"${builtins.concatStringsSep "," (map toString bucket.indices)}\\\""
-                ]
-              ) evaluation.sortingBucketsAndIndices))}" >> ${evaluation.name}.csv
-              
-              '') singleOutageSteadyExperimentsEvaluation)}
-              
-                            ${builtins.concatStringsSep "\n" (map (e: ''
-                              echo "Running ${e.name}"
-                              "${e.path}/bin/testbed"
-                            '') builtSingleOutageSteady)}
-                          '';
+              ${builtins.concatStringsSep "\n" (map (e: ''
+                echo "Running ${e.name}"
+                "${e.path}/bin/testbed"
+              '') builtSingleOutageSteady)}
+              '';
             };
     };
 }
