@@ -41,26 +41,35 @@
       perSystem = { inputs', pkgs, ... }:
 
         let
-          # Build every experiment exactly once
-          perExperiment =
-            map (exp:
-              let
-                built = (import ./experiment.nix {
-                  inherit inputs' pkgs;
-                  experiment = exp;
-                }).default;
-              in {
-                name = exp.name;
-                path = built;
-              })
-            experiments;
+          buildExperiments = runName: exps:
+          map (exp:
+            let
+              built = (import ./experiment.nix {
+                inherit inputs' pkgs;
+                experiment = exp;
+                workDir = "out/{run}";
+              }).default;
+            in {
+              name = exp.name;
+              path = built;
+            }
+          ) exps;
 
-          outageNames = map (e: e.name) singleOutageSteadyExperiments;
 
-          builtSingleOutageSteady =
-            builtins.filter
-              (e: builtins.elem e.name outageNames)
-              perExperiment;
+        builtAllExperiments =
+          buildExperiments "allExperiments" experiments;
+
+
+        builtSingleOutageSteady =
+          buildExperiments "singleOutageSteady" singleOutageSteadyExperiments;
+
+
+          #outageNames = map (e: e.name) singleOutageSteadyExperiments;
+#
+          #builtSingleOutageSteady =
+          #  builtins.filter
+          #    (e: builtins.elem e.name outageNames)
+          #    perExperiment;
 
         in {
 
@@ -71,19 +80,26 @@
               ${builtins.concatStringsSep "\n" (map (e: ''
                 mkdir -p $out/${e.name}
                 cp -r ${e.path}/* $out/${e.name}/
-              '') perExperiment)}
+              '') builtAllExperiments)}
             '';
-
+          # gather the outage experiments into one numbered subfolder
           packages.singleOutageSteadyExperiments =
-            pkgs.writeShellScriptBin "run-single-outage-steady" ''
-              #!${pkgs.bash}/bin/bash
+            pkgs.writeShellScriptBin "singleOutageSteadyExperiments" ''
               set -euo pipefail
 
-              ${builtins.concatStringsSep "\n" (map (e: ''
-                echo "=================================="
-                echo "Running ${e.name}"
-                echo "=================================="
+              i=0
+              while [ -e "out/runOutages$i" ]; do
+                i=$((i+1))
+              done
 
+              mkdir -p "out/runOutages$i"
+
+              echo "Results will be stored in out/runOutages$i"
+
+              cd "out/runOutages$i"
+
+              ${builtins.concatStringsSep "\n" (map (e: ''
+                echo "Running ${e.name}"
                 "${e.path}/bin/testbed"
               '') builtSingleOutageSteady)}
             '';

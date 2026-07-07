@@ -1,4 +1,4 @@
-{ inputs', pkgs, experiment }:
+{ inputs', pkgs, experiment, workDir ? "out/{run}" }:
 
 let
   nixnet = inputs'.nixnet.legacyPackages;
@@ -21,7 +21,7 @@ let
   outageStart= if outageType=="steady" then outagesConfig.steady.${implementation}.${congestion}."delay-${toString delayMs}" else  outagesConfig.steady.${implementation}.${congestion}."delay-${toString delayMs}";
 
   config = {
-
+  inherit workDir;
   arp = false;
   arpPrefill = true;
   #testbedPackages = with pkgs; [ iputils bash coreutils iproute2 util-linuxMinimal busybox-mini];
