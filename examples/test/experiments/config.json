@@ -8,6 +8,7 @@
             "rateMbit": 25,
             "delayMs": 500,
             "lossPercent": 0,
+            "outageType":"none",
             "maxIdleTimeout": "100000"
         },
         {
@@ -18,6 +19,7 @@
             "rateMbit": 25,
             "delayMs": 1500,
             "lossPercent": 0,
+            "outageType":"none",
             "maxIdleTimeout": "100000"
         },
         {
@@ -28,6 +30,7 @@
             "rateMbit": 25,
             "delayMs": 3000,
             "lossPercent": 0,
+            "outageType":"none",
             "maxIdleTimeout": "100000"
         },
         {
@@ -38,6 +41,7 @@
             "rateMbit": 25,
             "delayMs": 500,
             "lossPercent": 0,
+            "outageType":"none",
             "maxIdleTimeout": "100000"
         },
         {
@@ -48,6 +52,7 @@
             "rateMbit": 25,
             "delayMs": 1500,
             "lossPercent": 0,
+            "outageType":"none",
             "maxIdleTimeout": "100000"
         },
         {
@@ -58,20 +63,7 @@
             "rateMbit": 25,
             "delayMs": 3000,
             "lossPercent": 0,
-            "maxIdleTimeout": "100000"
-        },
-      
-        {
-            "name": "quiche-rtt_1s-rate_25Mbps-download_1GB-loss_0-outageDuration_2-outageAmount_2-outageType_Steady-bbr2",
-            "implementation": "quiche",
-            "congestion": "bbr2",
-            "download": "1GB",
-            "rateMbit": 25,
-            "delayMs": 500,
-            "lossPercent": 0,
-            "outageDuration": "2",
-            "outageAmount": "2",
-            "outageType": "steady",
+            "outageType":"none",
             "maxIdleTimeout": "100000"
         }
     ]

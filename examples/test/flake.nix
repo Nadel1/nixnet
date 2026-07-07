@@ -29,14 +29,8 @@
             configFiles
         );
       
-      singleOutageSteadyConfig=./experiments/single-outage-steady.json;
-      singleOutageSlowstartConfig=./experiments/single-outage-slow-start.json;
-      singleOutageSteadyExperiments =
-        (builtins.fromJSON
-          (builtins.readFile singleOutageSteadyConfig)).experiments;
-      singleOutageSteadyExperimentsEvaluation =
-        (builtins.fromJSON
-          (builtins.readFile singleOutageSteadyConfig)).evaluations;
+      steadyConfig=./experiments/single-outage-steady.json;
+      slowstartConfig=./experiments/single-outage-slow-start.json;
 
 
       evaluationDetailFields = [
@@ -104,22 +98,21 @@
             }
           ) exps;
         
-        singleOutagesSteadyResults="singleOutageSteady";
-        singleOutagesSlowstartResults="singleOutageSlowstart";
+      
         builtAllExperiments =
           buildExperiments "allExperiments" experiments;
 
 
 
         mkExperimentRunner =
-          { name, resultPrefix, config }:
+          { name, config }:
           let
-            experiments = buildExperiments resultPrefix config.experiments;
+            experiments = buildExperiments name config.experiments;
           in
           pkgs.writeShellScriptBin name ''
             set -euo pipefail
         
-            ${prepareDirectory resultPrefix}
+            ${prepareDirectory name}
             ${generateEvaluationCsv config.evaluations}
         
             ${builtins.concatStringsSep "\n" (map (e: ''
@@ -142,16 +135,26 @@
           packages.singleOutageSteadyExperiments =
             mkExperimentRunner {
               name = "singleOutageSteadyExperiments";
-              resultPrefix = singleOutagesSteadyResults;
-              config=(builtins.fromJSON(builtins.readFile singleOutageSteadyConfig));
+              config=(builtins.fromJSON(builtins.readFile steadyConfig));
             };
           
 
           packages.singleOutageSlowstartExperiments =
             mkExperimentRunner {
               name = "singleOutageSlowstartExperiments";
-              resultPrefix = singleOutagesSteadyResults;
-              config=(builtins.fromJSON(builtins.readFile singleOutageSlowstartConfig));
+              config=(builtins.fromJSON(builtins.readFile slowstartConfig));
+            };
+
+          packages.twoOutagesSteadyExperiments =
+            mkExperimentRunner {
+              name = "twoOutagesSteadyExperiments";
+              config=(builtins.fromJSON(builtins.readFile steadyConfig));
+            };
+          
+          packages.twoOutagesSlowstartExperiments =
+            mkExperimentRunner {
+              name = "twoOutagesSlowstartExperiments";
+              config=(builtins.fromJSON(builtins.readFile slowstartConfig));
             };
           };
     };

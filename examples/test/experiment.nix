@@ -18,8 +18,11 @@ let
   outagesConfig =
     (builtins.fromJSON (builtins.readFile ./outagesConfig.json));
 
-  outageStart= if outageType=="steady" then outagesConfig.steady.${implementation}.${congestion}."delay-${toString delayMs}" else  outagesConfig.steady.${implementation}.${congestion}."delay-${toString delayMs}";
-
+  outageStart =
+    if outageType == "none" then
+      []
+    else
+      outagesConfig.${outageType}.${implementation}.${congestion}."delay-${toString delayMs}";
   config = {
   inherit workDir;
   arp = false;
@@ -128,7 +131,7 @@ let
 
     scripts.main = {
       exec = 
-        if outageType=="steady" then
+        if outageType!="none" then
         ''
         down() { ip netns exec "$1" ip link set "$2" down; }
         up()   { ip netns exec "$1" ip link set "$2" up; }
