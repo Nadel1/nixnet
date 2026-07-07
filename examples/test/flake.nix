@@ -29,7 +29,7 @@
             configFiles
         );
 
-      outageExperiments =
+      singleOutageSteadyExperiments =
         (builtins.fromJSON
           (builtins.readFile ./experiments/single-outage-steady.json)).experiments;
 
@@ -55,9 +55,9 @@
               })
             experiments;
 
-          outageNames = map (e: e.name) outageExperiments;
+          outageNames = map (e: e.name) singleOutageSteadyExperiments;
 
-          builtOutages =
+          builtSingleOutageSteady =
             builtins.filter
               (e: builtins.elem e.name outageNames)
               perExperiment;
@@ -74,8 +74,8 @@
               '') perExperiment)}
             '';
 
-          packages.runOutages =
-            pkgs.writeShellScriptBin "run-outages" ''
+          packages.singleOutageSteadyExperiments =
+            pkgs.writeShellScriptBin "run-single-outage-steady" ''
               #!${pkgs.bash}/bin/bash
               set -euo pipefail
 
@@ -85,7 +85,7 @@
                 echo "=================================="
 
                 "${e.path}/bin/testbed"
-              '') builtOutages)}
+              '') builtSingleOutageSteady)}
             '';
         };
     };
