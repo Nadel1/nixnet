@@ -54,22 +54,15 @@
               path = built;
             }
           ) exps;
-
+        
+        singleOutagesSteadyResults="singleOutageSteady";
 
         builtAllExperiments =
           buildExperiments "allExperiments" experiments;
 
 
         builtSingleOutageSteady =
-          buildExperiments "singleOutageSteady" singleOutageSteadyExperiments;
-
-
-          #outageNames = map (e: e.name) singleOutageSteadyExperiments;
-#
-          #builtSingleOutageSteady =
-          #  builtins.filter
-          #    (e: builtins.elem e.name outageNames)
-          #    perExperiment;
+          buildExperiments singleOutagesSteadyResults singleOutageSteadyExperiments;
 
         in {
 
@@ -88,15 +81,15 @@
               set -euo pipefail
 
               i=0
-              while [ -e "out/runOutages$i" ]; do
+              while [ -e "out/${singleOutagesSteadyResults}$i" ]; do
                 i=$((i+1))
               done
 
-              mkdir -p "out/runOutages$i"
+              mkdir -p "out/${singleOutagesSteadyResults}$i"
 
-              echo "Results will be stored in out/runOutages$i"
+              echo "Results will be stored in out/${singleOutagesSteadyResults}$i"
 
-              cd "out/runOutages$i"
+              cd "out/${singleOutagesSteadyResults}$i"
 
               ${builtins.concatStringsSep "\n" (map (e: ''
                 echo "Running ${e.name}"
