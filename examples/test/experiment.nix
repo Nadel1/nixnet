@@ -15,9 +15,39 @@ let
   outageDuration = if experiment?"outageDuration" then experiment.outageDuration else "0";
   outageAmount = if experiment?"outageAmount" then experiment.outageAmount else "0";
   outageType = if experiment?"outageType" then experiment.outageType else "None";
+  carefulResume = if experiment?"carefulResume" then true else false;
   outagesConfig =
     (builtins.fromJSON (builtins.readFile ./outagesConfig.json));
 
+  clientCmd =
+    if implementation == "quiche" then
+      "tokio-client --no-verify http://10.0.3.2:4433/${download} "
+      + "--cc-algorithm ${congestion} "
+      + "--idle-timeout ${maxIdleTimeout} "
+      + "--logging-file ${name}-client.csv"
+    else
+      "tokio-client --no-verify http://10.0.3.2:4433/10MB "
+      + "--cc-algorithm ${congestion} "
+      + "--idle-timeout ${maxIdleTimeout} "
+      + "--logging-file ${name}-client.csv";
+
+  serverCmd =
+    if implementation == "quiche" then
+      "tokio-server --listen 10.0.3.2:4433 "
+      + "--root ./ "
+      + "--cert ${inputs'.test-certs.packages.default}/cert.crt "
+      + "--key ${inputs'.test-certs.packages.default}/cert.key "
+      + "--cc-algorithm ${congestion} "
+      + "--idle-timeout ${maxIdleTimeout} "
+      + "--logging-file ${name}-server.csv"
+    else
+      "tokio-server --listen 10.0.3.2:4433 "
+      + "--root ./ "
+      + "--idle-timeout ${maxIdleTimeout} "
+      + "--cert ${inputs'.test-certs.packages.default}/cert.crt "
+      + "--key ${inputs'.test-certs.packages.default}/cert.key "
+      + "--cc-algorithm ${congestion} "
+      + "--logging-file ${name}-server.csv";
   outageStart =
     if outageType == "none" then
       []
@@ -71,14 +101,15 @@ let
         };
 
         scripts.main = {
-          exec = if implementation=="quiche" then "tokio-client --no-verify http://10.0.3.2:4433/${download} "
-          + "--cc-algorithm ${congestion} "
-          + "--idle-timeout ${maxIdleTimeout} "
-          + "--logging-file ${name}-client.csv" 
-          else "tokio-client --no-verify http://10.0.3.2:4433/10MB " 
-          + "--cc-algorithm ${congestion} "
-          + "--idle-timeout ${maxIdleTimeout} "
-          + "--logging-file ${name}-client.csv";
+          exec = 
+          if carefulResume then 
+            ''
+              ${clientCmd} CAREFUL_RESUME=true ${serverCmd}
+            ''
+          else
+            ''
+              ${clientCmd}
+            '';
           await = true;
         };
 
@@ -111,20 +142,14 @@ let
         };
 
         scripts.main.exec =
-        if implementation=="quiche" then "tokio-server --listen 10.0.3.2:4433 "
-          + "--root ./ "
-          + "--cert ${inputs'.test-certs.packages.default}/cert.crt "
-          + "--key ${inputs'.test-certs.packages.default}/cert.key "
-          + "--cc-algorithm ${congestion} " 
-          + "--idle-timeout ${maxIdleTimeout} "
-          + "--logging-file ${name}-server.csv" else "tokio-server --listen 10.0.3.2:4433 "
-          + "--root ./ "
-          + "--idle-timeout ${maxIdleTimeout} "
-          + "--cert ${inputs'.test-certs.packages.default}/cert.crt "
-          + "--key ${inputs'.test-certs.packages.default}/cert.key "
-          + "--cc-algorithm ${congestion} "
-          + "--logging-file ${name}-server.csv";
-
+        if carefulResume then 
+          ''
+             ${serverCmd} CAREFUL_RESUME=true ${serverCmd}
+          ''
+        else
+          ''
+            ${serverCmd}
+          '';
         workDir = "./server";
       };
     };

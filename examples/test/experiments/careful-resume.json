@@ -1,0 +1,76 @@
+{
+    "experiments": [
+        {
+            "name": "quiche-rtt_1s-rate_25Mbps-download_1GB-loss_0-outageDuration_0-outageAmount_0-outageType_None-bbr2",
+            "implementation": "quiche",
+            "congestion": "bbr2",
+            "download": "1GB",
+            "rateMbit": 25,
+            "delayMs": 500,
+            "lossPercent": 0,
+            "outageType":"none",
+            "maxIdleTimeout": "100000",
+            "carefulResume":true
+        },
+        {
+            "name": "quiche-rtt_3s-rate_25Mbps-download_1GB-loss_0-outageDuration_0-outageAmount_0-outageType_None-bbr2",
+            "implementation": "quiche",
+            "congestion": "bbr2",
+            "download": "1GB",
+            "rateMbit": 25,
+            "delayMs": 1500,
+            "lossPercent": 0,
+            "outageType":"none",
+            "maxIdleTimeout": "100000",
+            "carefulResume":true
+        },
+        {
+            "name": "quiche-rtt_6s-rate_25Mbps-download_1GB-loss_0-outageDuration_0-outageAmount_0-outageType_None-bbr2",
+            "implementation": "quiche",
+            "congestion": "bbr2",
+            "download": "1GB",
+            "rateMbit": 25,
+            "delayMs": 3000,
+            "lossPercent": 0,
+            "outageType":"none",
+            "maxIdleTimeout": "100000",
+            "carefulResume":true
+        },
+        {
+            "name": "quiche-rtt_1s-rate_25Mbps-download_1GB-loss_0-outageDuration_0-outageAmount_0-outageType_None-cubic",
+            "implementation": "quiche",
+            "congestion": "cubic",
+            "download": "1GB",
+            "rateMbit": 25,
+            "delayMs": 500,
+            "lossPercent": 0,
+            "outageType":"none",
+            "maxIdleTimeout": "100000",
+            "carefulResume":true
+        },
+        {
+            "name": "quiche-rtt_3s-rate_25Mbps-download_1GB-loss_0-outageDuration_0-outageAmount_0-outageType_None-cubic",
+            "implementation": "quiche",
+            "congestion": "cubic",
+            "download": "1GB",
+            "rateMbit": 25,
+            "delayMs": 1500,
+            "lossPercent": 0,
+            "outageType":"none",
+            "maxIdleTimeout": "100000",
+            "carefulResume":true
+        },
+        {
+            "name": "quiche-rtt_6s-rate_25Mbps-download_1GB-loss_0-outageDuration_0-outageAmount_0-outageType_None-cubic",
+            "implementation": "quiche",
+            "congestion": "cubic",
+            "download": "1GB",
+            "rateMbit": 25,
+            "delayMs": 3000,
+            "lossPercent": 0,
+            "outageType":"none",
+            "maxIdleTimeout": "100000",
+            "carefulResume":true
+        }
+    ]
+}
