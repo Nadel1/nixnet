@@ -19,19 +19,19 @@ let
   outagesConfig =
     (builtins.fromJSON (builtins.readFile ./outagesConfig.json));
 
-  clientCmd =
+  mkClientCmd = loggingName:
     if implementation == "quiche" then
       "tokio-client --no-verify http://10.0.3.2:4433/${download} "
       + "--cc-algorithm ${congestion} "
       + "--idle-timeout ${maxIdleTimeout} "
-      + "--logging-file ${name}-client.csv"
+      + "--logging-file ${loggingName}"
     else
       "tokio-client --no-verify http://10.0.3.2:4433/10MB "
       + "--cc-algorithm ${congestion} "
       + "--idle-timeout ${maxIdleTimeout} "
-      + "--logging-file ${name}-client.csv";
+      + "--logging-file ${loggingName}";
 
-  serverCmd =
+  mkServerCmd = loggingName:
     if implementation == "quiche" then
       "tokio-server --listen 10.0.3.2:4433 "
       + "--root ./ "
@@ -39,7 +39,7 @@ let
       + "--key ${inputs'.test-certs.packages.default}/cert.key "
       + "--cc-algorithm ${congestion} "
       + "--idle-timeout ${maxIdleTimeout} "
-      + "--logging-file ${name}-server.csv"
+      + "--logging-file ${loggingName}"
     else
       "tokio-server --listen 10.0.3.2:4433 "
       + "--root ./ "
@@ -47,7 +47,7 @@ let
       + "--cert ${inputs'.test-certs.packages.default}/cert.crt "
       + "--key ${inputs'.test-certs.packages.default}/cert.key "
       + "--cc-algorithm ${congestion} "
-      + "--logging-file ${name}-server.csv";
+      + "--logging-file ${loggingName}";
   outageStart =
     if outageType == "none" then
       []
@@ -104,11 +104,11 @@ let
           exec = 
           if carefulResume then 
             ''
-              ${clientCmd} CAREFUL_RESUME=true ${serverCmd}
+              ${mkClientCmd "${name}-client-baseline.csv"} CAREFUL_RESUME=true ${mkClientCmd "${name}-client-cr.csv"}
             ''
           else
             ''
-              ${clientCmd}
+              ${mkClientCmd "${name}-client.csv"}
             '';
           await = true;
         };
@@ -144,11 +144,11 @@ let
         scripts.main.exec =
         if carefulResume then 
           ''
-             ${serverCmd} CAREFUL_RESUME=true ${serverCmd}
+             ${mkServerCmd "${name}-server-baseline.csv"} CAREFUL_RESUME=true ${mkServerCmd "${name}-server-cr.csv"}
           ''
         else
           ''
-            ${serverCmd}
+            ${mkServerCmd "${name}-server.csv"}
           '';
         workDir = "./server";
       };
