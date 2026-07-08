@@ -61,17 +61,16 @@ let
   inherit workDir;
   arp = false;
   arpPrefill = true;
-
   nodePackages = with pkgs; [
-    inputs'.quiche.packages.default
-    coreutils
-    iputils
-  ];
+      inputs'.quiche.packages.default
+      coreutils
+      iputils
+    ];
+
 
     nodes = {
 
       client = {
-        packages = with pkgs; [ iputils ];
 
         networking.interfaces = {
           eth1.ipv4 = {
@@ -160,7 +159,6 @@ let
         workDir = "./server";
       };
     };
-
     scripts.main = {
       exec = 
         if outageType!="none" then
@@ -172,29 +170,13 @@ let
         for ((i=0; i<${toString outageAmount}; i++)); do
         sleep ''${outageStart[$i]}
         echo "Outage start"
-        down client eth1
-        down client eth2
-        down server eth1
-        down server eth2
-        sleep ${toString outageDuration}
-        echo "Outage end"
-        up client eth1
-        up client eth2
-        up server eth1
-        up server eth2
-        _MAC=$(ip netns exec server cat /sys/class/net/eth1/address)
-        jail enter client neigh add 10.0.1.2 lladdr "$_MAC" dev eth1
-        jail enter client neigh add 10.0.3.2 lladdr "$_MAC" dev eth1
-        _MAC=$(ip netns exec client cat /sys/class/net/eth1/address)
-        jail enter server neigh add 10.0.1.1 lladdr "$_MAC" dev eth1
-        _MAC=$(ip netns exec server cat /sys/class/net/eth2/address)
-        jail enter client neigh add 10.0.2.2 lladdr "$_MAC" dev eth2
-        jail enter client neigh add 10.0.3.2 lladdr "$_MAC" dev eth2
-        _MAC=$(ip netns exec client cat /sys/class/net/eth2/address)
-        jail enter server neigh add 10.0.2.1 lladdr "$_MAC" dev eth2
+        jail enter client echo $PATH
+        jail enter server echo $PATH
+        jail enter client ip link set eth1 down
+        jail enter client ip link set eth2 down
+        jail enter server ip link set eth1 down
+        jail enter server ip link set eth2 down
 
-	      jail enter client route add 10.0.3.0/24 via 10.0.1.2 dev eth1 metric 100
-	      jail enter client route add 10.0.3.0/24 via 10.0.2.2 dev eth2 metric 200
         done
       ''
         else '''';
