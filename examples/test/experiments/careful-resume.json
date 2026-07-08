@@ -4,73 +4,112 @@
             "name": "quiche-rtt_1s-rate_25Mbps-download_1GB-loss_0-outageDuration_0-outageAmount_0-outageType_None-bbr2",
             "implementation": "quiche",
             "congestion": "bbr2",
-            "download": "1GB",
+            "download": "1MB",
             "rateMbit": 25,
             "delayMs": 500,
             "lossPercent": 0,
-            "outageType":"none",
+            "outageType": "none",
             "maxIdleTimeout": "100000",
-            "carefulResume":true
+            "carefulResume": true
         },
         {
             "name": "quiche-rtt_3s-rate_25Mbps-download_1GB-loss_0-outageDuration_0-outageAmount_0-outageType_None-bbr2",
             "implementation": "quiche",
             "congestion": "bbr2",
-            "download": "1GB",
+            "download": "1MB",
             "rateMbit": 25,
             "delayMs": 1500,
             "lossPercent": 0,
-            "outageType":"none",
+            "outageType": "none",
             "maxIdleTimeout": "100000",
-            "carefulResume":true
+            "carefulResume": true
         },
         {
             "name": "quiche-rtt_6s-rate_25Mbps-download_1GB-loss_0-outageDuration_0-outageAmount_0-outageType_None-bbr2",
             "implementation": "quiche",
             "congestion": "bbr2",
-            "download": "1GB",
+            "download": "1MB",
             "rateMbit": 25,
             "delayMs": 3000,
             "lossPercent": 0,
-            "outageType":"none",
+            "outageType": "none",
             "maxIdleTimeout": "100000",
-            "carefulResume":true
+            "carefulResume": true
         },
         {
             "name": "quiche-rtt_1s-rate_25Mbps-download_1GB-loss_0-outageDuration_0-outageAmount_0-outageType_None-cubic",
             "implementation": "quiche",
             "congestion": "cubic",
-            "download": "1GB",
+            "download": "1MB",
             "rateMbit": 25,
             "delayMs": 500,
             "lossPercent": 0,
-            "outageType":"none",
+            "outageType": "none",
             "maxIdleTimeout": "100000",
-            "carefulResume":true
+            "carefulResume": true
         },
         {
             "name": "quiche-rtt_3s-rate_25Mbps-download_1GB-loss_0-outageDuration_0-outageAmount_0-outageType_None-cubic",
             "implementation": "quiche",
             "congestion": "cubic",
-            "download": "1GB",
+            "download": "1MB",
             "rateMbit": 25,
             "delayMs": 1500,
             "lossPercent": 0,
-            "outageType":"none",
+            "outageType": "none",
             "maxIdleTimeout": "100000",
-            "carefulResume":true
+            "carefulResume": true
         },
         {
             "name": "quiche-rtt_6s-rate_25Mbps-download_1GB-loss_0-outageDuration_0-outageAmount_0-outageType_None-cubic",
             "implementation": "quiche",
             "congestion": "cubic",
-            "download": "1GB",
+            "download": "1MB",
             "rateMbit": 25,
             "delayMs": 3000,
             "lossPercent": 0,
-            "outageType":"none",
+            "outageType": "none",
             "maxIdleTimeout": "100000",
-            "carefulResume":true
+            "carefulResume": true
+        }
+    ],
+    "evaluations": [
+        {
+            "name": "evaluationParams",
+            "sortingBucketsAndIndices": [
+                {
+                    "bucket": 3,
+                    "indices": [
+                        4
+                    ]
+                },
+                {
+                    "bucket": 2,
+                    "indices": [
+                        0
+                    ]
+                },
+                {
+                    "bucket": 2,
+                    "indices": [
+                        10
+                    ]
+                },
+                {
+                    "bucket": 2,
+                    "indices": [
+                        19
+                    ]
+                }
+            ],
+            "evaluationDetails": {
+                "displayFunction": "displayGraphsCrStatistical",
+                "evaluationFunction": "/",
+                "dataIndex": "3",
+                "colorBarName": "Throughput [Bps]",
+                "relevantEndpoint": "server",
+                "relevantFileEnding": "csv"
+            }
         }
     ]
 }

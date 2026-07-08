@@ -24,11 +24,13 @@ let
       "tokio-client --no-verify http://10.0.3.2:4433/${download} "
       + "--cc-algorithm ${congestion} "
       + "--idle-timeout ${maxIdleTimeout} "
+      + " --saved-params saved-params-client.csv "
       + "--logging-file ${loggingName}"
     else
       "tokio-client --no-verify http://10.0.3.2:4433/10MB "
       + "--cc-algorithm ${congestion} "
       + "--idle-timeout ${maxIdleTimeout} "
+      + " --saved-params saved-params-client.csv "
       + "--logging-file ${loggingName}";
 
   mkServerCmd = loggingName:
@@ -39,6 +41,7 @@ let
       + "--key ${inputs'.test-certs.packages.default}/cert.key "
       + "--cc-algorithm ${congestion} "
       + "--idle-timeout ${maxIdleTimeout} "
+      + " --saved-params saved-params-server.csv "
       + "--logging-file ${loggingName}"
     else
       "tokio-server --listen 10.0.3.2:4433 "
@@ -47,6 +50,7 @@ let
       + "--cert ${inputs'.test-certs.packages.default}/cert.crt "
       + "--key ${inputs'.test-certs.packages.default}/cert.key "
       + "--cc-algorithm ${congestion} "
+      + " --saved-params saved-params-server.csv "
       + "--logging-file ${loggingName}";
   outageStart =
     if outageType == "none" then
@@ -57,8 +61,7 @@ let
   inherit workDir;
   arp = false;
   arpPrefill = true;
-  #testbedPackages = with pkgs; [ iputils bash coreutils iproute2 util-linuxMinimal busybox-mini];
-  #testbedPackages = pkgs.lib.mkOptionDefault [ iputils bash coreutils iproute2 ];
+
   nodePackages = with pkgs; [
     inputs'.quiche.packages.default
     coreutils
@@ -104,7 +107,9 @@ let
           exec = 
           if carefulResume then 
             ''
-              ${mkClientCmd "${name}-client-baseline.csv"} CAREFUL_RESUME=true ${mkClientCmd "${name}-client-cr.csv"}
+              ${mkClientCmd "${name}-client-baseline.csv"} 
+              CAREFUL_RESUME=true 
+              ${mkClientCmd "${name}-client-cr.csv"}
             ''
           else
             ''
@@ -144,7 +149,9 @@ let
         scripts.main.exec =
         if carefulResume then 
           ''
-             ${mkServerCmd "${name}-server-baseline.csv"} CAREFUL_RESUME=true ${mkServerCmd "${name}-server-cr.csv"}
+             ${mkServerCmd "${name}-server-baseline.csv"} 
+             CAREFUL_RESUME=true 
+             ${mkServerCmd "${name}-server-cr.csv"}
           ''
         else
           ''
@@ -158,8 +165,8 @@ let
       exec = 
         if outageType!="none" then
         ''
-        down() { ip netns exec "$1" ip link set "$2" down; }
-        up()   { ip netns exec "$1" ip link set "$2" up; }
+        down() { jail enter "$1" ip link set "$2" down; }
+        up()   { jail enter "$1" ip link set "$2" up; }
         outageStart=(${builtins.concatStringsSep " " (map toString outageStart)})
 
         for ((i=0; i<${toString outageAmount}; i++)); do
@@ -176,18 +183,18 @@ let
         up server eth1
         up server eth2
         _MAC=$(ip netns exec server cat /sys/class/net/eth1/address)
-        ip -n client neigh add 10.0.1.2 lladdr "$_MAC" dev eth1
-        ip -n client neigh add 10.0.3.2 lladdr "$_MAC" dev eth1
+        jail enter client neigh add 10.0.1.2 lladdr "$_MAC" dev eth1
+        jail enter client neigh add 10.0.3.2 lladdr "$_MAC" dev eth1
         _MAC=$(ip netns exec client cat /sys/class/net/eth1/address)
-        ip -n server neigh add 10.0.1.1 lladdr "$_MAC" dev eth1
+        jail enter server neigh add 10.0.1.1 lladdr "$_MAC" dev eth1
         _MAC=$(ip netns exec server cat /sys/class/net/eth2/address)
-        ip -n client neigh add 10.0.2.2 lladdr "$_MAC" dev eth2
-        ip -n client neigh add 10.0.3.2 lladdr "$_MAC" dev eth2
+        jail enter client neigh add 10.0.2.2 lladdr "$_MAC" dev eth2
+        jail enter client neigh add 10.0.3.2 lladdr "$_MAC" dev eth2
         _MAC=$(ip netns exec client cat /sys/class/net/eth2/address)
-        ip -n server neigh add 10.0.2.1 lladdr "$_MAC" dev eth2
+        jail enter server neigh add 10.0.2.1 lladdr "$_MAC" dev eth2
 
-	      ip -n client route add 10.0.3.0/24 via 10.0.1.2 dev eth1 metric 100
-	      ip -n client route add 10.0.3.0/24 via 10.0.2.2 dev eth2 metric 200
+	      jail enter client route add 10.0.3.0/24 via 10.0.1.2 dev eth1 metric 100
+	      jail enter client route add 10.0.3.0/24 via 10.0.2.2 dev eth2 metric 200
         done
       ''
         else '''';

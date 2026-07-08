@@ -29,9 +29,6 @@
             configFiles
         );
       
-      steadyConfig=./experiments/single-outage-steady.json;
-      slowstartConfig=./experiments/single-outage-slow-start.json;
-
 
       evaluationDetailFields = [
         "displayFunction"
@@ -135,27 +132,37 @@
           packages.singleOutageSteadyExperiments =
             mkExperimentRunner {
               name = "singleOutageSteadyExperiments";
-              config=(builtins.fromJSON(builtins.readFile steadyConfig));
+              config=(builtins.fromJSON(builtins.readFile ./experiments/single-outage-steady.json));
             };
           
 
           packages.singleOutageSlowstartExperiments =
             mkExperimentRunner {
               name = "singleOutageSlowstartExperiments";
-              config=(builtins.fromJSON(builtins.readFile slowstartConfig));
+              config=(builtins.fromJSON(builtins.readFile ./experiments/single-outage-slow-start.json));
             };
 
           packages.twoOutagesSteadyExperiments =
             mkExperimentRunner {
               name = "twoOutagesSteadyExperiments";
-              config=(builtins.fromJSON(builtins.readFile steadyConfig));
+              config=(builtins.fromJSON(builtins.readFile ./experiments/two-outages-steady.json));
             };
           
           packages.twoOutagesSlowstartExperiments =
             mkExperimentRunner {
               name = "twoOutagesSlowstartExperiments";
-              config=(builtins.fromJSON(builtins.readFile slowstartConfig));
+              config=(builtins.fromJSON(builtins.readFile ./experiments/two-outages-slow-start.json));
             };
+          packages.carefulResumeExperiments =
+             mkExperimentRunner {
+              name = "carefulResume";
+              config=(builtins.fromJSON(builtins.readFile ./experiments/careful-resume.json));
+            };
+            
           };
+
+          
+
+
     };
 }
