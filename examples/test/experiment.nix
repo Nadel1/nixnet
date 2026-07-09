@@ -52,12 +52,18 @@ let
       + "--cc-algorithm ${congestion} "
       + " --saved-params saved-params-server.csv "
       + "--logging-file ${loggingName}";
+  clientBaseline = mkClientCmd "${name}-client-baseline.csv";
+  clientCR = "CAREFUL_RESUME=true ${mkClientCmd "${name}-client-cr.csv"}";
+  
+  serverBaseline = mkServerCmd "${name}-server-baseline.csv";
+  serverCR = "CAREFUL_RESUME=true ${mkServerCmd "${name}-server-cr.csv"}";
   outageStart =
     if outageType == "none" then
       []
     else
       outagesConfig.${outageType}.${implementation}.${congestion}."delay-${toString delayMs}";
   ip = "${pkgs.iproute2}/bin/ip"; #used for jail
+  bash = "${pkgs.bash}/bin/bash";
   config = {
   inherit workDir;
   arp = false;
@@ -103,22 +109,6 @@ let
           };
         };
 
-        scripts.main = {
-          exec = 
-          if carefulResume then 
-            ''
-              ${mkClientCmd "${name}-client-baseline.csv"} 
-              CAREFUL_RESUME=true 
-              ${mkClientCmd "${name}-client-cr.csv"}
-            ''
-          else
-            ''
-              ${mkClientCmd "${name}-client.csv"}
-            '';
-          await = true;
-        };
-
-        workDir = "./client";
       };
 
       server = {
@@ -145,68 +135,131 @@ let
             }
           ];
         };
-
-        scripts.main.exec =
-        if carefulResume then 
-          ''
-             ${mkServerCmd "${name}-server-baseline.csv"} 
-             CAREFUL_RESUME=true 
-             ${mkServerCmd "${name}-server-cr.csv"}
-          ''
-        else
-          ''
-            ${mkServerCmd "${name}-server.csv"}
-          '';
-        workDir = "./server";
       };
     };
-    scripts.main = {
-      exec = 
-        if outageType!="none" then
-        ''
-        down() { jail enter "$1" ${ip} link set "$2" down; }
-        up()   { jail enter "$1" ${ip} link set "$2" up; }
+
+  scripts.main = {
+  exec =
+    ''
+    ${if outageType != "none" then ''
+      down() { jail enter "$1" ${ip} link set "$2" down; }
+      up()   { jail enter "$1" ${ip} link set "$2" up; }
+
+      outages() {
         outageStart=(${builtins.concatStringsSep " " (map toString outageStart)})
 
         for ((i=0; i<${toString outageAmount}; i++)); do
-        sleep ''${outageStart[$i]}
-        echo "Outage start"
-        jail enter client echo $PATH
-        jail enter server echo $PATH
-        down client eth1
-        down client eth2
-        down server eth1
-        down server eth2
-        sleep ${toString outageDuration}
-        echo "Outage end"
-        up client eth1
-        up client eth2
-        up server eth1
-        up server eth2
-        jail enter client ls -l /sys/class/net
-        jail enter client ${ip} link
+          sleep ''${outageStart[$i]}
+          echo "Outage start"
 
-        _MAC=$(jail enter server ${ip} link show dev eth1 | sed -n 's/.*link\/ether \([0-9a-f:]*\).*/\1/p')
-        jail enter client ${ip} neigh add 10.0.1.2 lladdr "$_MAC" dev eth1
-        jail enter client ${ip} neigh add 10.0.3.2 lladdr "$_MAC" dev eth1
-        
-        _MAC=$(jail enter client ${ip} link show dev eth1 | sed -n 's/.*link\/ether \([0-9a-f:]*\).*/\1/p')
-        jail enter server ${ip} neigh add 10.0.1.1 lladdr "$_MAC" dev eth1
-        _MAC=$(jail enter server ${ip} link show dev eth2 | sed -n 's/.*link\/ether \([0-9a-f:]*\).*/\1/p')
-        jail enter client ${ip} neigh add 10.0.2.2 lladdr "$_MAC" dev eth2
-        jail enter client ${ip} neigh add 10.0.3.2 lladdr "$_MAC" dev eth2
+          down client eth1
+          down client eth2
+          down server eth1
+          down server eth2
 
-        _MAC=$(jail enter client ${ip} link show dev eth2 | sed -n 's/.*link\/ether \([0-9a-f:]*\).*/\1/p')
-        jail enter server ${ip} neigh add 10.0.2.1 lladdr "$_MAC" dev eth2
+          sleep ${toString outageDuration}
 
-	      jail enter client ${ip} route add 10.0.3.0/24 via 10.0.1.2 dev eth1 metric 100
-	      jail enter client ${ip} route add 10.0.3.0/24 via 10.0.2.2 dev eth2 metric 200
+          echo "Outage end"
 
+          up client eth1
+          up client eth2
+          up server eth1
+          up server eth2
+
+          _MAC=$(jail enter server ${ip} link show dev eth1 | sed -n 's/.*link\/ether \([0-9a-f:]*\).*/\1/p')
+          jail enter client ${ip} neigh add 10.0.1.2 lladdr "$_MAC" dev eth1
+          jail enter client ${ip} neigh add 10.0.3.2 lladdr "$_MAC" dev eth1
+
+          _MAC=$(jail enter client ${ip} link show dev eth1 | sed -n 's/.*link\/ether \([0-9a-f:]*\).*/\1/p')
+          jail enter server ${ip} neigh add 10.0.1.1 lladdr "$_MAC" dev eth1
+
+          _MAC=$(jail enter server ${ip} link show dev eth2 | sed -n 's/.*link\/ether \([0-9a-f:]*\).*/\1/p')
+          jail enter client ${ip} neigh add 10.0.2.2 lladdr "$_MAC" dev eth2
+          jail enter client ${ip} neigh add 10.0.3.2 lladdr "$_MAC" dev eth2
+
+          _MAC=$(jail enter client ${ip} link show dev eth2 | sed -n 's/.*link\/ether \([0-9a-f:]*\).*/\1/p')
+          jail enter server ${ip} neigh add 10.0.2.1 lladdr "$_MAC" dev eth2
+
+          jail enter client ${ip} route add 10.0.3.0/24 via 10.0.1.2 dev eth1 metric 100
+          jail enter client ${ip} route add 10.0.3.0/24 via 10.0.2.2 dev eth2 metric 200
         done
-      ''
-        else '''';
-      
-    };
+      }
+
+      outages &
+      OUTAGE_PID=$!
+    '' else ''
+      OUTAGE_PID=""
+    ''}
+
+    ${if carefulResume then ''
+      echo "Starting baseline server"
+
+      jail enter server ${bash} -c '
+        cd /server
+        ${mkServerCmd "${name}-server-baseline.csv"}
+      ' &
+      SERVER_PID=$!
+
+      sleep 2
+
+      echo "Starting baseline client"
+      jail enter client ${bash} -c '
+        cd /client
+        ${mkClientCmd "${name}-client-baseline.csv"}
+      '
+
+      echo "Stopping baseline server"
+      kill $SERVER_PID
+      wait $SERVER_PID || true
+
+
+      echo "Starting careful resume server"
+
+      jail enter server ${bash} -c '
+        cd /server
+        CAREFUL_RESUME=true ${mkServerCmd "${name}-server-cr.csv"}
+      ' &
+      SERVER_PID=$!
+
+      sleep 2
+
+      echo "Starting careful resume client"
+      jail enter client ${bash} -c '
+        cd /client
+        CAREFUL_RESUME=true ${mkClientCmd "${name}-client-cr.csv"}
+      '
+
+      kill $SERVER_PID
+      wait $SERVER_PID || true
+    '' else ''
+      echo "Starting server"
+
+      jail enter server ${bash} -c '
+        cd /server
+        ${mkServerCmd "${name}-server.csv"}
+      ' &
+      SERVER_PID=$!
+
+      sleep 2
+
+      echo "Starting client"
+
+      jail enter client ${bash} -c '
+        cd /client
+        ${mkClientCmd "${name}-client.csv"}
+      '
+
+      kill $SERVER_PID
+      wait $SERVER_PID || true
+    ''}
+
+    ${if outageType != "none" then ''
+      wait $OUTAGE_PID
+    '' else ''
+    ''};
+    '';
+    
+  };
 
     veths.eth1 = {
       arpPrefill = true;
@@ -240,7 +293,7 @@ let
       b.node = "server";
     };
   };
-
+  
 in
 {
   # main experiment output
