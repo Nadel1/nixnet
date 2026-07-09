@@ -57,6 +57,7 @@ let
       []
     else
       outagesConfig.${outageType}.${implementation}.${congestion}."delay-${toString delayMs}";
+  ip = "${pkgs.iproute2}/bin/ip"; #used for jail
   config = {
   inherit workDir;
   arp = false;
@@ -163,8 +164,8 @@ let
       exec = 
         if outageType!="none" then
         ''
-        down() { jail enter "$1" ip link set "$2" down; }
-        up()   { jail enter "$1" ip link set "$2" up; }
+        down() { jail enter "$1" ${ip} link set "$2" down; }
+        up()   { jail enter "$1" ${ip} link set "$2" up; }
         outageStart=(${builtins.concatStringsSep " " (map toString outageStart)})
 
         for ((i=0; i<${toString outageAmount}; i++)); do
@@ -172,10 +173,34 @@ let
         echo "Outage start"
         jail enter client echo $PATH
         jail enter server echo $PATH
-        jail enter client ip link set eth1 down
-        jail enter client ip link set eth2 down
-        jail enter server ip link set eth1 down
-        jail enter server ip link set eth2 down
+        down client eth1
+        down client eth2
+        down server eth1
+        down server eth2
+        sleep ${toString outageDuration}
+        echo "Outage end"
+        up client eth1
+        up client eth2
+        up server eth1
+        up server eth2
+        jail enter client ls -l /sys/class/net
+        jail enter client ${ip} link
+
+        _MAC=$(jail enter server ${ip} link show dev eth1 | sed -n 's/.*link\/ether \([0-9a-f:]*\).*/\1/p')
+        jail enter client ${ip} neigh add 10.0.1.2 lladdr "$_MAC" dev eth1
+        jail enter client ${ip} neigh add 10.0.3.2 lladdr "$_MAC" dev eth1
+        
+        _MAC=$(jail enter client ${ip} link show dev eth1 | sed -n 's/.*link\/ether \([0-9a-f:]*\).*/\1/p')
+        jail enter server ${ip} neigh add 10.0.1.1 lladdr "$_MAC" dev eth1
+        _MAC=$(jail enter server ${ip} link show dev eth2 | sed -n 's/.*link\/ether \([0-9a-f:]*\).*/\1/p')
+        jail enter client ${ip} neigh add 10.0.2.2 lladdr "$_MAC" dev eth2
+        jail enter client ${ip} neigh add 10.0.3.2 lladdr "$_MAC" dev eth2
+
+        _MAC=$(jail enter client ${ip} link show dev eth2 | sed -n 's/.*link\/ether \([0-9a-f:]*\).*/\1/p')
+        jail enter server ${ip} neigh add 10.0.2.1 lladdr "$_MAC" dev eth2
+
+	      jail enter client ${ip} route add 10.0.3.0/24 via 10.0.1.2 dev eth1 metric 100
+	      jail enter client ${ip} route add 10.0.3.0/24 via 10.0.2.2 dev eth2 metric 200
 
         done
       ''
