@@ -186,6 +186,7 @@ let
       }
 
       outages &
+      echo "Started outages"
       OUTAGE_PID=$!
     '' else ''
       OUTAGE_PID=""
@@ -235,31 +236,40 @@ let
       echo "Starting server"
 
       jail enter server ${bash} -c '
-        cd /server
+        mkdir server
+        cd server
         ${mkServerCmd "${name}-server.csv"}
       ' &
       SERVER_PID=$!
+      echo "Server_PID: $SERVER_PID"
 
       sleep 2
 
-      echo "Starting client"
+      echo "Starting client here"
 
       jail enter client ${bash} -c '
-        cd /client
-        ${mkClientCmd "${name}-client.csv"}
-      '
+        mkdir client
+        cd client
+        ${mkClientCmd "${name}-client.csv"}&
+        CLIENT_PID=$!
 
+        wait $CLIENT_PID
+
+      '
       kill $SERVER_PID
       wait $SERVER_PID || true
     ''}
 
     ${if outageType != "none" then ''
+      echo "Killed outages"
       wait $OUTAGE_PID
     '' else ''
     ''};
     '';
     
+  await = true;
   };
+
 
     veths.eth1 = {
       arpPrefill = true;
