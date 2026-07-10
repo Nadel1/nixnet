@@ -5,11 +5,11 @@
         "nixpkgs-lib": "nixpkgs-lib"
       },
       "locked": {
-        "lastModified": 1778716662,
-        "narHash": "sha256-m1Yf0wZ8j1OHjTc2UwHwyQRSnNeSgLJOd7q5Y45hzi4=",
+        "lastModified": 1782949081,
+        "narHash": "sha256-vp6Y/Grm98ESt6ceOkWiHWyZRDV3J1RID4w+6NWK9yA=",
         "owner": "hercules-ci",
         "repo": "flake-parts",
-        "rev": "f7c1a2d347e4c52d5fb8d10cb4d94b5884e546fb",
+        "rev": "17c9d6cdfc60c64f4ee8d306f9bc0b4ccb51481e",
         "type": "github"
       },
       "original": {
@@ -78,11 +78,11 @@
         "nixpkgs": "nixpkgs"
       },
       "locked": {
-        "lastModified": 1782892794,
-        "narHash": "sha256-0v3sh+ZfCEfq2z+lTgKrb19L7CnUzYqDPKXzOJYqPC8=",
+        "lastModified": 1783526770,
+        "narHash": "sha256-MkNJImrinRhJVRiyCNOgPh1Gv/TMQU8Be6+E5eDEgkQ=",
         "owner": "birneee",
         "repo": "nixnet",
-        "rev": "6f7a868c539fb60a1e0c5724c1cae1b3c118e232",
+        "rev": "4860c887ca38eae5cd8bd59a0c4e344bec21b478",
         "type": "github"
       },
       "original": {
@@ -109,11 +109,11 @@
     },
     "nixpkgs-lib": {
       "locked": {
-        "lastModified": 1777168982,
-        "narHash": "sha256-GOkGPcboWE9BmGCRMLX3worL4EMnsnG8MyKmXNeYuhQ=",
+        "lastModified": 1782614948,
+        "narHash": "sha256-ePjCwr1sNm9NYUqywL7QfK3JnlS015msC+eBu2zKlp8=",
         "owner": "nix-community",
         "repo": "nixpkgs.lib",
-        "rev": "f5901329dade4a6ea039af1433fb087bd9c1fe14",
+        "rev": "db3f255737b94216eb71cce308e2912cf6bc2d7c",
         "type": "github"
       },
       "original": {
@@ -139,11 +139,11 @@
     },
     "nixpkgs_2": {
       "locked": {
-        "lastModified": 1782723713,
-        "narHash": "sha256-oPXCU/SSUokcGaJREHibG1CBX3+s/W7orDWQOZDsEeQ=",
+        "lastModified": 1783224372,
+        "narHash": "sha256-8i/87eeoqiGE4yOTjwSA3Eh/ziJRQEmd/unYU+K27sk=",
         "owner": "NixOS",
         "repo": "nixpkgs",
-        "rev": "b5aa0fbd538984f6e3d201be0005b4463d8b09f8",
+        "rev": "d407951447dcd00442e97087bf374aad70c04cea",
         "type": "github"
       },
       "original": {
@@ -208,11 +208,11 @@
         "rust-overlay": "rust-overlay"
       },
       "locked": {
-        "lastModified": 1783516521,
-        "narHash": "sha256-er5I0NFCpqyExwSkM8q/wUK7gidoe3NXZ/RdVAVzZqM=",
+        "lastModified": 1783608456,
+        "narHash": "sha256-+WtRHCBOSK4mM4cnPH6UOjmTxWTtYLfSPdAmYgOg130=",
         "ref": "further-research-plateau",
-        "rev": "e3f2e60f8ed8da35b345643d6e9eb217930eda09",
-        "revCount": 2412,
+        "rev": "873747afcc7d1ec5274bb04d1e4c94c17949f6cc",
+        "revCount": 2414,
         "submodules": true,
         "type": "git",
         "url": "https://github.com/Nadel1/quiche"
