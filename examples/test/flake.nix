@@ -5,6 +5,7 @@
     nixnet.url = "github:birneee/nixnet";
     test-certs.url = "github:Nadel1/test-certs";
     quiche.url = "git+https://github.com/Nadel1/quiche?ref=further-research-plateau";
+    quinn.url = "git+https://github.com/Nadel1/quinn/?ref=further-research";
   };
 
   outputs = inputs@{ flake-parts, ... }:

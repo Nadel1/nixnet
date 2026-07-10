@@ -27,10 +27,9 @@ let
       + " --saved-params saved-params-client.csv "
       + "--logging-file ${loggingName}"
     else
-      "tokio-client --no-verify http://10.0.3.2:4433/10MB "
-      + "--cc-algorithm ${congestion} "
+      "quinn-client http://10.0.3.2:4433/${download}  "
+      + "--congestion-control ${congestion} "
       + "--idle-timeout ${maxIdleTimeout} "
-      + " --saved-params saved-params-client.csv "
       + "--logging-file ${loggingName}";
 
   mkServerCmd = loggingName:
@@ -44,13 +43,9 @@ let
       + " --saved-params saved-params-server.csv "
       + "--logging-file ${loggingName}"
     else
-      "tokio-server --listen 10.0.3.2:4433 "
-      + "--root ./ "
+      "quinn-server ./ --listen 10.0.3.2:4433 "
       + "--idle-timeout ${maxIdleTimeout} "
-      + "--cert ${inputs'.test-certs.packages.default}/cert.crt "
-      + "--key ${inputs'.test-certs.packages.default}/cert.key "
-      + "--cc-algorithm ${congestion} "
-      + " --saved-params saved-params-server.csv "
+      + "--congestion-control ${congestion} "
       + "--logging-file ${loggingName}";
   clientBaseline = mkClientCmd "${name}-client-baseline.csv";
   clientCR = "CAREFUL_RESUME=true ${mkClientCmd "${name}-client-cr.csv"}";
@@ -70,6 +65,7 @@ let
   arpPrefill = true;
   nodePackages = with pkgs; [
       inputs'.quiche.packages.default
+      inputs'.quinn.packages.default
       coreutils
       iputils
     ];
