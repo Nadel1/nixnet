@@ -3,7 +3,7 @@
         {
             "name": "quiche-rtt_1s-rate_25Mbps-download_1GB-loss_0-outageDuration_0-outageAmount_0-outageType_None-bbr2-cr",
             "implementation": "quiche",
-            "congestion": "bbr2-cr",
+            "congestion": "bbr2",
             "download": "1MB",
             "rateMbit": 25,
             "delayMs": 500,
@@ -15,7 +15,7 @@
         {
             "name": "quiche-rtt_3s-rate_25Mbps-download_1GB-loss_0-outageDuration_0-outageAmount_0-outageType_None-bbr2-cr",
             "implementation": "quiche",
-            "congestion": "bbr2-cr",
+            "congestion": "bbr2",
             "download": "1MB",
             "rateMbit": 25,
             "delayMs": 1500,
@@ -27,7 +27,7 @@
         {
             "name": "quiche-rtt_6s-rate_25Mbps-download_1GB-loss_0-outageDuration_0-outageAmount_0-outageType_None-bbr2-cr",
             "implementation": "quiche",
-            "congestion": "bbr2-cr",
+            "congestion": "bbr2",
             "download": "1MB",
             "rateMbit": 25,
             "delayMs": 3000,
@@ -39,7 +39,7 @@
         {
             "name": "quiche-rtt_1s-rate_25Mbps-download_1GB-loss_0-outageDuration_0-outageAmount_0-outageType_None-cubic-cr",
             "implementation": "quiche",
-            "congestion": "cubic-cr",
+            "congestion": "cubic",
             "download": "1MB",
             "rateMbit": 25,
             "delayMs": 500,
@@ -51,7 +51,7 @@
         {
             "name": "quiche-rtt_3s-rate_25Mbps-download_1GB-loss_0-outageDuration_0-outageAmount_0-outageType_None-cubic-cr",
             "implementation": "quiche",
-            "congestion": "cubic-cr",
+            "congestion": "cubic",
             "download": "1MB",
             "rateMbit": 25,
             "delayMs": 1500,
@@ -63,7 +63,7 @@
         {
             "name": "quiche-rtt_6s-rate_25Mbps-download_1GB-loss_0-outageDuration_0-outageAmount_0-outageType_None-cubic-cr",
             "implementation": "quiche",
-            "congestion": "cubic-cr",
+            "congestion": "cubic",
             "download": "1MB",
             "rateMbit": 25,
             "delayMs": 3000,

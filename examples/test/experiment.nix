@@ -196,16 +196,18 @@ let
       echo "Starting baseline server"
 
       jail enter server ${bash} -c '
-        cd /server
+        mkdir server
+        cd server
         ${mkServerCmd "${name}-server-baseline.csv"}
       ' &
       SERVER_PID=$!
 
-      sleep 2
+      sleep 1
 
       echo "Starting baseline client"
       jail enter client ${bash} -c '
-        cd /client
+        mkdir client
+        cd client
         ${mkClientCmd "${name}-client-baseline.csv"}
       '
 
@@ -217,16 +219,16 @@ let
       echo "Starting careful resume server"
 
       jail enter server ${bash} -c '
-        cd /server
+        cd server
         CAREFUL_RESUME=true ${mkServerCmd "${name}-server-cr.csv"}
       ' &
       SERVER_PID=$!
 
-      sleep 2
+      sleep 1
 
       echo "Starting careful resume client"
       jail enter client ${bash} -c '
-        cd /client
+        cd client
         CAREFUL_RESUME=true ${mkClientCmd "${name}-client-cr.csv"}
       '
 
@@ -243,7 +245,7 @@ let
       SERVER_PID=$!
       echo "Server_PID: $SERVER_PID"
 
-      sleep 2
+      sleep 1
 
       echo "Starting client here"
 
@@ -251,11 +253,10 @@ let
         mkdir client
         cd client
         ${mkClientCmd "${name}-client.csv"}&
-        CLIENT_PID=$!
-
-        wait $CLIENT_PID
-
+        
       '
+      CLIENT_PID=$!
+      wait $CLIENT_PID
       kill $SERVER_PID
       wait $SERVER_PID || true
     ''}
@@ -263,8 +264,7 @@ let
     ${if outageType != "none" then ''
       echo "Killed outages"
       wait $OUTAGE_PID
-    '' else ''
-    ''};
+    '' else ''''}
     '';
     
   await = true;
