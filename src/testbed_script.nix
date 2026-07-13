@@ -591,9 +591,9 @@ sleepCommandOutageEnd = lib.mapAttrsToList (
 
     echo "testbed| network topology set up"
 
-    ${runPhaseSections}'';
+    ${runPhaseSections};
 
-    ${outage};
+    ${outage}'';
 
 in
 {
