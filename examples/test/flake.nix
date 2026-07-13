@@ -2,7 +2,7 @@
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
     flake-parts.url = "github:hercules-ci/flake-parts";
-    nixnet.url = "github:birneee/nixnet";
+    nixnet.url = "github:Nadel1/nixnet?ref=workbench-integration";
     test-certs.url = "github:Nadel1/test-certs";
     quiche.url = "git+https://github.com/Nadel1/quiche?ref=further-research-plateau";
     quinn.url = "git+https://github.com/Nadel1/quinn/?ref=further-research";

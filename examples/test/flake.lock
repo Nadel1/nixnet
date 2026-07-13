@@ -96,15 +96,16 @@
         "nixpkgs": "nixpkgs"
       },
       "locked": {
-        "lastModified": 1783526770,
-        "narHash": "sha256-MkNJImrinRhJVRiyCNOgPh1Gv/TMQU8Be6+E5eDEgkQ=",
-        "owner": "birneee",
+        "lastModified": 1783953766,
+        "narHash": "sha256-2OLc4kI+pfZC6pHl7FI69rckHc9XUfVLV1L2ocJ+xkY=",
+        "owner": "Nadel1",
         "repo": "nixnet",
-        "rev": "4860c887ca38eae5cd8bd59a0c4e344bec21b478",
+        "rev": "953a6252a12d9189ee80a0b5cc63bb992b5ab513",
         "type": "github"
       },
       "original": {
-        "owner": "birneee",
+        "owner": "Nadel1",
+        "ref": "workbench-integration",
         "repo": "nixnet",
         "type": "github"
       }
