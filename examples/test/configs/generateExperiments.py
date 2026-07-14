@@ -3,6 +3,20 @@ import itertools
 import sys
 
 
+PARAMETER_INDICES = {
+    "implementation": 0,
+    "congestion": 1,
+    "delayMs": 2,
+    "rateMbit": 4,
+    "download": 6,
+    "lossPercent": 8,
+    "outageType": 14,
+    "ackThresholds": 15,   # if you append these to the name
+    "ackDelay": 17         # if you append these to the name
+}
+
+
+
 def resolve_ack_delay(value, delay):
     """Resolve delay expressions into numeric values."""
     if isinstance(value, int):
@@ -35,7 +49,7 @@ def create_name(exp):
 
 
 def generateExperiments(config):
-    keys = [
+    experimentKeys = [
         "implementation",
         "congestion",
         "download",
@@ -48,12 +62,16 @@ def generateExperiments(config):
         "ackDelays",
     ]
 
+    evaluationKey = [
+        "evaluationParams"
+    ]
+
     experiments = []
 
-    values = [config[key] for key in keys]
+    experimentValues = [config[experimentKey] for experimentKey in experimentKeys]
 
-    for combination in itertools.product(*values):
-        exp = dict(zip(keys, combination))
+    for combination in itertools.product(*experimentValues):
+        exp = dict(zip(experimentKeys, combination))
 
         exp["ackDelay"] = resolve_ack_delay(
             exp.pop("ackDelays"),
@@ -64,7 +82,39 @@ def generateExperiments(config):
 
         experiments.append(exp)
 
-    return {"experiments": experiments}
+    sortingBuckets = []
+
+    for parameter, index in PARAMETER_INDICES.items():
+        if parameter == "ackDelay":
+            bucket = len(config["ackDelays"])
+        elif parameter == "ackThresholds":
+            bucket = len(config["ackThresholds"])
+        else:
+            bucket = len(config[parameter])
+
+        sortingBuckets.append({
+            "bucket": bucket,
+            "indices": [index]
+        })
+    evaluations = []
+  
+    evaluationValues = config["evaluationParams"] 
+    for e in evaluationValues:
+        evaluations.append(e)
+   
+    
+
+    result = {
+        "experiments": experiments,
+        "evaluations": [
+            {
+                "name": "evaluationParams",
+                "sortingBucketsAndIndices": sortingBuckets,
+                "evaluationDetails": evaluations
+            }
+        ]
+    }
+    return result
 
 
 if __name__ == "__main__":
