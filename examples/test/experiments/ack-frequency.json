@@ -3276,5 +3276,79 @@
             "ackDelay": 24000,
             "name": "quinn-cubic_3000ms-rate_25Mbps-download_1GB-loss_0-outageDuration_0-outageAmount_0-outageType_none-cubic"
         }
+    ],
+    "evaluations": [
+        {
+            "name": "evaluationParams",
+            "sortingBucketsAndIndices": [
+                {
+                    "bucket": 1,
+                    "indices": [
+                        0
+                    ]
+                },
+                {
+                    "bucket": 2,
+                    "indices": [
+                        1
+                    ]
+                },
+                {
+                    "bucket": 3,
+                    "indices": [
+                        2
+                    ]
+                },
+                {
+                    "bucket": 1,
+                    "indices": [
+                        4
+                    ]
+                },
+                {
+                    "bucket": 1,
+                    "indices": [
+                        6
+                    ]
+                },
+                {
+                    "bucket": 1,
+                    "indices": [
+                        8
+                    ]
+                },
+                {
+                    "bucket": 1,
+                    "indices": [
+                        14
+                    ]
+                },
+                {
+                    "bucket": 6,
+                    "indices": [
+                        15
+                    ]
+                },
+                {
+                    "bucket": 7,
+                    "indices": [
+                        17
+                    ]
+                }
+            ],
+            "evaluationDetails": [
+                {
+                    "name": "evaluationParams",
+                    "evaluationDetails": {
+                        "displayFunction": "displayHeatmapCumulative",
+                        "evaluationFunction": "calculateCumulativeDataOverTime",
+                        "dataIndex": "3",
+                        "colorBarName": "Throughput [Bps]",
+                        "relevantEndpoint": "client",
+                        "relevantFileEnding": "csv"
+                    }
+                }
+            ]
+        }
     ]
 }

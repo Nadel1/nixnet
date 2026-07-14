@@ -159,6 +159,11 @@
               name = "carefulResume";
               config=(builtins.fromJSON(builtins.readFile ./experiments/careful-resume.json));
             };
+          packages.ackFrequencyExperiments =
+             mkExperimentRunner {
+              name = "ackFrequency";
+              config=(builtins.fromJSON(builtins.readFile ./experiments/ack-frequency.json));
+            };
             
           };
 

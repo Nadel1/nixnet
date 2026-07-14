@@ -58,8 +58,8 @@ def generateExperiments(config):
         "lossPercent",
         "outageType",
         "maxIdleTimeout",
-        "ackThresholds",
-        "ackDelays",
+        "ackThreshold",
+        "ackDelay",
     ]
 
     evaluationKey = [
