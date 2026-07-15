@@ -11,13 +11,13 @@ let
   congestion = experiment.congestion;
   implementation = experiment.implementation;
   download = experiment.download;
-  maxIdleTimeout=experiment.maxIdleTimeout;
+  maxIdleTimeout=toString experiment.maxIdleTimeout;
   outageDuration = if experiment?"outageDuration" then experiment.outageDuration else "0";
   outageAmount = if experiment?"outageAmount" then experiment.outageAmount else "0";
   outageType = if experiment?"outageType" then experiment.outageType else "None";
   carefulResume = if experiment?"carefulResume" then true else false;
-  ackThreshold = if experiment?"ackThreshold" then experiment.ackThreshold else "2";#2 is the default, see rfc9000
-  ackDelay = if experiment? "ackDelay" then experiment.ackDelay else "25";#25 ms is the default, see "max_ack_delay" in rfc9000
+  ackThreshold = if experiment?"ackThreshold" then toString experiment.ackThreshold else "2";#2 is the default, see rfc9000
+  ackDelay = if experiment? "ackDelay" then toString experiment.ackDelay else "25";#25 ms is the default, see "max_ack_delay" in rfc9000
   outagesConfig =
     (builtins.fromJSON (builtins.readFile ./outagesConfig.json));
 
@@ -32,8 +32,8 @@ let
       "quinn-client http://10.0.3.2:4433/${download}  "
       + "--congestion-control ${congestion} "
       + "--idle-timeout ${maxIdleTimeout} "
-      + "--ack_eliciting_threshold ${ackThreshold} "
-      + "--requested_max_ack_delay ${ackDelay} "
+      + "--ack-eliciting-threshold ${ackThreshold} "
+      + "--requested-max-ack-delay ${ackDelay} "
       + "--logging-file ${loggingName}";
 
 
@@ -51,8 +51,8 @@ let
       "quinn-server ./ --listen 10.0.3.2:4433 "
       + "--idle-timeout ${maxIdleTimeout} "
       + "--congestion-control ${congestion} "
-      + "--ack_eliciting_threshold ${ackThreshold} "
-      + "--requested_max_ack_delay ${ackDelay} "
+      + "--ack-eliciting-threshold ${ackThreshold} "
+      + "--requested-max-ack-delay ${ackDelay} "
       + "--logging-file ${loggingName}";
   clientBaseline = mkClientCmd "${name}-client-baseline.csv";
   clientCR = "CAREFUL_RESUME=true ${mkClientCmd "${name}-client-cr.csv"}";

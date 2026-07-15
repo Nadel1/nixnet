@@ -58,14 +58,14 @@
             echo "Creating evaluation CSV: ${evaluation.name}.csv"
             echo "${builtins.concatStringsSep "," (builtins.concatLists (builtins.genList
               (i: [
-                "bucket${toString i}"
+                "length${toString i}"
                 "index${toString i}"
               ])
               (builtins.length evaluation.sortingBucketsAndIndices)))}" > ${evaluation.name}.csv
-            echo "${builtins.concatStringsSep "," (builtins.concatLists (map (bucket:
+            echo "${builtins.concatStringsSep "," (builtins.concatLists (map (length:
               [
-                (toString bucket.bucket)
-                "\\\"${builtins.concatStringsSep "," (map toString bucket.indices)}\\\""
+                (toString length.length)
+                (toString length.index)
               ]
             ) evaluation.sortingBucketsAndIndices))}" >> ${evaluation.name}.csv
             echo "${builtins.concatStringsSep "," evaluationDetailFields}" >> ${evaluation.name}.csv
