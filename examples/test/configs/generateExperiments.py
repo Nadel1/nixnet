@@ -11,7 +11,7 @@ PARAMETER_INDICES = {
     "download": 6,
     "lossPercent": 8,
     "outageType": 14,
-    "ackThresholds": 15,   # if you append these to the name
+    "ackThreshold": 15,   # if you append these to the name
     "ackDelay": 17         # if you append these to the name
 }
 
@@ -74,7 +74,7 @@ def generateExperiments(config):
         exp = dict(zip(experimentKeys, combination))
 
         exp["ackDelay"] = resolve_ack_delay(
-            exp.pop("ackDelays"),
+            exp.pop("ackDelay"),
             exp["delayMs"]
         )
 
@@ -86,9 +86,9 @@ def generateExperiments(config):
 
     for parameter, index in PARAMETER_INDICES.items():
         if parameter == "ackDelay":
-            bucket = len(config["ackDelays"])
-        elif parameter == "ackThresholds":
-            bucket = len(config["ackThresholds"])
+            bucket = len(config["ackDelay"])
+        elif parameter == "ackThreshold":
+            bucket = len(config["ackThreshold"])
         else:
             bucket = len(config[parameter])
 
@@ -97,22 +97,19 @@ def generateExperiments(config):
             "indices": [index]
         })
     evaluations = []
-  
+    evaluationDetails = []
     evaluationValues = config["evaluationParams"] 
+    print(f"evaluation values: {evaluationValues}")
     for e in evaluationValues:
+        print(f"e: {e}")
+        e["sortingBucketsAndIndices"] = sortingBuckets
         evaluations.append(e)
    
     
 
     result = {
         "experiments": experiments,
-        "evaluations": [
-            {
-                "name": "evaluationParams",
-                "sortingBucketsAndIndices": sortingBuckets,
-                "evaluationDetails": evaluations
-            }
-        ]
+        "evaluations": evaluations,
     }
     return result
 

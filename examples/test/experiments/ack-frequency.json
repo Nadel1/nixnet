@@ -9,7 +9,7 @@
             "lossPercent": 0,
             "outageType": "none",
             "maxIdleTimeout": 100000,
-            "ackThresholds": 1,
+            "ackThreshold": 1,
             "ackDelay": 25000,
             "name": "quinn-bbr_500ms-rate_25Mbps-download_1GB-loss_0-outageDuration_0-outageAmount_0-outageType_none-bbr"
         },
@@ -22,7 +22,7 @@
             "lossPercent": 0,
             "outageType": "none",
             "maxIdleTimeout": 100000,
-            "ackThresholds": 1,
+            "ackThreshold": 1,
             "ackDelay": 250,
             "name": "quinn-bbr_500ms-rate_25Mbps-download_1GB-loss_0-outageDuration_0-outageAmount_0-outageType_none-bbr"
         },
@@ -35,7 +35,7 @@
             "lossPercent": 0,
             "outageType": "none",
             "maxIdleTimeout": 100000,
-            "ackThresholds": 1,
+            "ackThreshold": 1,
             "ackDelay": 500,
             "name": "quinn-bbr_500ms-rate_25Mbps-download_1GB-loss_0-outageDuration_0-outageAmount_0-outageType_none-bbr"
         },
@@ -48,7 +48,7 @@
             "lossPercent": 0,
             "outageType": "none",
             "maxIdleTimeout": 100000,
-            "ackThresholds": 1,
+            "ackThreshold": 1,
             "ackDelay": 750,
             "name": "quinn-bbr_500ms-rate_25Mbps-download_1GB-loss_0-outageDuration_0-outageAmount_0-outageType_none-bbr"
         },
@@ -61,7 +61,7 @@
             "lossPercent": 0,
             "outageType": "none",
             "maxIdleTimeout": 100000,
-            "ackThresholds": 1,
+            "ackThreshold": 1,
             "ackDelay": 1000,
             "name": "quinn-bbr_500ms-rate_25Mbps-download_1GB-loss_0-outageDuration_0-outageAmount_0-outageType_none-bbr"
         },
@@ -74,7 +74,7 @@
             "lossPercent": 0,
             "outageType": "none",
             "maxIdleTimeout": 100000,
-            "ackThresholds": 1,
+            "ackThreshold": 1,
             "ackDelay": 2000,
             "name": "quinn-bbr_500ms-rate_25Mbps-download_1GB-loss_0-outageDuration_0-outageAmount_0-outageType_none-bbr"
         },
@@ -87,7 +87,7 @@
             "lossPercent": 0,
             "outageType": "none",
             "maxIdleTimeout": 100000,
-            "ackThresholds": 1,
+            "ackThreshold": 1,
             "ackDelay": 4000,
             "name": "quinn-bbr_500ms-rate_25Mbps-download_1GB-loss_0-outageDuration_0-outageAmount_0-outageType_none-bbr"
         },
@@ -100,7 +100,7 @@
             "lossPercent": 0,
             "outageType": "none",
             "maxIdleTimeout": 100000,
-            "ackThresholds": 5,
+            "ackThreshold": 5,
             "ackDelay": 25000,
             "name": "quinn-bbr_500ms-rate_25Mbps-download_1GB-loss_0-outageDuration_0-outageAmount_0-outageType_none-bbr"
         },
@@ -113,7 +113,7 @@
             "lossPercent": 0,
             "outageType": "none",
             "maxIdleTimeout": 100000,
-            "ackThresholds": 5,
+            "ackThreshold": 5,
             "ackDelay": 250,
             "name": "quinn-bbr_500ms-rate_25Mbps-download_1GB-loss_0-outageDuration_0-outageAmount_0-outageType_none-bbr"
         },
@@ -126,7 +126,7 @@
             "lossPercent": 0,
             "outageType": "none",
             "maxIdleTimeout": 100000,
-            "ackThresholds": 5,
+            "ackThreshold": 5,
             "ackDelay": 500,
             "name": "quinn-bbr_500ms-rate_25Mbps-download_1GB-loss_0-outageDuration_0-outageAmount_0-outageType_none-bbr"
         },
@@ -139,7 +139,7 @@
             "lossPercent": 0,
             "outageType": "none",
             "maxIdleTimeout": 100000,
-            "ackThresholds": 5,
+            "ackThreshold": 5,
             "ackDelay": 750,
             "name": "quinn-bbr_500ms-rate_25Mbps-download_1GB-loss_0-outageDuration_0-outageAmount_0-outageType_none-bbr"
         },
@@ -152,7 +152,7 @@
             "lossPercent": 0,
             "outageType": "none",
             "maxIdleTimeout": 100000,
-            "ackThresholds": 5,
+            "ackThreshold": 5,
             "ackDelay": 1000,
             "name": "quinn-bbr_500ms-rate_25Mbps-download_1GB-loss_0-outageDuration_0-outageAmount_0-outageType_none-bbr"
         },
@@ -165,7 +165,7 @@
             "lossPercent": 0,
             "outageType": "none",
             "maxIdleTimeout": 100000,
-            "ackThresholds": 5,
+            "ackThreshold": 5,
             "ackDelay": 2000,
             "name": "quinn-bbr_500ms-rate_25Mbps-download_1GB-loss_0-outageDuration_0-outageAmount_0-outageType_none-bbr"
         },
@@ -178,7 +178,7 @@
             "lossPercent": 0,
             "outageType": "none",
             "maxIdleTimeout": 100000,
-            "ackThresholds": 5,
+            "ackThreshold": 5,
             "ackDelay": 4000,
             "name": "quinn-bbr_500ms-rate_25Mbps-download_1GB-loss_0-outageDuration_0-outageAmount_0-outageType_none-bbr"
         },
@@ -191,7 +191,7 @@
             "lossPercent": 0,
             "outageType": "none",
             "maxIdleTimeout": 100000,
-            "ackThresholds": 9,
+            "ackThreshold": 9,
             "ackDelay": 25000,
             "name": "quinn-bbr_500ms-rate_25Mbps-download_1GB-loss_0-outageDuration_0-outageAmount_0-outageType_none-bbr"
         },
@@ -204,7 +204,7 @@
             "lossPercent": 0,
             "outageType": "none",
             "maxIdleTimeout": 100000,
-            "ackThresholds": 9,
+            "ackThreshold": 9,
             "ackDelay": 250,
             "name": "quinn-bbr_500ms-rate_25Mbps-download_1GB-loss_0-outageDuration_0-outageAmount_0-outageType_none-bbr"
         },
@@ -217,7 +217,7 @@
             "lossPercent": 0,
             "outageType": "none",
             "maxIdleTimeout": 100000,
-            "ackThresholds": 9,
+            "ackThreshold": 9,
             "ackDelay": 500,
             "name": "quinn-bbr_500ms-rate_25Mbps-download_1GB-loss_0-outageDuration_0-outageAmount_0-outageType_none-bbr"
         },
@@ -230,7 +230,7 @@
             "lossPercent": 0,
             "outageType": "none",
             "maxIdleTimeout": 100000,
-            "ackThresholds": 9,
+            "ackThreshold": 9,
             "ackDelay": 750,
             "name": "quinn-bbr_500ms-rate_25Mbps-download_1GB-loss_0-outageDuration_0-outageAmount_0-outageType_none-bbr"
         },
@@ -243,7 +243,7 @@
             "lossPercent": 0,
             "outageType": "none",
             "maxIdleTimeout": 100000,
-            "ackThresholds": 9,
+            "ackThreshold": 9,
             "ackDelay": 1000,
             "name": "quinn-bbr_500ms-rate_25Mbps-download_1GB-loss_0-outageDuration_0-outageAmount_0-outageType_none-bbr"
         },
@@ -256,7 +256,7 @@
             "lossPercent": 0,
             "outageType": "none",
             "maxIdleTimeout": 100000,
-            "ackThresholds": 9,
+            "ackThreshold": 9,
             "ackDelay": 2000,
             "name": "quinn-bbr_500ms-rate_25Mbps-download_1GB-loss_0-outageDuration_0-outageAmount_0-outageType_none-bbr"
         },
@@ -269,7 +269,7 @@
             "lossPercent": 0,
             "outageType": "none",
             "maxIdleTimeout": 100000,
-            "ackThresholds": 9,
+            "ackThreshold": 9,
             "ackDelay": 4000,
             "name": "quinn-bbr_500ms-rate_25Mbps-download_1GB-loss_0-outageDuration_0-outageAmount_0-outageType_none-bbr"
         },
@@ -282,7 +282,7 @@
             "lossPercent": 0,
             "outageType": "none",
             "maxIdleTimeout": 100000,
-            "ackThresholds": 10,
+            "ackThreshold": 10,
             "ackDelay": 25000,
             "name": "quinn-bbr_500ms-rate_25Mbps-download_1GB-loss_0-outageDuration_0-outageAmount_0-outageType_none-bbr"
         },
@@ -295,7 +295,7 @@
             "lossPercent": 0,
             "outageType": "none",
             "maxIdleTimeout": 100000,
-            "ackThresholds": 10,
+            "ackThreshold": 10,
             "ackDelay": 250,
             "name": "quinn-bbr_500ms-rate_25Mbps-download_1GB-loss_0-outageDuration_0-outageAmount_0-outageType_none-bbr"
         },
@@ -308,7 +308,7 @@
             "lossPercent": 0,
             "outageType": "none",
             "maxIdleTimeout": 100000,
-            "ackThresholds": 10,
+            "ackThreshold": 10,
             "ackDelay": 500,
             "name": "quinn-bbr_500ms-rate_25Mbps-download_1GB-loss_0-outageDuration_0-outageAmount_0-outageType_none-bbr"
         },
@@ -321,7 +321,7 @@
             "lossPercent": 0,
             "outageType": "none",
             "maxIdleTimeout": 100000,
-            "ackThresholds": 10,
+            "ackThreshold": 10,
             "ackDelay": 750,
             "name": "quinn-bbr_500ms-rate_25Mbps-download_1GB-loss_0-outageDuration_0-outageAmount_0-outageType_none-bbr"
         },
@@ -334,7 +334,7 @@
             "lossPercent": 0,
             "outageType": "none",
             "maxIdleTimeout": 100000,
-            "ackThresholds": 10,
+            "ackThreshold": 10,
             "ackDelay": 1000,
             "name": "quinn-bbr_500ms-rate_25Mbps-download_1GB-loss_0-outageDuration_0-outageAmount_0-outageType_none-bbr"
         },
@@ -347,7 +347,7 @@
             "lossPercent": 0,
             "outageType": "none",
             "maxIdleTimeout": 100000,
-            "ackThresholds": 10,
+            "ackThreshold": 10,
             "ackDelay": 2000,
             "name": "quinn-bbr_500ms-rate_25Mbps-download_1GB-loss_0-outageDuration_0-outageAmount_0-outageType_none-bbr"
         },
@@ -360,7 +360,7 @@
             "lossPercent": 0,
             "outageType": "none",
             "maxIdleTimeout": 100000,
-            "ackThresholds": 10,
+            "ackThreshold": 10,
             "ackDelay": 4000,
             "name": "quinn-bbr_500ms-rate_25Mbps-download_1GB-loss_0-outageDuration_0-outageAmount_0-outageType_none-bbr"
         },
@@ -373,7 +373,7 @@
             "lossPercent": 0,
             "outageType": "none",
             "maxIdleTimeout": 100000,
-            "ackThresholds": 15,
+            "ackThreshold": 15,
             "ackDelay": 25000,
             "name": "quinn-bbr_500ms-rate_25Mbps-download_1GB-loss_0-outageDuration_0-outageAmount_0-outageType_none-bbr"
         },
@@ -386,7 +386,7 @@
             "lossPercent": 0,
             "outageType": "none",
             "maxIdleTimeout": 100000,
-            "ackThresholds": 15,
+            "ackThreshold": 15,
             "ackDelay": 250,
             "name": "quinn-bbr_500ms-rate_25Mbps-download_1GB-loss_0-outageDuration_0-outageAmount_0-outageType_none-bbr"
         },
@@ -399,7 +399,7 @@
             "lossPercent": 0,
             "outageType": "none",
             "maxIdleTimeout": 100000,
-            "ackThresholds": 15,
+            "ackThreshold": 15,
             "ackDelay": 500,
             "name": "quinn-bbr_500ms-rate_25Mbps-download_1GB-loss_0-outageDuration_0-outageAmount_0-outageType_none-bbr"
         },
@@ -412,7 +412,7 @@
             "lossPercent": 0,
             "outageType": "none",
             "maxIdleTimeout": 100000,
-            "ackThresholds": 15,
+            "ackThreshold": 15,
             "ackDelay": 750,
             "name": "quinn-bbr_500ms-rate_25Mbps-download_1GB-loss_0-outageDuration_0-outageAmount_0-outageType_none-bbr"
         },
@@ -425,7 +425,7 @@
             "lossPercent": 0,
             "outageType": "none",
             "maxIdleTimeout": 100000,
-            "ackThresholds": 15,
+            "ackThreshold": 15,
             "ackDelay": 1000,
             "name": "quinn-bbr_500ms-rate_25Mbps-download_1GB-loss_0-outageDuration_0-outageAmount_0-outageType_none-bbr"
         },
@@ -438,7 +438,7 @@
             "lossPercent": 0,
             "outageType": "none",
             "maxIdleTimeout": 100000,
-            "ackThresholds": 15,
+            "ackThreshold": 15,
             "ackDelay": 2000,
             "name": "quinn-bbr_500ms-rate_25Mbps-download_1GB-loss_0-outageDuration_0-outageAmount_0-outageType_none-bbr"
         },
@@ -451,7 +451,7 @@
             "lossPercent": 0,
             "outageType": "none",
             "maxIdleTimeout": 100000,
-            "ackThresholds": 15,
+            "ackThreshold": 15,
             "ackDelay": 4000,
             "name": "quinn-bbr_500ms-rate_25Mbps-download_1GB-loss_0-outageDuration_0-outageAmount_0-outageType_none-bbr"
         },
@@ -464,7 +464,7 @@
             "lossPercent": 0,
             "outageType": "none",
             "maxIdleTimeout": 100000,
-            "ackThresholds": 20,
+            "ackThreshold": 20,
             "ackDelay": 25000,
             "name": "quinn-bbr_500ms-rate_25Mbps-download_1GB-loss_0-outageDuration_0-outageAmount_0-outageType_none-bbr"
         },
@@ -477,7 +477,7 @@
             "lossPercent": 0,
             "outageType": "none",
             "maxIdleTimeout": 100000,
-            "ackThresholds": 20,
+            "ackThreshold": 20,
             "ackDelay": 250,
             "name": "quinn-bbr_500ms-rate_25Mbps-download_1GB-loss_0-outageDuration_0-outageAmount_0-outageType_none-bbr"
         },
@@ -490,7 +490,7 @@
             "lossPercent": 0,
             "outageType": "none",
             "maxIdleTimeout": 100000,
-            "ackThresholds": 20,
+            "ackThreshold": 20,
             "ackDelay": 500,
             "name": "quinn-bbr_500ms-rate_25Mbps-download_1GB-loss_0-outageDuration_0-outageAmount_0-outageType_none-bbr"
         },
@@ -503,7 +503,7 @@
             "lossPercent": 0,
             "outageType": "none",
             "maxIdleTimeout": 100000,
-            "ackThresholds": 20,
+            "ackThreshold": 20,
             "ackDelay": 750,
             "name": "quinn-bbr_500ms-rate_25Mbps-download_1GB-loss_0-outageDuration_0-outageAmount_0-outageType_none-bbr"
         },
@@ -516,7 +516,7 @@
             "lossPercent": 0,
             "outageType": "none",
             "maxIdleTimeout": 100000,
-            "ackThresholds": 20,
+            "ackThreshold": 20,
             "ackDelay": 1000,
             "name": "quinn-bbr_500ms-rate_25Mbps-download_1GB-loss_0-outageDuration_0-outageAmount_0-outageType_none-bbr"
         },
@@ -529,7 +529,7 @@
             "lossPercent": 0,
             "outageType": "none",
             "maxIdleTimeout": 100000,
-            "ackThresholds": 20,
+            "ackThreshold": 20,
             "ackDelay": 2000,
             "name": "quinn-bbr_500ms-rate_25Mbps-download_1GB-loss_0-outageDuration_0-outageAmount_0-outageType_none-bbr"
         },
@@ -542,7 +542,7 @@
             "lossPercent": 0,
             "outageType": "none",
             "maxIdleTimeout": 100000,
-            "ackThresholds": 20,
+            "ackThreshold": 20,
             "ackDelay": 4000,
             "name": "quinn-bbr_500ms-rate_25Mbps-download_1GB-loss_0-outageDuration_0-outageAmount_0-outageType_none-bbr"
         },
@@ -555,7 +555,7 @@
             "lossPercent": 0,
             "outageType": "none",
             "maxIdleTimeout": 100000,
-            "ackThresholds": 1,
+            "ackThreshold": 1,
             "ackDelay": 25000,
             "name": "quinn-bbr_1500ms-rate_25Mbps-download_1GB-loss_0-outageDuration_0-outageAmount_0-outageType_none-bbr"
         },
@@ -568,7 +568,7 @@
             "lossPercent": 0,
             "outageType": "none",
             "maxIdleTimeout": 100000,
-            "ackThresholds": 1,
+            "ackThreshold": 1,
             "ackDelay": 750,
             "name": "quinn-bbr_1500ms-rate_25Mbps-download_1GB-loss_0-outageDuration_0-outageAmount_0-outageType_none-bbr"
         },
@@ -581,7 +581,7 @@
             "lossPercent": 0,
             "outageType": "none",
             "maxIdleTimeout": 100000,
-            "ackThresholds": 1,
+            "ackThreshold": 1,
             "ackDelay": 1500,
             "name": "quinn-bbr_1500ms-rate_25Mbps-download_1GB-loss_0-outageDuration_0-outageAmount_0-outageType_none-bbr"
         },
@@ -594,7 +594,7 @@
             "lossPercent": 0,
             "outageType": "none",
             "maxIdleTimeout": 100000,
-            "ackThresholds": 1,
+            "ackThreshold": 1,
             "ackDelay": 2250,
             "name": "quinn-bbr_1500ms-rate_25Mbps-download_1GB-loss_0-outageDuration_0-outageAmount_0-outageType_none-bbr"
         },
@@ -607,7 +607,7 @@
             "lossPercent": 0,
             "outageType": "none",
             "maxIdleTimeout": 100000,
-            "ackThresholds": 1,
+            "ackThreshold": 1,
             "ackDelay": 3000,
             "name": "quinn-bbr_1500ms-rate_25Mbps-download_1GB-loss_0-outageDuration_0-outageAmount_0-outageType_none-bbr"
         },
@@ -620,7 +620,7 @@
             "lossPercent": 0,
             "outageType": "none",
             "maxIdleTimeout": 100000,
-            "ackThresholds": 1,
+            "ackThreshold": 1,
             "ackDelay": 6000,
             "name": "quinn-bbr_1500ms-rate_25Mbps-download_1GB-loss_0-outageDuration_0-outageAmount_0-outageType_none-bbr"
         },
@@ -633,7 +633,7 @@
             "lossPercent": 0,
             "outageType": "none",
             "maxIdleTimeout": 100000,
-            "ackThresholds": 1,
+            "ackThreshold": 1,
             "ackDelay": 12000,
             "name": "quinn-bbr_1500ms-rate_25Mbps-download_1GB-loss_0-outageDuration_0-outageAmount_0-outageType_none-bbr"
         },
@@ -646,7 +646,7 @@
             "lossPercent": 0,
             "outageType": "none",
             "maxIdleTimeout": 100000,
-            "ackThresholds": 5,
+            "ackThreshold": 5,
             "ackDelay": 25000,
             "name": "quinn-bbr_1500ms-rate_25Mbps-download_1GB-loss_0-outageDuration_0-outageAmount_0-outageType_none-bbr"
         },
@@ -659,7 +659,7 @@
             "lossPercent": 0,
             "outageType": "none",
             "maxIdleTimeout": 100000,
-            "ackThresholds": 5,
+            "ackThreshold": 5,
             "ackDelay": 750,
             "name": "quinn-bbr_1500ms-rate_25Mbps-download_1GB-loss_0-outageDuration_0-outageAmount_0-outageType_none-bbr"
         },
@@ -672,7 +672,7 @@
             "lossPercent": 0,
             "outageType": "none",
             "maxIdleTimeout": 100000,
-            "ackThresholds": 5,
+            "ackThreshold": 5,
             "ackDelay": 1500,
             "name": "quinn-bbr_1500ms-rate_25Mbps-download_1GB-loss_0-outageDuration_0-outageAmount_0-outageType_none-bbr"
         },
@@ -685,7 +685,7 @@
             "lossPercent": 0,
             "outageType": "none",
             "maxIdleTimeout": 100000,
-            "ackThresholds": 5,
+            "ackThreshold": 5,
             "ackDelay": 2250,
             "name": "quinn-bbr_1500ms-rate_25Mbps-download_1GB-loss_0-outageDuration_0-outageAmount_0-outageType_none-bbr"
         },
@@ -698,7 +698,7 @@
             "lossPercent": 0,
             "outageType": "none",
             "maxIdleTimeout": 100000,
-            "ackThresholds": 5,
+            "ackThreshold": 5,
             "ackDelay": 3000,
             "name": "quinn-bbr_1500ms-rate_25Mbps-download_1GB-loss_0-outageDuration_0-outageAmount_0-outageType_none-bbr"
         },
@@ -711,7 +711,7 @@
             "lossPercent": 0,
             "outageType": "none",
             "maxIdleTimeout": 100000,
-            "ackThresholds": 5,
+            "ackThreshold": 5,
             "ackDelay": 6000,
             "name": "quinn-bbr_1500ms-rate_25Mbps-download_1GB-loss_0-outageDuration_0-outageAmount_0-outageType_none-bbr"
         },
@@ -724,7 +724,7 @@
             "lossPercent": 0,
             "outageType": "none",
             "maxIdleTimeout": 100000,
-            "ackThresholds": 5,
+            "ackThreshold": 5,
             "ackDelay": 12000,
             "name": "quinn-bbr_1500ms-rate_25Mbps-download_1GB-loss_0-outageDuration_0-outageAmount_0-outageType_none-bbr"
         },
@@ -737,7 +737,7 @@
             "lossPercent": 0,
             "outageType": "none",
             "maxIdleTimeout": 100000,
-            "ackThresholds": 9,
+            "ackThreshold": 9,
             "ackDelay": 25000,
             "name": "quinn-bbr_1500ms-rate_25Mbps-download_1GB-loss_0-outageDuration_0-outageAmount_0-outageType_none-bbr"
         },
@@ -750,7 +750,7 @@
             "lossPercent": 0,
             "outageType": "none",
             "maxIdleTimeout": 100000,
-            "ackThresholds": 9,
+            "ackThreshold": 9,
             "ackDelay": 750,
             "name": "quinn-bbr_1500ms-rate_25Mbps-download_1GB-loss_0-outageDuration_0-outageAmount_0-outageType_none-bbr"
         },
@@ -763,7 +763,7 @@
             "lossPercent": 0,
             "outageType": "none",
             "maxIdleTimeout": 100000,
-            "ackThresholds": 9,
+            "ackThreshold": 9,
             "ackDelay": 1500,
             "name": "quinn-bbr_1500ms-rate_25Mbps-download_1GB-loss_0-outageDuration_0-outageAmount_0-outageType_none-bbr"
         },
@@ -776,7 +776,7 @@
             "lossPercent": 0,
             "outageType": "none",
             "maxIdleTimeout": 100000,
-            "ackThresholds": 9,
+            "ackThreshold": 9,
             "ackDelay": 2250,
             "name": "quinn-bbr_1500ms-rate_25Mbps-download_1GB-loss_0-outageDuration_0-outageAmount_0-outageType_none-bbr"
         },
@@ -789,7 +789,7 @@
             "lossPercent": 0,
             "outageType": "none",
             "maxIdleTimeout": 100000,
-            "ackThresholds": 9,
+            "ackThreshold": 9,
             "ackDelay": 3000,
             "name": "quinn-bbr_1500ms-rate_25Mbps-download_1GB-loss_0-outageDuration_0-outageAmount_0-outageType_none-bbr"
         },
@@ -802,7 +802,7 @@
             "lossPercent": 0,
             "outageType": "none",
             "maxIdleTimeout": 100000,
-            "ackThresholds": 9,
+            "ackThreshold": 9,
             "ackDelay": 6000,
             "name": "quinn-bbr_1500ms-rate_25Mbps-download_1GB-loss_0-outageDuration_0-outageAmount_0-outageType_none-bbr"
         },
@@ -815,7 +815,7 @@
             "lossPercent": 0,
             "outageType": "none",
             "maxIdleTimeout": 100000,
-            "ackThresholds": 9,
+            "ackThreshold": 9,
             "ackDelay": 12000,
             "name": "quinn-bbr_1500ms-rate_25Mbps-download_1GB-loss_0-outageDuration_0-outageAmount_0-outageType_none-bbr"
         },
@@ -828,7 +828,7 @@
             "lossPercent": 0,
             "outageType": "none",
             "maxIdleTimeout": 100000,
-            "ackThresholds": 10,
+            "ackThreshold": 10,
             "ackDelay": 25000,
             "name": "quinn-bbr_1500ms-rate_25Mbps-download_1GB-loss_0-outageDuration_0-outageAmount_0-outageType_none-bbr"
         },
@@ -841,7 +841,7 @@
             "lossPercent": 0,
             "outageType": "none",
             "maxIdleTimeout": 100000,
-            "ackThresholds": 10,
+            "ackThreshold": 10,
             "ackDelay": 750,
             "name": "quinn-bbr_1500ms-rate_25Mbps-download_1GB-loss_0-outageDuration_0-outageAmount_0-outageType_none-bbr"
         },
@@ -854,7 +854,7 @@
             "lossPercent": 0,
             "outageType": "none",
             "maxIdleTimeout": 100000,
-            "ackThresholds": 10,
+            "ackThreshold": 10,
             "ackDelay": 1500,
             "name": "quinn-bbr_1500ms-rate_25Mbps-download_1GB-loss_0-outageDuration_0-outageAmount_0-outageType_none-bbr"
         },
@@ -867,7 +867,7 @@
             "lossPercent": 0,
             "outageType": "none",
             "maxIdleTimeout": 100000,
-            "ackThresholds": 10,
+            "ackThreshold": 10,
             "ackDelay": 2250,
             "name": "quinn-bbr_1500ms-rate_25Mbps-download_1GB-loss_0-outageDuration_0-outageAmount_0-outageType_none-bbr"
         },
@@ -880,7 +880,7 @@
             "lossPercent": 0,
             "outageType": "none",
             "maxIdleTimeout": 100000,
-            "ackThresholds": 10,
+            "ackThreshold": 10,
             "ackDelay": 3000,
             "name": "quinn-bbr_1500ms-rate_25Mbps-download_1GB-loss_0-outageDuration_0-outageAmount_0-outageType_none-bbr"
         },
@@ -893,7 +893,7 @@
             "lossPercent": 0,
             "outageType": "none",
             "maxIdleTimeout": 100000,
-            "ackThresholds": 10,
+            "ackThreshold": 10,
             "ackDelay": 6000,
             "name": "quinn-bbr_1500ms-rate_25Mbps-download_1GB-loss_0-outageDuration_0-outageAmount_0-outageType_none-bbr"
         },
@@ -906,7 +906,7 @@
             "lossPercent": 0,
             "outageType": "none",
             "maxIdleTimeout": 100000,
-            "ackThresholds": 10,
+            "ackThreshold": 10,
             "ackDelay": 12000,
             "name": "quinn-bbr_1500ms-rate_25Mbps-download_1GB-loss_0-outageDuration_0-outageAmount_0-outageType_none-bbr"
         },
@@ -919,7 +919,7 @@
             "lossPercent": 0,
             "outageType": "none",
             "maxIdleTimeout": 100000,
-            "ackThresholds": 15,
+            "ackThreshold": 15,
             "ackDelay": 25000,
             "name": "quinn-bbr_1500ms-rate_25Mbps-download_1GB-loss_0-outageDuration_0-outageAmount_0-outageType_none-bbr"
         },
@@ -932,7 +932,7 @@
             "lossPercent": 0,
             "outageType": "none",
             "maxIdleTimeout": 100000,
-            "ackThresholds": 15,
+            "ackThreshold": 15,
             "ackDelay": 750,
             "name": "quinn-bbr_1500ms-rate_25Mbps-download_1GB-loss_0-outageDuration_0-outageAmount_0-outageType_none-bbr"
         },
@@ -945,7 +945,7 @@
             "lossPercent": 0,
             "outageType": "none",
             "maxIdleTimeout": 100000,
-            "ackThresholds": 15,
+            "ackThreshold": 15,
             "ackDelay": 1500,
             "name": "quinn-bbr_1500ms-rate_25Mbps-download_1GB-loss_0-outageDuration_0-outageAmount_0-outageType_none-bbr"
         },
@@ -958,7 +958,7 @@
             "lossPercent": 0,
             "outageType": "none",
             "maxIdleTimeout": 100000,
-            "ackThresholds": 15,
+            "ackThreshold": 15,
             "ackDelay": 2250,
             "name": "quinn-bbr_1500ms-rate_25Mbps-download_1GB-loss_0-outageDuration_0-outageAmount_0-outageType_none-bbr"
         },
@@ -971,7 +971,7 @@
             "lossPercent": 0,
             "outageType": "none",
             "maxIdleTimeout": 100000,
-            "ackThresholds": 15,
+            "ackThreshold": 15,
             "ackDelay": 3000,
             "name": "quinn-bbr_1500ms-rate_25Mbps-download_1GB-loss_0-outageDuration_0-outageAmount_0-outageType_none-bbr"
         },
@@ -984,7 +984,7 @@
             "lossPercent": 0,
             "outageType": "none",
             "maxIdleTimeout": 100000,
-            "ackThresholds": 15,
+            "ackThreshold": 15,
             "ackDelay": 6000,
             "name": "quinn-bbr_1500ms-rate_25Mbps-download_1GB-loss_0-outageDuration_0-outageAmount_0-outageType_none-bbr"
         },
@@ -997,7 +997,7 @@
             "lossPercent": 0,
             "outageType": "none",
             "maxIdleTimeout": 100000,
-            "ackThresholds": 15,
+            "ackThreshold": 15,
             "ackDelay": 12000,
             "name": "quinn-bbr_1500ms-rate_25Mbps-download_1GB-loss_0-outageDuration_0-outageAmount_0-outageType_none-bbr"
         },
@@ -1010,7 +1010,7 @@
             "lossPercent": 0,
             "outageType": "none",
             "maxIdleTimeout": 100000,
-            "ackThresholds": 20,
+            "ackThreshold": 20,
             "ackDelay": 25000,
             "name": "quinn-bbr_1500ms-rate_25Mbps-download_1GB-loss_0-outageDuration_0-outageAmount_0-outageType_none-bbr"
         },
@@ -1023,7 +1023,7 @@
             "lossPercent": 0,
             "outageType": "none",
             "maxIdleTimeout": 100000,
-            "ackThresholds": 20,
+            "ackThreshold": 20,
             "ackDelay": 750,
             "name": "quinn-bbr_1500ms-rate_25Mbps-download_1GB-loss_0-outageDuration_0-outageAmount_0-outageType_none-bbr"
         },
@@ -1036,7 +1036,7 @@
             "lossPercent": 0,
             "outageType": "none",
             "maxIdleTimeout": 100000,
-            "ackThresholds": 20,
+            "ackThreshold": 20,
             "ackDelay": 1500,
             "name": "quinn-bbr_1500ms-rate_25Mbps-download_1GB-loss_0-outageDuration_0-outageAmount_0-outageType_none-bbr"
         },
@@ -1049,7 +1049,7 @@
             "lossPercent": 0,
             "outageType": "none",
             "maxIdleTimeout": 100000,
-            "ackThresholds": 20,
+            "ackThreshold": 20,
             "ackDelay": 2250,
             "name": "quinn-bbr_1500ms-rate_25Mbps-download_1GB-loss_0-outageDuration_0-outageAmount_0-outageType_none-bbr"
         },
@@ -1062,7 +1062,7 @@
             "lossPercent": 0,
             "outageType": "none",
             "maxIdleTimeout": 100000,
-            "ackThresholds": 20,
+            "ackThreshold": 20,
             "ackDelay": 3000,
             "name": "quinn-bbr_1500ms-rate_25Mbps-download_1GB-loss_0-outageDuration_0-outageAmount_0-outageType_none-bbr"
         },
@@ -1075,7 +1075,7 @@
             "lossPercent": 0,
             "outageType": "none",
             "maxIdleTimeout": 100000,
-            "ackThresholds": 20,
+            "ackThreshold": 20,
             "ackDelay": 6000,
             "name": "quinn-bbr_1500ms-rate_25Mbps-download_1GB-loss_0-outageDuration_0-outageAmount_0-outageType_none-bbr"
         },
@@ -1088,7 +1088,7 @@
             "lossPercent": 0,
             "outageType": "none",
             "maxIdleTimeout": 100000,
-            "ackThresholds": 20,
+            "ackThreshold": 20,
             "ackDelay": 12000,
             "name": "quinn-bbr_1500ms-rate_25Mbps-download_1GB-loss_0-outageDuration_0-outageAmount_0-outageType_none-bbr"
         },
@@ -1101,7 +1101,7 @@
             "lossPercent": 0,
             "outageType": "none",
             "maxIdleTimeout": 100000,
-            "ackThresholds": 1,
+            "ackThreshold": 1,
             "ackDelay": 25000,
             "name": "quinn-bbr_3000ms-rate_25Mbps-download_1GB-loss_0-outageDuration_0-outageAmount_0-outageType_none-bbr"
         },
@@ -1114,7 +1114,7 @@
             "lossPercent": 0,
             "outageType": "none",
             "maxIdleTimeout": 100000,
-            "ackThresholds": 1,
+            "ackThreshold": 1,
             "ackDelay": 1500,
             "name": "quinn-bbr_3000ms-rate_25Mbps-download_1GB-loss_0-outageDuration_0-outageAmount_0-outageType_none-bbr"
         },
@@ -1127,7 +1127,7 @@
             "lossPercent": 0,
             "outageType": "none",
             "maxIdleTimeout": 100000,
-            "ackThresholds": 1,
+            "ackThreshold": 1,
             "ackDelay": 3000,
             "name": "quinn-bbr_3000ms-rate_25Mbps-download_1GB-loss_0-outageDuration_0-outageAmount_0-outageType_none-bbr"
         },
@@ -1140,7 +1140,7 @@
             "lossPercent": 0,
             "outageType": "none",
             "maxIdleTimeout": 100000,
-            "ackThresholds": 1,
+            "ackThreshold": 1,
             "ackDelay": 4500,
             "name": "quinn-bbr_3000ms-rate_25Mbps-download_1GB-loss_0-outageDuration_0-outageAmount_0-outageType_none-bbr"
         },
@@ -1153,7 +1153,7 @@
             "lossPercent": 0,
             "outageType": "none",
             "maxIdleTimeout": 100000,
-            "ackThresholds": 1,
+            "ackThreshold": 1,
             "ackDelay": 6000,
             "name": "quinn-bbr_3000ms-rate_25Mbps-download_1GB-loss_0-outageDuration_0-outageAmount_0-outageType_none-bbr"
         },
@@ -1166,7 +1166,7 @@
             "lossPercent": 0,
             "outageType": "none",
             "maxIdleTimeout": 100000,
-            "ackThresholds": 1,
+            "ackThreshold": 1,
             "ackDelay": 12000,
             "name": "quinn-bbr_3000ms-rate_25Mbps-download_1GB-loss_0-outageDuration_0-outageAmount_0-outageType_none-bbr"
         },
@@ -1179,7 +1179,7 @@
             "lossPercent": 0,
             "outageType": "none",
             "maxIdleTimeout": 100000,
-            "ackThresholds": 1,
+            "ackThreshold": 1,
             "ackDelay": 24000,
             "name": "quinn-bbr_3000ms-rate_25Mbps-download_1GB-loss_0-outageDuration_0-outageAmount_0-outageType_none-bbr"
         },
@@ -1192,7 +1192,7 @@
             "lossPercent": 0,
             "outageType": "none",
             "maxIdleTimeout": 100000,
-            "ackThresholds": 5,
+            "ackThreshold": 5,
             "ackDelay": 25000,
             "name": "quinn-bbr_3000ms-rate_25Mbps-download_1GB-loss_0-outageDuration_0-outageAmount_0-outageType_none-bbr"
         },
@@ -1205,7 +1205,7 @@
             "lossPercent": 0,
             "outageType": "none",
             "maxIdleTimeout": 100000,
-            "ackThresholds": 5,
+            "ackThreshold": 5,
             "ackDelay": 1500,
             "name": "quinn-bbr_3000ms-rate_25Mbps-download_1GB-loss_0-outageDuration_0-outageAmount_0-outageType_none-bbr"
         },
@@ -1218,7 +1218,7 @@
             "lossPercent": 0,
             "outageType": "none",
             "maxIdleTimeout": 100000,
-            "ackThresholds": 5,
+            "ackThreshold": 5,
             "ackDelay": 3000,
             "name": "quinn-bbr_3000ms-rate_25Mbps-download_1GB-loss_0-outageDuration_0-outageAmount_0-outageType_none-bbr"
         },
@@ -1231,7 +1231,7 @@
             "lossPercent": 0,
             "outageType": "none",
             "maxIdleTimeout": 100000,
-            "ackThresholds": 5,
+            "ackThreshold": 5,
             "ackDelay": 4500,
             "name": "quinn-bbr_3000ms-rate_25Mbps-download_1GB-loss_0-outageDuration_0-outageAmount_0-outageType_none-bbr"
         },
@@ -1244,7 +1244,7 @@
             "lossPercent": 0,
             "outageType": "none",
             "maxIdleTimeout": 100000,
-            "ackThresholds": 5,
+            "ackThreshold": 5,
             "ackDelay": 6000,
             "name": "quinn-bbr_3000ms-rate_25Mbps-download_1GB-loss_0-outageDuration_0-outageAmount_0-outageType_none-bbr"
         },
@@ -1257,7 +1257,7 @@
             "lossPercent": 0,
             "outageType": "none",
             "maxIdleTimeout": 100000,
-            "ackThresholds": 5,
+            "ackThreshold": 5,
             "ackDelay": 12000,
             "name": "quinn-bbr_3000ms-rate_25Mbps-download_1GB-loss_0-outageDuration_0-outageAmount_0-outageType_none-bbr"
         },
@@ -1270,7 +1270,7 @@
             "lossPercent": 0,
             "outageType": "none",
             "maxIdleTimeout": 100000,
-            "ackThresholds": 5,
+            "ackThreshold": 5,
             "ackDelay": 24000,
             "name": "quinn-bbr_3000ms-rate_25Mbps-download_1GB-loss_0-outageDuration_0-outageAmount_0-outageType_none-bbr"
         },
@@ -1283,7 +1283,7 @@
             "lossPercent": 0,
             "outageType": "none",
             "maxIdleTimeout": 100000,
-            "ackThresholds": 9,
+            "ackThreshold": 9,
             "ackDelay": 25000,
             "name": "quinn-bbr_3000ms-rate_25Mbps-download_1GB-loss_0-outageDuration_0-outageAmount_0-outageType_none-bbr"
         },
@@ -1296,7 +1296,7 @@
             "lossPercent": 0,
             "outageType": "none",
             "maxIdleTimeout": 100000,
-            "ackThresholds": 9,
+            "ackThreshold": 9,
             "ackDelay": 1500,
             "name": "quinn-bbr_3000ms-rate_25Mbps-download_1GB-loss_0-outageDuration_0-outageAmount_0-outageType_none-bbr"
         },
@@ -1309,7 +1309,7 @@
             "lossPercent": 0,
             "outageType": "none",
             "maxIdleTimeout": 100000,
-            "ackThresholds": 9,
+            "ackThreshold": 9,
             "ackDelay": 3000,
             "name": "quinn-bbr_3000ms-rate_25Mbps-download_1GB-loss_0-outageDuration_0-outageAmount_0-outageType_none-bbr"
         },
@@ -1322,7 +1322,7 @@
             "lossPercent": 0,
             "outageType": "none",
             "maxIdleTimeout": 100000,
-            "ackThresholds": 9,
+            "ackThreshold": 9,
             "ackDelay": 4500,
             "name": "quinn-bbr_3000ms-rate_25Mbps-download_1GB-loss_0-outageDuration_0-outageAmount_0-outageType_none-bbr"
         },
@@ -1335,7 +1335,7 @@
             "lossPercent": 0,
             "outageType": "none",
             "maxIdleTimeout": 100000,
-            "ackThresholds": 9,
+            "ackThreshold": 9,
             "ackDelay": 6000,
             "name": "quinn-bbr_3000ms-rate_25Mbps-download_1GB-loss_0-outageDuration_0-outageAmount_0-outageType_none-bbr"
         },
@@ -1348,7 +1348,7 @@
             "lossPercent": 0,
             "outageType": "none",
             "maxIdleTimeout": 100000,
-            "ackThresholds": 9,
+            "ackThreshold": 9,
             "ackDelay": 12000,
             "name": "quinn-bbr_3000ms-rate_25Mbps-download_1GB-loss_0-outageDuration_0-outageAmount_0-outageType_none-bbr"
         },
@@ -1361,7 +1361,7 @@
             "lossPercent": 0,
             "outageType": "none",
             "maxIdleTimeout": 100000,
-            "ackThresholds": 9,
+            "ackThreshold": 9,
             "ackDelay": 24000,
             "name": "quinn-bbr_3000ms-rate_25Mbps-download_1GB-loss_0-outageDuration_0-outageAmount_0-outageType_none-bbr"
         },
@@ -1374,7 +1374,7 @@
             "lossPercent": 0,
             "outageType": "none",
             "maxIdleTimeout": 100000,
-            "ackThresholds": 10,
+            "ackThreshold": 10,
             "ackDelay": 25000,
             "name": "quinn-bbr_3000ms-rate_25Mbps-download_1GB-loss_0-outageDuration_0-outageAmount_0-outageType_none-bbr"
         },
@@ -1387,7 +1387,7 @@
             "lossPercent": 0,
             "outageType": "none",
             "maxIdleTimeout": 100000,
-            "ackThresholds": 10,
+            "ackThreshold": 10,
             "ackDelay": 1500,
             "name": "quinn-bbr_3000ms-rate_25Mbps-download_1GB-loss_0-outageDuration_0-outageAmount_0-outageType_none-bbr"
         },
@@ -1400,7 +1400,7 @@
             "lossPercent": 0,
             "outageType": "none",
             "maxIdleTimeout": 100000,
-            "ackThresholds": 10,
+            "ackThreshold": 10,
             "ackDelay": 3000,
             "name": "quinn-bbr_3000ms-rate_25Mbps-download_1GB-loss_0-outageDuration_0-outageAmount_0-outageType_none-bbr"
         },
@@ -1413,7 +1413,7 @@
             "lossPercent": 0,
             "outageType": "none",
             "maxIdleTimeout": 100000,
-            "ackThresholds": 10,
+            "ackThreshold": 10,
             "ackDelay": 4500,
             "name": "quinn-bbr_3000ms-rate_25Mbps-download_1GB-loss_0-outageDuration_0-outageAmount_0-outageType_none-bbr"
         },
@@ -1426,7 +1426,7 @@
             "lossPercent": 0,
             "outageType": "none",
             "maxIdleTimeout": 100000,
-            "ackThresholds": 10,
+            "ackThreshold": 10,
             "ackDelay": 6000,
             "name": "quinn-bbr_3000ms-rate_25Mbps-download_1GB-loss_0-outageDuration_0-outageAmount_0-outageType_none-bbr"
         },
@@ -1439,7 +1439,7 @@
             "lossPercent": 0,
             "outageType": "none",
             "maxIdleTimeout": 100000,
-            "ackThresholds": 10,
+            "ackThreshold": 10,
             "ackDelay": 12000,
             "name": "quinn-bbr_3000ms-rate_25Mbps-download_1GB-loss_0-outageDuration_0-outageAmount_0-outageType_none-bbr"
         },
@@ -1452,7 +1452,7 @@
             "lossPercent": 0,
             "outageType": "none",
             "maxIdleTimeout": 100000,
-            "ackThresholds": 10,
+            "ackThreshold": 10,
             "ackDelay": 24000,
             "name": "quinn-bbr_3000ms-rate_25Mbps-download_1GB-loss_0-outageDuration_0-outageAmount_0-outageType_none-bbr"
         },
@@ -1465,7 +1465,7 @@
             "lossPercent": 0,
             "outageType": "none",
             "maxIdleTimeout": 100000,
-            "ackThresholds": 15,
+            "ackThreshold": 15,
             "ackDelay": 25000,
             "name": "quinn-bbr_3000ms-rate_25Mbps-download_1GB-loss_0-outageDuration_0-outageAmount_0-outageType_none-bbr"
         },
@@ -1478,7 +1478,7 @@
             "lossPercent": 0,
             "outageType": "none",
             "maxIdleTimeout": 100000,
-            "ackThresholds": 15,
+            "ackThreshold": 15,
             "ackDelay": 1500,
             "name": "quinn-bbr_3000ms-rate_25Mbps-download_1GB-loss_0-outageDuration_0-outageAmount_0-outageType_none-bbr"
         },
@@ -1491,7 +1491,7 @@
             "lossPercent": 0,
             "outageType": "none",
             "maxIdleTimeout": 100000,
-            "ackThresholds": 15,
+            "ackThreshold": 15,
             "ackDelay": 3000,
             "name": "quinn-bbr_3000ms-rate_25Mbps-download_1GB-loss_0-outageDuration_0-outageAmount_0-outageType_none-bbr"
         },
@@ -1504,7 +1504,7 @@
             "lossPercent": 0,
             "outageType": "none",
             "maxIdleTimeout": 100000,
-            "ackThresholds": 15,
+            "ackThreshold": 15,
             "ackDelay": 4500,
             "name": "quinn-bbr_3000ms-rate_25Mbps-download_1GB-loss_0-outageDuration_0-outageAmount_0-outageType_none-bbr"
         },
@@ -1517,7 +1517,7 @@
             "lossPercent": 0,
             "outageType": "none",
             "maxIdleTimeout": 100000,
-            "ackThresholds": 15,
+            "ackThreshold": 15,
             "ackDelay": 6000,
             "name": "quinn-bbr_3000ms-rate_25Mbps-download_1GB-loss_0-outageDuration_0-outageAmount_0-outageType_none-bbr"
         },
@@ -1530,7 +1530,7 @@
             "lossPercent": 0,
             "outageType": "none",
             "maxIdleTimeout": 100000,
-            "ackThresholds": 15,
+            "ackThreshold": 15,
             "ackDelay": 12000,
             "name": "quinn-bbr_3000ms-rate_25Mbps-download_1GB-loss_0-outageDuration_0-outageAmount_0-outageType_none-bbr"
         },
@@ -1543,7 +1543,7 @@
             "lossPercent": 0,
             "outageType": "none",
             "maxIdleTimeout": 100000,
-            "ackThresholds": 15,
+            "ackThreshold": 15,
             "ackDelay": 24000,
             "name": "quinn-bbr_3000ms-rate_25Mbps-download_1GB-loss_0-outageDuration_0-outageAmount_0-outageType_none-bbr"
         },
@@ -1556,7 +1556,7 @@
             "lossPercent": 0,
             "outageType": "none",
             "maxIdleTimeout": 100000,
-            "ackThresholds": 20,
+            "ackThreshold": 20,
             "ackDelay": 25000,
             "name": "quinn-bbr_3000ms-rate_25Mbps-download_1GB-loss_0-outageDuration_0-outageAmount_0-outageType_none-bbr"
         },
@@ -1569,7 +1569,7 @@
             "lossPercent": 0,
             "outageType": "none",
             "maxIdleTimeout": 100000,
-            "ackThresholds": 20,
+            "ackThreshold": 20,
             "ackDelay": 1500,
             "name": "quinn-bbr_3000ms-rate_25Mbps-download_1GB-loss_0-outageDuration_0-outageAmount_0-outageType_none-bbr"
         },
@@ -1582,7 +1582,7 @@
             "lossPercent": 0,
             "outageType": "none",
             "maxIdleTimeout": 100000,
-            "ackThresholds": 20,
+            "ackThreshold": 20,
             "ackDelay": 3000,
             "name": "quinn-bbr_3000ms-rate_25Mbps-download_1GB-loss_0-outageDuration_0-outageAmount_0-outageType_none-bbr"
         },
@@ -1595,7 +1595,7 @@
             "lossPercent": 0,
             "outageType": "none",
             "maxIdleTimeout": 100000,
-            "ackThresholds": 20,
+            "ackThreshold": 20,
             "ackDelay": 4500,
             "name": "quinn-bbr_3000ms-rate_25Mbps-download_1GB-loss_0-outageDuration_0-outageAmount_0-outageType_none-bbr"
         },
@@ -1608,7 +1608,7 @@
             "lossPercent": 0,
             "outageType": "none",
             "maxIdleTimeout": 100000,
-            "ackThresholds": 20,
+            "ackThreshold": 20,
             "ackDelay": 6000,
             "name": "quinn-bbr_3000ms-rate_25Mbps-download_1GB-loss_0-outageDuration_0-outageAmount_0-outageType_none-bbr"
         },
@@ -1621,7 +1621,7 @@
             "lossPercent": 0,
             "outageType": "none",
             "maxIdleTimeout": 100000,
-            "ackThresholds": 20,
+            "ackThreshold": 20,
             "ackDelay": 12000,
             "name": "quinn-bbr_3000ms-rate_25Mbps-download_1GB-loss_0-outageDuration_0-outageAmount_0-outageType_none-bbr"
         },
@@ -1634,7 +1634,7 @@
             "lossPercent": 0,
             "outageType": "none",
             "maxIdleTimeout": 100000,
-            "ackThresholds": 20,
+            "ackThreshold": 20,
             "ackDelay": 24000,
             "name": "quinn-bbr_3000ms-rate_25Mbps-download_1GB-loss_0-outageDuration_0-outageAmount_0-outageType_none-bbr"
         },
@@ -1647,7 +1647,7 @@
             "lossPercent": 0,
             "outageType": "none",
             "maxIdleTimeout": 100000,
-            "ackThresholds": 1,
+            "ackThreshold": 1,
             "ackDelay": 25000,
             "name": "quinn-cubic_500ms-rate_25Mbps-download_1GB-loss_0-outageDuration_0-outageAmount_0-outageType_none-cubic"
         },
@@ -1660,7 +1660,7 @@
             "lossPercent": 0,
             "outageType": "none",
             "maxIdleTimeout": 100000,
-            "ackThresholds": 1,
+            "ackThreshold": 1,
             "ackDelay": 250,
             "name": "quinn-cubic_500ms-rate_25Mbps-download_1GB-loss_0-outageDuration_0-outageAmount_0-outageType_none-cubic"
         },
@@ -1673,7 +1673,7 @@
             "lossPercent": 0,
             "outageType": "none",
             "maxIdleTimeout": 100000,
-            "ackThresholds": 1,
+            "ackThreshold": 1,
             "ackDelay": 500,
             "name": "quinn-cubic_500ms-rate_25Mbps-download_1GB-loss_0-outageDuration_0-outageAmount_0-outageType_none-cubic"
         },
@@ -1686,7 +1686,7 @@
             "lossPercent": 0,
             "outageType": "none",
             "maxIdleTimeout": 100000,
-            "ackThresholds": 1,
+            "ackThreshold": 1,
             "ackDelay": 750,
             "name": "quinn-cubic_500ms-rate_25Mbps-download_1GB-loss_0-outageDuration_0-outageAmount_0-outageType_none-cubic"
         },
@@ -1699,7 +1699,7 @@
             "lossPercent": 0,
             "outageType": "none",
             "maxIdleTimeout": 100000,
-            "ackThresholds": 1,
+            "ackThreshold": 1,
             "ackDelay": 1000,
             "name": "quinn-cubic_500ms-rate_25Mbps-download_1GB-loss_0-outageDuration_0-outageAmount_0-outageType_none-cubic"
         },
@@ -1712,7 +1712,7 @@
             "lossPercent": 0,
             "outageType": "none",
             "maxIdleTimeout": 100000,
-            "ackThresholds": 1,
+            "ackThreshold": 1,
             "ackDelay": 2000,
             "name": "quinn-cubic_500ms-rate_25Mbps-download_1GB-loss_0-outageDuration_0-outageAmount_0-outageType_none-cubic"
         },
@@ -1725,7 +1725,7 @@
             "lossPercent": 0,
             "outageType": "none",
             "maxIdleTimeout": 100000,
-            "ackThresholds": 1,
+            "ackThreshold": 1,
             "ackDelay": 4000,
             "name": "quinn-cubic_500ms-rate_25Mbps-download_1GB-loss_0-outageDuration_0-outageAmount_0-outageType_none-cubic"
         },
@@ -1738,7 +1738,7 @@
             "lossPercent": 0,
             "outageType": "none",
             "maxIdleTimeout": 100000,
-            "ackThresholds": 5,
+            "ackThreshold": 5,
             "ackDelay": 25000,
             "name": "quinn-cubic_500ms-rate_25Mbps-download_1GB-loss_0-outageDuration_0-outageAmount_0-outageType_none-cubic"
         },
@@ -1751,7 +1751,7 @@
             "lossPercent": 0,
             "outageType": "none",
             "maxIdleTimeout": 100000,
-            "ackThresholds": 5,
+            "ackThreshold": 5,
             "ackDelay": 250,
             "name": "quinn-cubic_500ms-rate_25Mbps-download_1GB-loss_0-outageDuration_0-outageAmount_0-outageType_none-cubic"
         },
@@ -1764,7 +1764,7 @@
             "lossPercent": 0,
             "outageType": "none",
             "maxIdleTimeout": 100000,
-            "ackThresholds": 5,
+            "ackThreshold": 5,
             "ackDelay": 500,
             "name": "quinn-cubic_500ms-rate_25Mbps-download_1GB-loss_0-outageDuration_0-outageAmount_0-outageType_none-cubic"
         },
@@ -1777,7 +1777,7 @@
             "lossPercent": 0,
             "outageType": "none",
             "maxIdleTimeout": 100000,
-            "ackThresholds": 5,
+            "ackThreshold": 5,
             "ackDelay": 750,
             "name": "quinn-cubic_500ms-rate_25Mbps-download_1GB-loss_0-outageDuration_0-outageAmount_0-outageType_none-cubic"
         },
@@ -1790,7 +1790,7 @@
             "lossPercent": 0,
             "outageType": "none",
             "maxIdleTimeout": 100000,
-            "ackThresholds": 5,
+            "ackThreshold": 5,
             "ackDelay": 1000,
             "name": "quinn-cubic_500ms-rate_25Mbps-download_1GB-loss_0-outageDuration_0-outageAmount_0-outageType_none-cubic"
         },
@@ -1803,7 +1803,7 @@
             "lossPercent": 0,
             "outageType": "none",
             "maxIdleTimeout": 100000,
-            "ackThresholds": 5,
+            "ackThreshold": 5,
             "ackDelay": 2000,
             "name": "quinn-cubic_500ms-rate_25Mbps-download_1GB-loss_0-outageDuration_0-outageAmount_0-outageType_none-cubic"
         },
@@ -1816,7 +1816,7 @@
             "lossPercent": 0,
             "outageType": "none",
             "maxIdleTimeout": 100000,
-            "ackThresholds": 5,
+            "ackThreshold": 5,
             "ackDelay": 4000,
             "name": "quinn-cubic_500ms-rate_25Mbps-download_1GB-loss_0-outageDuration_0-outageAmount_0-outageType_none-cubic"
         },
@@ -1829,7 +1829,7 @@
             "lossPercent": 0,
             "outageType": "none",
             "maxIdleTimeout": 100000,
-            "ackThresholds": 9,
+            "ackThreshold": 9,
             "ackDelay": 25000,
             "name": "quinn-cubic_500ms-rate_25Mbps-download_1GB-loss_0-outageDuration_0-outageAmount_0-outageType_none-cubic"
         },
@@ -1842,7 +1842,7 @@
             "lossPercent": 0,
             "outageType": "none",
             "maxIdleTimeout": 100000,
-            "ackThresholds": 9,
+            "ackThreshold": 9,
             "ackDelay": 250,
             "name": "quinn-cubic_500ms-rate_25Mbps-download_1GB-loss_0-outageDuration_0-outageAmount_0-outageType_none-cubic"
         },
@@ -1855,7 +1855,7 @@
             "lossPercent": 0,
             "outageType": "none",
             "maxIdleTimeout": 100000,
-            "ackThresholds": 9,
+            "ackThreshold": 9,
             "ackDelay": 500,
             "name": "quinn-cubic_500ms-rate_25Mbps-download_1GB-loss_0-outageDuration_0-outageAmount_0-outageType_none-cubic"
         },
@@ -1868,7 +1868,7 @@
             "lossPercent": 0,
             "outageType": "none",
             "maxIdleTimeout": 100000,
-            "ackThresholds": 9,
+            "ackThreshold": 9,
             "ackDelay": 750,
             "name": "quinn-cubic_500ms-rate_25Mbps-download_1GB-loss_0-outageDuration_0-outageAmount_0-outageType_none-cubic"
         },
@@ -1881,7 +1881,7 @@
             "lossPercent": 0,
             "outageType": "none",
             "maxIdleTimeout": 100000,
-            "ackThresholds": 9,
+            "ackThreshold": 9,
             "ackDelay": 1000,
             "name": "quinn-cubic_500ms-rate_25Mbps-download_1GB-loss_0-outageDuration_0-outageAmount_0-outageType_none-cubic"
         },
@@ -1894,7 +1894,7 @@
             "lossPercent": 0,
             "outageType": "none",
             "maxIdleTimeout": 100000,
-            "ackThresholds": 9,
+            "ackThreshold": 9,
             "ackDelay": 2000,
             "name": "quinn-cubic_500ms-rate_25Mbps-download_1GB-loss_0-outageDuration_0-outageAmount_0-outageType_none-cubic"
         },
@@ -1907,7 +1907,7 @@
             "lossPercent": 0,
             "outageType": "none",
             "maxIdleTimeout": 100000,
-            "ackThresholds": 9,
+            "ackThreshold": 9,
             "ackDelay": 4000,
             "name": "quinn-cubic_500ms-rate_25Mbps-download_1GB-loss_0-outageDuration_0-outageAmount_0-outageType_none-cubic"
         },
@@ -1920,7 +1920,7 @@
             "lossPercent": 0,
             "outageType": "none",
             "maxIdleTimeout": 100000,
-            "ackThresholds": 10,
+            "ackThreshold": 10,
             "ackDelay": 25000,
             "name": "quinn-cubic_500ms-rate_25Mbps-download_1GB-loss_0-outageDuration_0-outageAmount_0-outageType_none-cubic"
         },
@@ -1933,7 +1933,7 @@
             "lossPercent": 0,
             "outageType": "none",
             "maxIdleTimeout": 100000,
-            "ackThresholds": 10,
+            "ackThreshold": 10,
             "ackDelay": 250,
             "name": "quinn-cubic_500ms-rate_25Mbps-download_1GB-loss_0-outageDuration_0-outageAmount_0-outageType_none-cubic"
         },
@@ -1946,7 +1946,7 @@
             "lossPercent": 0,
             "outageType": "none",
             "maxIdleTimeout": 100000,
-            "ackThresholds": 10,
+            "ackThreshold": 10,
             "ackDelay": 500,
             "name": "quinn-cubic_500ms-rate_25Mbps-download_1GB-loss_0-outageDuration_0-outageAmount_0-outageType_none-cubic"
         },
@@ -1959,7 +1959,7 @@
             "lossPercent": 0,
             "outageType": "none",
             "maxIdleTimeout": 100000,
-            "ackThresholds": 10,
+            "ackThreshold": 10,
             "ackDelay": 750,
             "name": "quinn-cubic_500ms-rate_25Mbps-download_1GB-loss_0-outageDuration_0-outageAmount_0-outageType_none-cubic"
         },
@@ -1972,7 +1972,7 @@
             "lossPercent": 0,
             "outageType": "none",
             "maxIdleTimeout": 100000,
-            "ackThresholds": 10,
+            "ackThreshold": 10,
             "ackDelay": 1000,
             "name": "quinn-cubic_500ms-rate_25Mbps-download_1GB-loss_0-outageDuration_0-outageAmount_0-outageType_none-cubic"
         },
@@ -1985,7 +1985,7 @@
             "lossPercent": 0,
             "outageType": "none",
             "maxIdleTimeout": 100000,
-            "ackThresholds": 10,
+            "ackThreshold": 10,
             "ackDelay": 2000,
             "name": "quinn-cubic_500ms-rate_25Mbps-download_1GB-loss_0-outageDuration_0-outageAmount_0-outageType_none-cubic"
         },
@@ -1998,7 +1998,7 @@
             "lossPercent": 0,
             "outageType": "none",
             "maxIdleTimeout": 100000,
-            "ackThresholds": 10,
+            "ackThreshold": 10,
             "ackDelay": 4000,
             "name": "quinn-cubic_500ms-rate_25Mbps-download_1GB-loss_0-outageDuration_0-outageAmount_0-outageType_none-cubic"
         },
@@ -2011,7 +2011,7 @@
             "lossPercent": 0,
             "outageType": "none",
             "maxIdleTimeout": 100000,
-            "ackThresholds": 15,
+            "ackThreshold": 15,
             "ackDelay": 25000,
             "name": "quinn-cubic_500ms-rate_25Mbps-download_1GB-loss_0-outageDuration_0-outageAmount_0-outageType_none-cubic"
         },
@@ -2024,7 +2024,7 @@
             "lossPercent": 0,
             "outageType": "none",
             "maxIdleTimeout": 100000,
-            "ackThresholds": 15,
+            "ackThreshold": 15,
             "ackDelay": 250,
             "name": "quinn-cubic_500ms-rate_25Mbps-download_1GB-loss_0-outageDuration_0-outageAmount_0-outageType_none-cubic"
         },
@@ -2037,7 +2037,7 @@
             "lossPercent": 0,
             "outageType": "none",
             "maxIdleTimeout": 100000,
-            "ackThresholds": 15,
+            "ackThreshold": 15,
             "ackDelay": 500,
             "name": "quinn-cubic_500ms-rate_25Mbps-download_1GB-loss_0-outageDuration_0-outageAmount_0-outageType_none-cubic"
         },
@@ -2050,7 +2050,7 @@
             "lossPercent": 0,
             "outageType": "none",
             "maxIdleTimeout": 100000,
-            "ackThresholds": 15,
+            "ackThreshold": 15,
             "ackDelay": 750,
             "name": "quinn-cubic_500ms-rate_25Mbps-download_1GB-loss_0-outageDuration_0-outageAmount_0-outageType_none-cubic"
         },
@@ -2063,7 +2063,7 @@
             "lossPercent": 0,
             "outageType": "none",
             "maxIdleTimeout": 100000,
-            "ackThresholds": 15,
+            "ackThreshold": 15,
             "ackDelay": 1000,
             "name": "quinn-cubic_500ms-rate_25Mbps-download_1GB-loss_0-outageDuration_0-outageAmount_0-outageType_none-cubic"
         },
@@ -2076,7 +2076,7 @@
             "lossPercent": 0,
             "outageType": "none",
             "maxIdleTimeout": 100000,
-            "ackThresholds": 15,
+            "ackThreshold": 15,
             "ackDelay": 2000,
             "name": "quinn-cubic_500ms-rate_25Mbps-download_1GB-loss_0-outageDuration_0-outageAmount_0-outageType_none-cubic"
         },
@@ -2089,7 +2089,7 @@
             "lossPercent": 0,
             "outageType": "none",
             "maxIdleTimeout": 100000,
-            "ackThresholds": 15,
+            "ackThreshold": 15,
             "ackDelay": 4000,
             "name": "quinn-cubic_500ms-rate_25Mbps-download_1GB-loss_0-outageDuration_0-outageAmount_0-outageType_none-cubic"
         },
@@ -2102,7 +2102,7 @@
             "lossPercent": 0,
             "outageType": "none",
             "maxIdleTimeout": 100000,
-            "ackThresholds": 20,
+            "ackThreshold": 20,
             "ackDelay": 25000,
             "name": "quinn-cubic_500ms-rate_25Mbps-download_1GB-loss_0-outageDuration_0-outageAmount_0-outageType_none-cubic"
         },
@@ -2115,7 +2115,7 @@
             "lossPercent": 0,
             "outageType": "none",
             "maxIdleTimeout": 100000,
-            "ackThresholds": 20,
+            "ackThreshold": 20,
             "ackDelay": 250,
             "name": "quinn-cubic_500ms-rate_25Mbps-download_1GB-loss_0-outageDuration_0-outageAmount_0-outageType_none-cubic"
         },
@@ -2128,7 +2128,7 @@
             "lossPercent": 0,
             "outageType": "none",
             "maxIdleTimeout": 100000,
-            "ackThresholds": 20,
+            "ackThreshold": 20,
             "ackDelay": 500,
             "name": "quinn-cubic_500ms-rate_25Mbps-download_1GB-loss_0-outageDuration_0-outageAmount_0-outageType_none-cubic"
         },
@@ -2141,7 +2141,7 @@
             "lossPercent": 0,
             "outageType": "none",
             "maxIdleTimeout": 100000,
-            "ackThresholds": 20,
+            "ackThreshold": 20,
             "ackDelay": 750,
             "name": "quinn-cubic_500ms-rate_25Mbps-download_1GB-loss_0-outageDuration_0-outageAmount_0-outageType_none-cubic"
         },
@@ -2154,7 +2154,7 @@
             "lossPercent": 0,
             "outageType": "none",
             "maxIdleTimeout": 100000,
-            "ackThresholds": 20,
+            "ackThreshold": 20,
             "ackDelay": 1000,
             "name": "quinn-cubic_500ms-rate_25Mbps-download_1GB-loss_0-outageDuration_0-outageAmount_0-outageType_none-cubic"
         },
@@ -2167,7 +2167,7 @@
             "lossPercent": 0,
             "outageType": "none",
             "maxIdleTimeout": 100000,
-            "ackThresholds": 20,
+            "ackThreshold": 20,
             "ackDelay": 2000,
             "name": "quinn-cubic_500ms-rate_25Mbps-download_1GB-loss_0-outageDuration_0-outageAmount_0-outageType_none-cubic"
         },
@@ -2180,7 +2180,7 @@
             "lossPercent": 0,
             "outageType": "none",
             "maxIdleTimeout": 100000,
-            "ackThresholds": 20,
+            "ackThreshold": 20,
             "ackDelay": 4000,
             "name": "quinn-cubic_500ms-rate_25Mbps-download_1GB-loss_0-outageDuration_0-outageAmount_0-outageType_none-cubic"
         },
@@ -2193,7 +2193,7 @@
             "lossPercent": 0,
             "outageType": "none",
             "maxIdleTimeout": 100000,
-            "ackThresholds": 1,
+            "ackThreshold": 1,
             "ackDelay": 25000,
             "name": "quinn-cubic_1500ms-rate_25Mbps-download_1GB-loss_0-outageDuration_0-outageAmount_0-outageType_none-cubic"
         },
@@ -2206,7 +2206,7 @@
             "lossPercent": 0,
             "outageType": "none",
             "maxIdleTimeout": 100000,
-            "ackThresholds": 1,
+            "ackThreshold": 1,
             "ackDelay": 750,
             "name": "quinn-cubic_1500ms-rate_25Mbps-download_1GB-loss_0-outageDuration_0-outageAmount_0-outageType_none-cubic"
         },
@@ -2219,7 +2219,7 @@
             "lossPercent": 0,
             "outageType": "none",
             "maxIdleTimeout": 100000,
-            "ackThresholds": 1,
+            "ackThreshold": 1,
             "ackDelay": 1500,
             "name": "quinn-cubic_1500ms-rate_25Mbps-download_1GB-loss_0-outageDuration_0-outageAmount_0-outageType_none-cubic"
         },
@@ -2232,7 +2232,7 @@
             "lossPercent": 0,
             "outageType": "none",
             "maxIdleTimeout": 100000,
-            "ackThresholds": 1,
+            "ackThreshold": 1,
             "ackDelay": 2250,
             "name": "quinn-cubic_1500ms-rate_25Mbps-download_1GB-loss_0-outageDuration_0-outageAmount_0-outageType_none-cubic"
         },
@@ -2245,7 +2245,7 @@
             "lossPercent": 0,
             "outageType": "none",
             "maxIdleTimeout": 100000,
-            "ackThresholds": 1,
+            "ackThreshold": 1,
             "ackDelay": 3000,
             "name": "quinn-cubic_1500ms-rate_25Mbps-download_1GB-loss_0-outageDuration_0-outageAmount_0-outageType_none-cubic"
         },
@@ -2258,7 +2258,7 @@
             "lossPercent": 0,
             "outageType": "none",
             "maxIdleTimeout": 100000,
-            "ackThresholds": 1,
+            "ackThreshold": 1,
             "ackDelay": 6000,
             "name": "quinn-cubic_1500ms-rate_25Mbps-download_1GB-loss_0-outageDuration_0-outageAmount_0-outageType_none-cubic"
         },
@@ -2271,7 +2271,7 @@
             "lossPercent": 0,
             "outageType": "none",
             "maxIdleTimeout": 100000,
-            "ackThresholds": 1,
+            "ackThreshold": 1,
             "ackDelay": 12000,
             "name": "quinn-cubic_1500ms-rate_25Mbps-download_1GB-loss_0-outageDuration_0-outageAmount_0-outageType_none-cubic"
         },
@@ -2284,7 +2284,7 @@
             "lossPercent": 0,
             "outageType": "none",
             "maxIdleTimeout": 100000,
-            "ackThresholds": 5,
+            "ackThreshold": 5,
             "ackDelay": 25000,
             "name": "quinn-cubic_1500ms-rate_25Mbps-download_1GB-loss_0-outageDuration_0-outageAmount_0-outageType_none-cubic"
         },
@@ -2297,7 +2297,7 @@
             "lossPercent": 0,
             "outageType": "none",
             "maxIdleTimeout": 100000,
-            "ackThresholds": 5,
+            "ackThreshold": 5,
             "ackDelay": 750,
             "name": "quinn-cubic_1500ms-rate_25Mbps-download_1GB-loss_0-outageDuration_0-outageAmount_0-outageType_none-cubic"
         },
@@ -2310,7 +2310,7 @@
             "lossPercent": 0,
             "outageType": "none",
             "maxIdleTimeout": 100000,
-            "ackThresholds": 5,
+            "ackThreshold": 5,
             "ackDelay": 1500,
             "name": "quinn-cubic_1500ms-rate_25Mbps-download_1GB-loss_0-outageDuration_0-outageAmount_0-outageType_none-cubic"
         },
@@ -2323,7 +2323,7 @@
             "lossPercent": 0,
             "outageType": "none",
             "maxIdleTimeout": 100000,
-            "ackThresholds": 5,
+            "ackThreshold": 5,
             "ackDelay": 2250,
             "name": "quinn-cubic_1500ms-rate_25Mbps-download_1GB-loss_0-outageDuration_0-outageAmount_0-outageType_none-cubic"
         },
@@ -2336,7 +2336,7 @@
             "lossPercent": 0,
             "outageType": "none",
             "maxIdleTimeout": 100000,
-            "ackThresholds": 5,
+            "ackThreshold": 5,
             "ackDelay": 3000,
             "name": "quinn-cubic_1500ms-rate_25Mbps-download_1GB-loss_0-outageDuration_0-outageAmount_0-outageType_none-cubic"
         },
@@ -2349,7 +2349,7 @@
             "lossPercent": 0,
             "outageType": "none",
             "maxIdleTimeout": 100000,
-            "ackThresholds": 5,
+            "ackThreshold": 5,
             "ackDelay": 6000,
             "name": "quinn-cubic_1500ms-rate_25Mbps-download_1GB-loss_0-outageDuration_0-outageAmount_0-outageType_none-cubic"
         },
@@ -2362,7 +2362,7 @@
             "lossPercent": 0,
             "outageType": "none",
             "maxIdleTimeout": 100000,
-            "ackThresholds": 5,
+            "ackThreshold": 5,
             "ackDelay": 12000,
             "name": "quinn-cubic_1500ms-rate_25Mbps-download_1GB-loss_0-outageDuration_0-outageAmount_0-outageType_none-cubic"
         },
@@ -2375,7 +2375,7 @@
             "lossPercent": 0,
             "outageType": "none",
             "maxIdleTimeout": 100000,
-            "ackThresholds": 9,
+            "ackThreshold": 9,
             "ackDelay": 25000,
             "name": "quinn-cubic_1500ms-rate_25Mbps-download_1GB-loss_0-outageDuration_0-outageAmount_0-outageType_none-cubic"
         },
@@ -2388,7 +2388,7 @@
             "lossPercent": 0,
             "outageType": "none",
             "maxIdleTimeout": 100000,
-            "ackThresholds": 9,
+            "ackThreshold": 9,
             "ackDelay": 750,
             "name": "quinn-cubic_1500ms-rate_25Mbps-download_1GB-loss_0-outageDuration_0-outageAmount_0-outageType_none-cubic"
         },
@@ -2401,7 +2401,7 @@
             "lossPercent": 0,
             "outageType": "none",
             "maxIdleTimeout": 100000,
-            "ackThresholds": 9,
+            "ackThreshold": 9,
             "ackDelay": 1500,
             "name": "quinn-cubic_1500ms-rate_25Mbps-download_1GB-loss_0-outageDuration_0-outageAmount_0-outageType_none-cubic"
         },
@@ -2414,7 +2414,7 @@
             "lossPercent": 0,
             "outageType": "none",
             "maxIdleTimeout": 100000,
-            "ackThresholds": 9,
+            "ackThreshold": 9,
             "ackDelay": 2250,
             "name": "quinn-cubic_1500ms-rate_25Mbps-download_1GB-loss_0-outageDuration_0-outageAmount_0-outageType_none-cubic"
         },
@@ -2427,7 +2427,7 @@
             "lossPercent": 0,
             "outageType": "none",
             "maxIdleTimeout": 100000,
-            "ackThresholds": 9,
+            "ackThreshold": 9,
             "ackDelay": 3000,
             "name": "quinn-cubic_1500ms-rate_25Mbps-download_1GB-loss_0-outageDuration_0-outageAmount_0-outageType_none-cubic"
         },
@@ -2440,7 +2440,7 @@
             "lossPercent": 0,
             "outageType": "none",
             "maxIdleTimeout": 100000,
-            "ackThresholds": 9,
+            "ackThreshold": 9,
             "ackDelay": 6000,
             "name": "quinn-cubic_1500ms-rate_25Mbps-download_1GB-loss_0-outageDuration_0-outageAmount_0-outageType_none-cubic"
         },
@@ -2453,7 +2453,7 @@
             "lossPercent": 0,
             "outageType": "none",
             "maxIdleTimeout": 100000,
-            "ackThresholds": 9,
+            "ackThreshold": 9,
             "ackDelay": 12000,
             "name": "quinn-cubic_1500ms-rate_25Mbps-download_1GB-loss_0-outageDuration_0-outageAmount_0-outageType_none-cubic"
         },
@@ -2466,7 +2466,7 @@
             "lossPercent": 0,
             "outageType": "none",
             "maxIdleTimeout": 100000,
-            "ackThresholds": 10,
+            "ackThreshold": 10,
             "ackDelay": 25000,
             "name": "quinn-cubic_1500ms-rate_25Mbps-download_1GB-loss_0-outageDuration_0-outageAmount_0-outageType_none-cubic"
         },
@@ -2479,7 +2479,7 @@
             "lossPercent": 0,
             "outageType": "none",
             "maxIdleTimeout": 100000,
-            "ackThresholds": 10,
+            "ackThreshold": 10,
             "ackDelay": 750,
             "name": "quinn-cubic_1500ms-rate_25Mbps-download_1GB-loss_0-outageDuration_0-outageAmount_0-outageType_none-cubic"
         },
@@ -2492,7 +2492,7 @@
             "lossPercent": 0,
             "outageType": "none",
             "maxIdleTimeout": 100000,
-            "ackThresholds": 10,
+            "ackThreshold": 10,
             "ackDelay": 1500,
             "name": "quinn-cubic_1500ms-rate_25Mbps-download_1GB-loss_0-outageDuration_0-outageAmount_0-outageType_none-cubic"
         },
@@ -2505,7 +2505,7 @@
             "lossPercent": 0,
             "outageType": "none",
             "maxIdleTimeout": 100000,
-            "ackThresholds": 10,
+            "ackThreshold": 10,
             "ackDelay": 2250,
             "name": "quinn-cubic_1500ms-rate_25Mbps-download_1GB-loss_0-outageDuration_0-outageAmount_0-outageType_none-cubic"
         },
@@ -2518,7 +2518,7 @@
             "lossPercent": 0,
             "outageType": "none",
             "maxIdleTimeout": 100000,
-            "ackThresholds": 10,
+            "ackThreshold": 10,
             "ackDelay": 3000,
             "name": "quinn-cubic_1500ms-rate_25Mbps-download_1GB-loss_0-outageDuration_0-outageAmount_0-outageType_none-cubic"
         },
@@ -2531,7 +2531,7 @@
             "lossPercent": 0,
             "outageType": "none",
             "maxIdleTimeout": 100000,
-            "ackThresholds": 10,
+            "ackThreshold": 10,
             "ackDelay": 6000,
             "name": "quinn-cubic_1500ms-rate_25Mbps-download_1GB-loss_0-outageDuration_0-outageAmount_0-outageType_none-cubic"
         },
@@ -2544,7 +2544,7 @@
             "lossPercent": 0,
             "outageType": "none",
             "maxIdleTimeout": 100000,
-            "ackThresholds": 10,
+            "ackThreshold": 10,
             "ackDelay": 12000,
             "name": "quinn-cubic_1500ms-rate_25Mbps-download_1GB-loss_0-outageDuration_0-outageAmount_0-outageType_none-cubic"
         },
@@ -2557,7 +2557,7 @@
             "lossPercent": 0,
             "outageType": "none",
             "maxIdleTimeout": 100000,
-            "ackThresholds": 15,
+            "ackThreshold": 15,
             "ackDelay": 25000,
             "name": "quinn-cubic_1500ms-rate_25Mbps-download_1GB-loss_0-outageDuration_0-outageAmount_0-outageType_none-cubic"
         },
@@ -2570,7 +2570,7 @@
             "lossPercent": 0,
             "outageType": "none",
             "maxIdleTimeout": 100000,
-            "ackThresholds": 15,
+            "ackThreshold": 15,
             "ackDelay": 750,
             "name": "quinn-cubic_1500ms-rate_25Mbps-download_1GB-loss_0-outageDuration_0-outageAmount_0-outageType_none-cubic"
         },
@@ -2583,7 +2583,7 @@
             "lossPercent": 0,
             "outageType": "none",
             "maxIdleTimeout": 100000,
-            "ackThresholds": 15,
+            "ackThreshold": 15,
             "ackDelay": 1500,
             "name": "quinn-cubic_1500ms-rate_25Mbps-download_1GB-loss_0-outageDuration_0-outageAmount_0-outageType_none-cubic"
         },
@@ -2596,7 +2596,7 @@
             "lossPercent": 0,
             "outageType": "none",
             "maxIdleTimeout": 100000,
-            "ackThresholds": 15,
+            "ackThreshold": 15,
             "ackDelay": 2250,
             "name": "quinn-cubic_1500ms-rate_25Mbps-download_1GB-loss_0-outageDuration_0-outageAmount_0-outageType_none-cubic"
         },
@@ -2609,7 +2609,7 @@
             "lossPercent": 0,
             "outageType": "none",
             "maxIdleTimeout": 100000,
-            "ackThresholds": 15,
+            "ackThreshold": 15,
             "ackDelay": 3000,
             "name": "quinn-cubic_1500ms-rate_25Mbps-download_1GB-loss_0-outageDuration_0-outageAmount_0-outageType_none-cubic"
         },
@@ -2622,7 +2622,7 @@
             "lossPercent": 0,
             "outageType": "none",
             "maxIdleTimeout": 100000,
-            "ackThresholds": 15,
+            "ackThreshold": 15,
             "ackDelay": 6000,
             "name": "quinn-cubic_1500ms-rate_25Mbps-download_1GB-loss_0-outageDuration_0-outageAmount_0-outageType_none-cubic"
         },
@@ -2635,7 +2635,7 @@
             "lossPercent": 0,
             "outageType": "none",
             "maxIdleTimeout": 100000,
-            "ackThresholds": 15,
+            "ackThreshold": 15,
             "ackDelay": 12000,
             "name": "quinn-cubic_1500ms-rate_25Mbps-download_1GB-loss_0-outageDuration_0-outageAmount_0-outageType_none-cubic"
         },
@@ -2648,7 +2648,7 @@
             "lossPercent": 0,
             "outageType": "none",
             "maxIdleTimeout": 100000,
-            "ackThresholds": 20,
+            "ackThreshold": 20,
             "ackDelay": 25000,
             "name": "quinn-cubic_1500ms-rate_25Mbps-download_1GB-loss_0-outageDuration_0-outageAmount_0-outageType_none-cubic"
         },
@@ -2661,7 +2661,7 @@
             "lossPercent": 0,
             "outageType": "none",
             "maxIdleTimeout": 100000,
-            "ackThresholds": 20,
+            "ackThreshold": 20,
             "ackDelay": 750,
             "name": "quinn-cubic_1500ms-rate_25Mbps-download_1GB-loss_0-outageDuration_0-outageAmount_0-outageType_none-cubic"
         },
@@ -2674,7 +2674,7 @@
             "lossPercent": 0,
             "outageType": "none",
             "maxIdleTimeout": 100000,
-            "ackThresholds": 20,
+            "ackThreshold": 20,
             "ackDelay": 1500,
             "name": "quinn-cubic_1500ms-rate_25Mbps-download_1GB-loss_0-outageDuration_0-outageAmount_0-outageType_none-cubic"
         },
@@ -2687,7 +2687,7 @@
             "lossPercent": 0,
             "outageType": "none",
             "maxIdleTimeout": 100000,
-            "ackThresholds": 20,
+            "ackThreshold": 20,
             "ackDelay": 2250,
             "name": "quinn-cubic_1500ms-rate_25Mbps-download_1GB-loss_0-outageDuration_0-outageAmount_0-outageType_none-cubic"
         },
@@ -2700,7 +2700,7 @@
             "lossPercent": 0,
             "outageType": "none",
             "maxIdleTimeout": 100000,
-            "ackThresholds": 20,
+            "ackThreshold": 20,
             "ackDelay": 3000,
             "name": "quinn-cubic_1500ms-rate_25Mbps-download_1GB-loss_0-outageDuration_0-outageAmount_0-outageType_none-cubic"
         },
@@ -2713,7 +2713,7 @@
             "lossPercent": 0,
             "outageType": "none",
             "maxIdleTimeout": 100000,
-            "ackThresholds": 20,
+            "ackThreshold": 20,
             "ackDelay": 6000,
             "name": "quinn-cubic_1500ms-rate_25Mbps-download_1GB-loss_0-outageDuration_0-outageAmount_0-outageType_none-cubic"
         },
@@ -2726,7 +2726,7 @@
             "lossPercent": 0,
             "outageType": "none",
             "maxIdleTimeout": 100000,
-            "ackThresholds": 20,
+            "ackThreshold": 20,
             "ackDelay": 12000,
             "name": "quinn-cubic_1500ms-rate_25Mbps-download_1GB-loss_0-outageDuration_0-outageAmount_0-outageType_none-cubic"
         },
@@ -2739,7 +2739,7 @@
             "lossPercent": 0,
             "outageType": "none",
             "maxIdleTimeout": 100000,
-            "ackThresholds": 1,
+            "ackThreshold": 1,
             "ackDelay": 25000,
             "name": "quinn-cubic_3000ms-rate_25Mbps-download_1GB-loss_0-outageDuration_0-outageAmount_0-outageType_none-cubic"
         },
@@ -2752,7 +2752,7 @@
             "lossPercent": 0,
             "outageType": "none",
             "maxIdleTimeout": 100000,
-            "ackThresholds": 1,
+            "ackThreshold": 1,
             "ackDelay": 1500,
             "name": "quinn-cubic_3000ms-rate_25Mbps-download_1GB-loss_0-outageDuration_0-outageAmount_0-outageType_none-cubic"
         },
@@ -2765,7 +2765,7 @@
             "lossPercent": 0,
             "outageType": "none",
             "maxIdleTimeout": 100000,
-            "ackThresholds": 1,
+            "ackThreshold": 1,
             "ackDelay": 3000,
             "name": "quinn-cubic_3000ms-rate_25Mbps-download_1GB-loss_0-outageDuration_0-outageAmount_0-outageType_none-cubic"
         },
@@ -2778,7 +2778,7 @@
             "lossPercent": 0,
             "outageType": "none",
             "maxIdleTimeout": 100000,
-            "ackThresholds": 1,
+            "ackThreshold": 1,
             "ackDelay": 4500,
             "name": "quinn-cubic_3000ms-rate_25Mbps-download_1GB-loss_0-outageDuration_0-outageAmount_0-outageType_none-cubic"
         },
@@ -2791,7 +2791,7 @@
             "lossPercent": 0,
             "outageType": "none",
             "maxIdleTimeout": 100000,
-            "ackThresholds": 1,
+            "ackThreshold": 1,
             "ackDelay": 6000,
             "name": "quinn-cubic_3000ms-rate_25Mbps-download_1GB-loss_0-outageDuration_0-outageAmount_0-outageType_none-cubic"
         },
@@ -2804,7 +2804,7 @@
             "lossPercent": 0,
             "outageType": "none",
             "maxIdleTimeout": 100000,
-            "ackThresholds": 1,
+            "ackThreshold": 1,
             "ackDelay": 12000,
             "name": "quinn-cubic_3000ms-rate_25Mbps-download_1GB-loss_0-outageDuration_0-outageAmount_0-outageType_none-cubic"
         },
@@ -2817,7 +2817,7 @@
             "lossPercent": 0,
             "outageType": "none",
             "maxIdleTimeout": 100000,
-            "ackThresholds": 1,
+            "ackThreshold": 1,
             "ackDelay": 24000,
             "name": "quinn-cubic_3000ms-rate_25Mbps-download_1GB-loss_0-outageDuration_0-outageAmount_0-outageType_none-cubic"
         },
@@ -2830,7 +2830,7 @@
             "lossPercent": 0,
             "outageType": "none",
             "maxIdleTimeout": 100000,
-            "ackThresholds": 5,
+            "ackThreshold": 5,
             "ackDelay": 25000,
             "name": "quinn-cubic_3000ms-rate_25Mbps-download_1GB-loss_0-outageDuration_0-outageAmount_0-outageType_none-cubic"
         },
@@ -2843,7 +2843,7 @@
             "lossPercent": 0,
             "outageType": "none",
             "maxIdleTimeout": 100000,
-            "ackThresholds": 5,
+            "ackThreshold": 5,
             "ackDelay": 1500,
             "name": "quinn-cubic_3000ms-rate_25Mbps-download_1GB-loss_0-outageDuration_0-outageAmount_0-outageType_none-cubic"
         },
@@ -2856,7 +2856,7 @@
             "lossPercent": 0,
             "outageType": "none",
             "maxIdleTimeout": 100000,
-            "ackThresholds": 5,
+            "ackThreshold": 5,
             "ackDelay": 3000,
             "name": "quinn-cubic_3000ms-rate_25Mbps-download_1GB-loss_0-outageDuration_0-outageAmount_0-outageType_none-cubic"
         },
@@ -2869,7 +2869,7 @@
             "lossPercent": 0,
             "outageType": "none",
             "maxIdleTimeout": 100000,
-            "ackThresholds": 5,
+            "ackThreshold": 5,
             "ackDelay": 4500,
             "name": "quinn-cubic_3000ms-rate_25Mbps-download_1GB-loss_0-outageDuration_0-outageAmount_0-outageType_none-cubic"
         },
@@ -2882,7 +2882,7 @@
             "lossPercent": 0,
             "outageType": "none",
             "maxIdleTimeout": 100000,
-            "ackThresholds": 5,
+            "ackThreshold": 5,
             "ackDelay": 6000,
             "name": "quinn-cubic_3000ms-rate_25Mbps-download_1GB-loss_0-outageDuration_0-outageAmount_0-outageType_none-cubic"
         },
@@ -2895,7 +2895,7 @@
             "lossPercent": 0,
             "outageType": "none",
             "maxIdleTimeout": 100000,
-            "ackThresholds": 5,
+            "ackThreshold": 5,
             "ackDelay": 12000,
             "name": "quinn-cubic_3000ms-rate_25Mbps-download_1GB-loss_0-outageDuration_0-outageAmount_0-outageType_none-cubic"
         },
@@ -2908,7 +2908,7 @@
             "lossPercent": 0,
             "outageType": "none",
             "maxIdleTimeout": 100000,
-            "ackThresholds": 5,
+            "ackThreshold": 5,
             "ackDelay": 24000,
             "name": "quinn-cubic_3000ms-rate_25Mbps-download_1GB-loss_0-outageDuration_0-outageAmount_0-outageType_none-cubic"
         },
@@ -2921,7 +2921,7 @@
             "lossPercent": 0,
             "outageType": "none",
             "maxIdleTimeout": 100000,
-            "ackThresholds": 9,
+            "ackThreshold": 9,
             "ackDelay": 25000,
             "name": "quinn-cubic_3000ms-rate_25Mbps-download_1GB-loss_0-outageDuration_0-outageAmount_0-outageType_none-cubic"
         },
@@ -2934,7 +2934,7 @@
             "lossPercent": 0,
             "outageType": "none",
             "maxIdleTimeout": 100000,
-            "ackThresholds": 9,
+            "ackThreshold": 9,
             "ackDelay": 1500,
             "name": "quinn-cubic_3000ms-rate_25Mbps-download_1GB-loss_0-outageDuration_0-outageAmount_0-outageType_none-cubic"
         },
@@ -2947,7 +2947,7 @@
             "lossPercent": 0,
             "outageType": "none",
             "maxIdleTimeout": 100000,
-            "ackThresholds": 9,
+            "ackThreshold": 9,
             "ackDelay": 3000,
             "name": "quinn-cubic_3000ms-rate_25Mbps-download_1GB-loss_0-outageDuration_0-outageAmount_0-outageType_none-cubic"
         },
@@ -2960,7 +2960,7 @@
             "lossPercent": 0,
             "outageType": "none",
             "maxIdleTimeout": 100000,
-            "ackThresholds": 9,
+            "ackThreshold": 9,
             "ackDelay": 4500,
             "name": "quinn-cubic_3000ms-rate_25Mbps-download_1GB-loss_0-outageDuration_0-outageAmount_0-outageType_none-cubic"
         },
@@ -2973,7 +2973,7 @@
             "lossPercent": 0,
             "outageType": "none",
             "maxIdleTimeout": 100000,
-            "ackThresholds": 9,
+            "ackThreshold": 9,
             "ackDelay": 6000,
             "name": "quinn-cubic_3000ms-rate_25Mbps-download_1GB-loss_0-outageDuration_0-outageAmount_0-outageType_none-cubic"
         },
@@ -2986,7 +2986,7 @@
             "lossPercent": 0,
             "outageType": "none",
             "maxIdleTimeout": 100000,
-            "ackThresholds": 9,
+            "ackThreshold": 9,
             "ackDelay": 12000,
             "name": "quinn-cubic_3000ms-rate_25Mbps-download_1GB-loss_0-outageDuration_0-outageAmount_0-outageType_none-cubic"
         },
@@ -2999,7 +2999,7 @@
             "lossPercent": 0,
             "outageType": "none",
             "maxIdleTimeout": 100000,
-            "ackThresholds": 9,
+            "ackThreshold": 9,
             "ackDelay": 24000,
             "name": "quinn-cubic_3000ms-rate_25Mbps-download_1GB-loss_0-outageDuration_0-outageAmount_0-outageType_none-cubic"
         },
@@ -3012,7 +3012,7 @@
             "lossPercent": 0,
             "outageType": "none",
             "maxIdleTimeout": 100000,
-            "ackThresholds": 10,
+            "ackThreshold": 10,
             "ackDelay": 25000,
             "name": "quinn-cubic_3000ms-rate_25Mbps-download_1GB-loss_0-outageDuration_0-outageAmount_0-outageType_none-cubic"
         },
@@ -3025,7 +3025,7 @@
             "lossPercent": 0,
             "outageType": "none",
             "maxIdleTimeout": 100000,
-            "ackThresholds": 10,
+            "ackThreshold": 10,
             "ackDelay": 1500,
             "name": "quinn-cubic_3000ms-rate_25Mbps-download_1GB-loss_0-outageDuration_0-outageAmount_0-outageType_none-cubic"
         },
@@ -3038,7 +3038,7 @@
             "lossPercent": 0,
             "outageType": "none",
             "maxIdleTimeout": 100000,
-            "ackThresholds": 10,
+            "ackThreshold": 10,
             "ackDelay": 3000,
             "name": "quinn-cubic_3000ms-rate_25Mbps-download_1GB-loss_0-outageDuration_0-outageAmount_0-outageType_none-cubic"
         },
@@ -3051,7 +3051,7 @@
             "lossPercent": 0,
             "outageType": "none",
             "maxIdleTimeout": 100000,
-            "ackThresholds": 10,
+            "ackThreshold": 10,
             "ackDelay": 4500,
             "name": "quinn-cubic_3000ms-rate_25Mbps-download_1GB-loss_0-outageDuration_0-outageAmount_0-outageType_none-cubic"
         },
@@ -3064,7 +3064,7 @@
             "lossPercent": 0,
             "outageType": "none",
             "maxIdleTimeout": 100000,
-            "ackThresholds": 10,
+            "ackThreshold": 10,
             "ackDelay": 6000,
             "name": "quinn-cubic_3000ms-rate_25Mbps-download_1GB-loss_0-outageDuration_0-outageAmount_0-outageType_none-cubic"
         },
@@ -3077,7 +3077,7 @@
             "lossPercent": 0,
             "outageType": "none",
             "maxIdleTimeout": 100000,
-            "ackThresholds": 10,
+            "ackThreshold": 10,
             "ackDelay": 12000,
             "name": "quinn-cubic_3000ms-rate_25Mbps-download_1GB-loss_0-outageDuration_0-outageAmount_0-outageType_none-cubic"
         },
@@ -3090,7 +3090,7 @@
             "lossPercent": 0,
             "outageType": "none",
             "maxIdleTimeout": 100000,
-            "ackThresholds": 10,
+            "ackThreshold": 10,
             "ackDelay": 24000,
             "name": "quinn-cubic_3000ms-rate_25Mbps-download_1GB-loss_0-outageDuration_0-outageAmount_0-outageType_none-cubic"
         },
@@ -3103,7 +3103,7 @@
             "lossPercent": 0,
             "outageType": "none",
             "maxIdleTimeout": 100000,
-            "ackThresholds": 15,
+            "ackThreshold": 15,
             "ackDelay": 25000,
             "name": "quinn-cubic_3000ms-rate_25Mbps-download_1GB-loss_0-outageDuration_0-outageAmount_0-outageType_none-cubic"
         },
@@ -3116,7 +3116,7 @@
             "lossPercent": 0,
             "outageType": "none",
             "maxIdleTimeout": 100000,
-            "ackThresholds": 15,
+            "ackThreshold": 15,
             "ackDelay": 1500,
             "name": "quinn-cubic_3000ms-rate_25Mbps-download_1GB-loss_0-outageDuration_0-outageAmount_0-outageType_none-cubic"
         },
@@ -3129,7 +3129,7 @@
             "lossPercent": 0,
             "outageType": "none",
             "maxIdleTimeout": 100000,
-            "ackThresholds": 15,
+            "ackThreshold": 15,
             "ackDelay": 3000,
             "name": "quinn-cubic_3000ms-rate_25Mbps-download_1GB-loss_0-outageDuration_0-outageAmount_0-outageType_none-cubic"
         },
@@ -3142,7 +3142,7 @@
             "lossPercent": 0,
             "outageType": "none",
             "maxIdleTimeout": 100000,
-            "ackThresholds": 15,
+            "ackThreshold": 15,
             "ackDelay": 4500,
             "name": "quinn-cubic_3000ms-rate_25Mbps-download_1GB-loss_0-outageDuration_0-outageAmount_0-outageType_none-cubic"
         },
@@ -3155,7 +3155,7 @@
             "lossPercent": 0,
             "outageType": "none",
             "maxIdleTimeout": 100000,
-            "ackThresholds": 15,
+            "ackThreshold": 15,
             "ackDelay": 6000,
             "name": "quinn-cubic_3000ms-rate_25Mbps-download_1GB-loss_0-outageDuration_0-outageAmount_0-outageType_none-cubic"
         },
@@ -3168,7 +3168,7 @@
             "lossPercent": 0,
             "outageType": "none",
             "maxIdleTimeout": 100000,
-            "ackThresholds": 15,
+            "ackThreshold": 15,
             "ackDelay": 12000,
             "name": "quinn-cubic_3000ms-rate_25Mbps-download_1GB-loss_0-outageDuration_0-outageAmount_0-outageType_none-cubic"
         },
@@ -3181,7 +3181,7 @@
             "lossPercent": 0,
             "outageType": "none",
             "maxIdleTimeout": 100000,
-            "ackThresholds": 15,
+            "ackThreshold": 15,
             "ackDelay": 24000,
             "name": "quinn-cubic_3000ms-rate_25Mbps-download_1GB-loss_0-outageDuration_0-outageAmount_0-outageType_none-cubic"
         },
@@ -3194,7 +3194,7 @@
             "lossPercent": 0,
             "outageType": "none",
             "maxIdleTimeout": 100000,
-            "ackThresholds": 20,
+            "ackThreshold": 20,
             "ackDelay": 25000,
             "name": "quinn-cubic_3000ms-rate_25Mbps-download_1GB-loss_0-outageDuration_0-outageAmount_0-outageType_none-cubic"
         },
@@ -3207,7 +3207,7 @@
             "lossPercent": 0,
             "outageType": "none",
             "maxIdleTimeout": 100000,
-            "ackThresholds": 20,
+            "ackThreshold": 20,
             "ackDelay": 1500,
             "name": "quinn-cubic_3000ms-rate_25Mbps-download_1GB-loss_0-outageDuration_0-outageAmount_0-outageType_none-cubic"
         },
@@ -3220,7 +3220,7 @@
             "lossPercent": 0,
             "outageType": "none",
             "maxIdleTimeout": 100000,
-            "ackThresholds": 20,
+            "ackThreshold": 20,
             "ackDelay": 3000,
             "name": "quinn-cubic_3000ms-rate_25Mbps-download_1GB-loss_0-outageDuration_0-outageAmount_0-outageType_none-cubic"
         },
@@ -3233,7 +3233,7 @@
             "lossPercent": 0,
             "outageType": "none",
             "maxIdleTimeout": 100000,
-            "ackThresholds": 20,
+            "ackThreshold": 20,
             "ackDelay": 4500,
             "name": "quinn-cubic_3000ms-rate_25Mbps-download_1GB-loss_0-outageDuration_0-outageAmount_0-outageType_none-cubic"
         },
@@ -3246,7 +3246,7 @@
             "lossPercent": 0,
             "outageType": "none",
             "maxIdleTimeout": 100000,
-            "ackThresholds": 20,
+            "ackThreshold": 20,
             "ackDelay": 6000,
             "name": "quinn-cubic_3000ms-rate_25Mbps-download_1GB-loss_0-outageDuration_0-outageAmount_0-outageType_none-cubic"
         },
@@ -3259,7 +3259,7 @@
             "lossPercent": 0,
             "outageType": "none",
             "maxIdleTimeout": 100000,
-            "ackThresholds": 20,
+            "ackThreshold": 20,
             "ackDelay": 12000,
             "name": "quinn-cubic_3000ms-rate_25Mbps-download_1GB-loss_0-outageDuration_0-outageAmount_0-outageType_none-cubic"
         },
@@ -3272,7 +3272,7 @@
             "lossPercent": 0,
             "outageType": "none",
             "maxIdleTimeout": 100000,
-            "ackThresholds": 20,
+            "ackThreshold": 20,
             "ackDelay": 24000,
             "name": "quinn-cubic_3000ms-rate_25Mbps-download_1GB-loss_0-outageDuration_0-outageAmount_0-outageType_none-cubic"
         }
@@ -3280,6 +3280,14 @@
     "evaluations": [
         {
             "name": "evaluationParams",
+            "evaluationDetails": {
+                "displayFunction": "displayHeatmapCumulative",
+                "evaluationFunction": "calculateCumulativeDataOverTime",
+                "dataIndex": "3",
+                "colorBarName": "Throughput [Bps]",
+                "relevantEndpoint": "client",
+                "relevantFileEnding": "csv"
+            },
             "sortingBucketsAndIndices": [
                 {
                     "bucket": 1,
@@ -3334,19 +3342,6 @@
                     "indices": [
                         17
                     ]
-                }
-            ],
-            "evaluationDetails": [
-                {
-                    "name": "evaluationParams",
-                    "evaluationDetails": {
-                        "displayFunction": "displayHeatmapCumulative",
-                        "evaluationFunction": "calculateCumulativeDataOverTime",
-                        "dataIndex": "3",
-                        "colorBarName": "Throughput [Bps]",
-                        "relevantEndpoint": "client",
-                        "relevantFileEnding": "csv"
-                    }
                 }
             ]
         }
