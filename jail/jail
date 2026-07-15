@@ -30,7 +30,6 @@ _unshare_jail() {
   local uts_arg="--uts"
   local ipc_arg="--ipc"
   local cgroup_arg="--cgroup"
-  local time_arg="--time"
   local mnt_arg="--mount"
   local pid_arg="--pid"
 
@@ -57,7 +56,6 @@ _unshare_jail() {
     "$uts_arg" \
     "$ipc_arg" \
     "$cgroup_arg" \
-    "$time_arg" \
     -- bash "$(dirname "$0")/jail_setup" "$@"
 }
 
