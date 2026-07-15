@@ -15,6 +15,22 @@ PARAMETER_INDICES = {
     "ackDelay": 17         # if you append these to the name
 }
 
+NECESSARY_EXPERIMENT_KEYS = [
+    "implementation",
+    "congestion",
+    "download",
+    "rateMbit",
+    "delayMs",
+    "lossPercent",
+    "outageType",
+    "maxIdleTimeout",
+    
+]
+OPTIONAL_EXPERIMENT_KEYS= [
+    "ackThreshold",
+    "ackDelay",
+]
+
 
 
 def resolve_ack_delay(value, delay):
@@ -49,26 +65,24 @@ def create_name(exp):
 
 
 def generateExperiments(config):
-    experimentKeys = [
-        "implementation",
-        "congestion",
-        "download",
-        "rateMbit",
-        "delayMs",
-        "lossPercent",
-        "outageType",
-        "maxIdleTimeout",
-        "ackThreshold",
-        "ackDelay",
-    ]
+
 
     evaluationKey = [
         "evaluationParams"
     ]
 
     experiments = []
+    missing = [k for k in NECESSARY_EXPERIMENT_KEYS if k not in config]
+    if missing:
+        raise KeyError(f"Missing required config keys: {missing}")
 
-    experimentValues = [config[experimentKey] for experimentKey in experimentKeys]
+    # Include optional keys only if present
+    experimentKeys = NECESSARY_EXPERIMENT_KEYS + [
+        k for k in OPTIONAL_EXPERIMENT_KEYS if k in config
+    ]
+
+    experimentValues = [config[k] for k in experimentKeys]
+
 
     for combination in itertools.product(*experimentValues):
         exp = dict(zip(experimentKeys, combination))
@@ -86,22 +100,20 @@ def generateExperiments(config):
 
     for parameter, index in PARAMETER_INDICES.items():
         if parameter == "ackDelay":
-            bucket = len(config["ackDelay"])
+            length = len(config["ackDelay"])
         elif parameter == "ackThreshold":
-            bucket = len(config["ackThreshold"])
+            length = len(config["ackThreshold"])
         else:
-            bucket = len(config[parameter])
+            length = len(config[parameter])
 
         sortingBuckets.append({
-            "bucket": bucket,
-            "indices": [index]
+            "length": length,
+            "index": index
         })
     evaluations = []
     evaluationDetails = []
     evaluationValues = config["evaluationParams"] 
-    print(f"evaluation values: {evaluationValues}")
     for e in evaluationValues:
-        print(f"e: {e}")
         e["sortingBucketsAndIndices"] = sortingBuckets
         evaluations.append(e)
    
@@ -116,6 +128,40 @@ def generateExperiments(config):
 
 if __name__ == "__main__":
 
+    if len(sys.argv) < 2 or sys.argv[1] in ("-h", "--help"):
+        print(f"""
+============================================================
+Experiment Description Generator
+============================================================
+
+Generate experiment descriptions from a single JSON configuration file.
+
+Usage:
+    python {sys.argv[0]} <config>.json
+
+Required configuration keys:
+    {NECESSARY_EXPERIMENT_KEYS}
+
+Optional configuration keys:
+    {OPTIONAL_EXPERIMENT_KEYS}
+
+Notes:
+  • The script will fail if any required configuration key is missing.
+  • The provided values is used to determine:
+      - the order and the sorting parameter index (based on '_' and '-' separation)
+      - the length of each parameter
+  • Evaluation parameters must also be provided.
+    Each evaluation parameter consists of:
+      - a name
+      - evaluationDetails
+
+The final experiment config will bear the same name as the provided config and be found in ../experiments.
+For examples and a description of the evaluation parameters,
+please refer to the provided configuration files.
+
+============================================================
+""")
+        exit(0)
     with open(sys.argv[1]) as f:
         config = json.load(f)
 
