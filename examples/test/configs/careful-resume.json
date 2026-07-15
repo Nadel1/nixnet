@@ -1,6 +1,7 @@
 {
     "implementation": [
-        "quinn"
+        "quinn",
+        "quiche"
     ],
     "congestion": [
         "bbr",
@@ -26,22 +27,8 @@
     "maxIdleTimeout": [
         100000
     ],
-    "ackThreshold": [
-        1,
-        5,
-        9,
-        10,
-        15,
-        20
-    ],
-    "ackDelay": [
-        25000,
-        "delay*2/4",
-        "delay*2/2",
-        "delay*2*3/4",
-        "delay*2",
-        "delay*2*2",
-        "delay*2*4"
+    "carefulResume": [
+        true
     ],
     "outageAmount": [
         0
@@ -53,11 +40,11 @@
         {
             "name": "evaluationParams",
             "evaluationDetails": {
-                "displayFunction": "displayHeatmapCumulative",
-                "evaluationFunction": "calculateCumulativeDataOverTime",
+                "displayFunction": "displayGraphsCrStatistical",
+                "evaluationFunction": "/",
                 "dataIndex": "3",
                 "colorBarName": "Throughput [Bps]",
-                "relevantEndpoint": "client",
+                "relevantEndpoint": "server",
                 "relevantFileEnding": "csv"
             }
         }

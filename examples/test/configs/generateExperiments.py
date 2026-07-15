@@ -3,33 +3,29 @@ import itertools
 import sys
 
 
-PARAMETER_INDICES = {
-    "implementation": 0,
-    "congestion": 1,
-    "delayMs": 2,
-    "rateMbit": 4,
-    "download": 6,
-    "lossPercent": 8,
-    "outageType": 14,
-    "ackThreshold": 15,   # if you append these to the name
-    "ackDelay": 17         # if you append these to the name
+
+
+NECESSARY_EXPERIMENT_KEYS_AND_INDICES = {
+    "implementation":1,
+    "congestion":3,
+    "download":-1,
+    "rateMbit":7,
+    "delayMs":5,
+    "lossPercent":9,
+    "outageType":15,
+    "maxIdleTimeout":-1,
+    "outageAmount":13,
+    "outageDuration":11,
 }
 
-NECESSARY_EXPERIMENT_KEYS = [
-    "implementation",
-    "congestion",
-    "download",
-    "rateMbit",
-    "delayMs",
-    "lossPercent",
-    "outageType",
-    "maxIdleTimeout",
     
-]
-OPTIONAL_EXPERIMENT_KEYS= [
-    "ackThreshold",
-    "ackDelay",
-]
+
+OPTIONAL_EXPERIMENT_KEYS_AND_INDICES= {
+    "ackThreshold":15,
+    "ackDelay":17,
+    "carefulResume":16,
+}
+
 
 
 
@@ -50,17 +46,17 @@ def resolve_ack_delay(value, delay):
     return expressions.get(value, value)
 
 
-def create_name(exp):
+def createName(exp):
     return (
-        f"{exp['implementation']}-"
-        f"{exp['congestion']}_"
-        f"{exp['delayMs']}ms-rate_"
-        f"{exp['rateMbit']}Mbps-download_"
-        f"{exp['download']}-loss_"
-        f"{exp['lossPercent']}-outageDuration_0-"
-        f"outageAmount_0-outageType_"
-        f"{exp['outageType']}-"
-        f"{exp['congestion']}"
+        f"implementation_{exp['implementation']}-"
+        f"cca_{exp['congestion']}-"
+        f"delay_{exp['delayMs']}ms-"
+        f"rate_{exp['rateMbit']}Mbps-"
+        f"download_{exp['download']}-"
+        f"loss_{exp['lossPercent']}-"
+        f"outageDuration_{exp['outageDuration']}-"
+        f"outageAmount_{exp['outageAmount']}-"
+        f"outageType_{exp['outageType']}-"
     )
 
 
@@ -72,39 +68,46 @@ def generateExperiments(config):
     ]
 
     experiments = []
-    missing = [k for k in NECESSARY_EXPERIMENT_KEYS if k not in config]
+    missing = [
+        k for k in NECESSARY_EXPERIMENT_KEYS_AND_INDICES.keys()
+        if k not in config
+    ]
     if missing:
         raise KeyError(f"Missing required config keys: {missing}")
 
     # Include optional keys only if present
-    experimentKeys = NECESSARY_EXPERIMENT_KEYS + [
-        k for k in OPTIONAL_EXPERIMENT_KEYS if k in config
-    ]
+    experimentKeys =  set(NECESSARY_EXPERIMENT_KEYS_AND_INDICES.keys()).union(
+        k for k in OPTIONAL_EXPERIMENT_KEYS_AND_INDICES.keys() if k in config
+    )
+
 
     experimentValues = [config[k] for k in experimentKeys]
 
 
     for combination in itertools.product(*experimentValues):
         exp = dict(zip(experimentKeys, combination))
+        if "ackDelay" in exp:
+            exp["ackDelay"] = resolve_ack_delay(
+                exp.pop("ackDelay"),
+                exp["delayMs"]
+            )
 
-        exp["ackDelay"] = resolve_ack_delay(
-            exp.pop("ackDelay"),
-            exp["delayMs"]
-        )
-
-        exp["name"] = create_name(exp)
+        exp["name"] = createName(exp)
 
         experiments.append(exp)
 
     sortingBuckets = []
-
-    for parameter, index in PARAMETER_INDICES.items():
-        if parameter == "ackDelay":
-            length = len(config["ackDelay"])
-        elif parameter == "ackThreshold":
-            length = len(config["ackThreshold"])
-        else:
-            length = len(config[parameter])
+    sortingParameters = {
+        k: v
+        for k, v in (
+            NECESSARY_EXPERIMENT_KEYS_AND_INDICES
+            | OPTIONAL_EXPERIMENT_KEYS_AND_INDICES
+        ).items()
+        if k in config
+    }
+    print(sortingParameters)
+    for parameter, index in sortingParameters.items():
+        length = len(config[parameter])
 
         sortingBuckets.append({
             "length": length,

@@ -24,7 +24,7 @@ let
   mkClientCmd = loggingName:
     if implementation == "quiche" then
       "tokio-client --no-verify http://10.0.3.2:4433/${download} "
-      + "--cc-algorithm ${congestion} "
+      + "--cc-algorithm ${if congestion?"bbr" then "bbr2" else congestion} "
       + "--idle-timeout ${maxIdleTimeout} "
       + " --saved-params saved-params-client.csv "
       + "--logging-file ${loggingName}"
@@ -43,7 +43,7 @@ let
       + "--root ./ "
       + "--cert ${inputs'.test-certs.packages.default}/cert.crt "
       + "--key ${inputs'.test-certs.packages.default}/cert.key "
-      + "--cc-algorithm ${congestion} "
+      + "--cc-algorithm ${if congestion?"bbr" then "bbr2" else congestion} "
       + "--idle-timeout ${maxIdleTimeout} "
       + " --saved-params saved-params-server.csv "
       + "--logging-file ${loggingName}"
